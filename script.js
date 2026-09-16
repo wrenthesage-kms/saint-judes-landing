@@ -1,33 +1,55 @@
 /* =========================================================
    SAINT JUDE'S LANDING
-   navigation + tiny archive machinery
+   navigation + archive machinery
    ========================================================= */
 
-const navButtons = document.querySelectorAll(".nav-btn[data-target]");
-const sections = document.querySelectorAll(".page-section");
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+const navButtons = document.querySelectorAll(
+    ".nav-btn[data-target]"
+);
+
+const sections = document.querySelectorAll(
+    ".page-section"
+);
+
 
 function showSection(targetId) {
 
     sections.forEach(section => {
+
         section.classList.toggle(
             "active",
             section.id === targetId
         );
+
     });
 
+
     navButtons.forEach(button => {
+
         button.classList.toggle(
             "active",
             button.dataset.target === targetId
         );
+
     });
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
+
+/* =========================================================
+   NAV BUTTON EVENTS
+   ========================================================= */
 
 navButtons.forEach(button => {
 
@@ -42,6 +64,7 @@ navButtons.forEach(button => {
             "",
             "#" + target
         );
+
     });
 
 });
@@ -51,14 +74,40 @@ navButtons.forEach(button => {
    OPEN SECTION FROM URL HASH
    ========================================================= */
 
-const initialHash = window.location.hash.replace("#", "");
+const initialHash =
+    window.location.hash.replace("#", "");
+
 
 if (
     initialHash &&
     document.getElementById(initialHash)
 ) {
+
     showSection(initialHash);
+
 }
+
+
+/* =========================================================
+   BROWSER BACK / FORWARD
+   ========================================================= */
+
+window.addEventListener(
+    "hashchange",
+    () => {
+
+        const target =
+            window.location.hash.replace("#", "");
+
+        if (
+            target &&
+            document.getElementById(target)
+        ) {
+            showSection(target);
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -106,37 +155,69 @@ const facts = [
     "The Outliers began the same way many small structures in Saint Jude's begin: somebody had nowhere to sleep, somebody else said come on, and that was apparently enough.",
 
     "Some things beneath Saint Jude's have no surviving explanation."
+
 ];
 
-const factPopup = document.getElementById("fact-popup");
-const factText = document.getElementById("fact-text");
-const randomFactButton = document.getElementById("random-fact");
-const closeFactButton = document.getElementById("close-fact");
+
+const factPopup =
+    document.getElementById("fact-popup");
+
+const factText =
+    document.getElementById("fact-text");
+
+const randomFactButton =
+    document.getElementById("random-fact");
+
+const closeFactButton =
+    document.getElementById("close-fact");
 
 
 function randomFact() {
 
+    if (!factPopup || !factText) {
+        return;
+    }
+
+
     const fact =
-        facts[Math.floor(Math.random() * facts.length)];
+        facts[
+            Math.floor(
+                Math.random() * facts.length
+            )
+        ];
+
 
     factText.textContent = fact;
 
     factPopup.classList.add("show");
+
 }
 
 
-randomFactButton.addEventListener(
-    "click",
-    randomFact
-);
+if (randomFactButton) {
+
+    randomFactButton.addEventListener(
+        "click",
+        randomFact
+    );
+
+}
 
 
-closeFactButton.addEventListener(
-    "click",
-    () => {
-        factPopup.classList.remove("show");
-    }
-);
+if (closeFactButton) {
+
+    closeFactButton.addEventListener(
+        "click",
+        () => {
+
+            factPopup.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================================
@@ -149,9 +230,14 @@ document.addEventListener(
 
         if (
             event.key === "Escape" &&
+            factPopup &&
             factPopup.classList.contains("show")
         ) {
-            factPopup.classList.remove("show");
+
+            factPopup.classList.remove(
+                "show"
+            );
+
         }
 
     }
@@ -168,14 +254,20 @@ document.addEventListener(
     event => {
 
         const activeElement =
-            document.activeElement.tagName;
+            document.activeElement
+                ? document.activeElement.tagName
+                : "";
+
 
         if (
             event.key.toLowerCase() === "r" &&
             activeElement !== "INPUT" &&
-            activeElement !== "TEXTAREA"
+            activeElement !== "TEXTAREA" &&
+            activeElement !== "BUTTON"
         ) {
+
             randomFact();
+
         }
 
     }
@@ -183,17 +275,98 @@ document.addEventListener(
 
 
 /* =========================================================
-   SMALL STATUS GLITCH
+   STATUS LIGHT
    ========================================================= */
 
 const statusDot =
     document.querySelector(".status-dot");
 
+
 setInterval(() => {
 
-    if (!statusDot) return;
+    if (!statusDot) {
+        return;
+    }
+
 
     statusDot.style.opacity =
-        Math.random() > 0.08 ? "1" : "0.2";
+        Math.random() > 0.08
+            ? "1"
+            : "0.2";
 
 }, 900);
+
+
+/* =========================================================
+   IMAGE LOAD HANDLING
+   ========================================================= */
+
+const images =
+    document.querySelectorAll("img");
+
+
+images.forEach(image => {
+
+    image.addEventListener(
+        "error",
+        () => {
+
+            image.classList.add(
+                "image-missing"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SMALL "ARCHIVE" INTERACTION
+   ========================================================= */
+
+const imageFigures =
+    document.querySelectorAll(
+        "figure"
+    );
+
+
+imageFigures.forEach(figure => {
+
+    figure.addEventListener(
+        "mouseenter",
+        () => {
+
+            figure.dataset.hovered = "true";
+
+        }
+    );
+
+
+    figure.addEventListener(
+        "mouseleave",
+        () => {
+
+            delete figure.dataset.hovered;
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   TOUCH DEVICES
+   Avoid hover-dependent weirdness.
+   ========================================================= */
+
+if (
+    window.matchMedia &&
+    window.matchMedia("(hover: none)").matches
+) {
+
+    document.body.classList.add(
+        "touch-device"
+    );
+
+}
