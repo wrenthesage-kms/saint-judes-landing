@@ -3,13 +3,19 @@
    navigation + archive machinery
    ========================================================= */
 
-const navButtons = document.querySelectorAll(".nav-btn[data-target]");
-const sections = document.querySelectorAll(".page-section");
-
 
 /* =========================================================
-   SECTION NAVIGATION
+   NAVIGATION
    ========================================================= */
+
+const navButtons = document.querySelectorAll(
+    ".nav-btn[data-target]"
+);
+
+const sections = document.querySelectorAll(
+    ".page-section"
+);
+
 
 function showSection(targetId) {
 
@@ -41,6 +47,10 @@ function showSection(targetId) {
 }
 
 
+/* =========================================================
+   NAV BUTTON EVENTS
+   ========================================================= */
+
 navButtons.forEach(button => {
 
     button.addEventListener("click", () => {
@@ -67,12 +77,37 @@ navButtons.forEach(button => {
 const initialHash =
     window.location.hash.replace("#", "");
 
+
 if (
     initialHash &&
     document.getElementById(initialHash)
 ) {
+
     showSection(initialHash);
+
 }
+
+
+/* =========================================================
+   BROWSER BACK / FORWARD
+   ========================================================= */
+
+window.addEventListener(
+    "hashchange",
+    () => {
+
+        const target =
+            window.location.hash.replace("#", "");
+
+        if (
+            target &&
+            document.getElementById(target)
+        ) {
+            showSection(target);
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -139,7 +174,10 @@ const closeFactButton =
 
 function randomFact() {
 
-    if (!factPopup || !factText) return;
+    if (!factPopup || !factText) {
+        return;
+    }
+
 
     const fact =
         facts[
@@ -147,6 +185,7 @@ function randomFact() {
                 Math.random() * facts.length
             )
         ];
+
 
     factText.textContent = fact;
 
@@ -170,7 +209,11 @@ if (closeFactButton) {
     closeFactButton.addEventListener(
         "click",
         () => {
-            factPopup.classList.remove("show");
+
+            factPopup.classList.remove(
+                "show"
+            );
+
         }
     );
 
@@ -191,7 +234,9 @@ document.addEventListener(
             factPopup.classList.contains("show")
         ) {
 
-            factPopup.classList.remove("show");
+            factPopup.classList.remove(
+                "show"
+            );
 
         }
 
@@ -201,7 +246,7 @@ document.addEventListener(
 
 /* =========================================================
    RANDOM FACT SHORTCUT
-   R = RANDOM FACT
+   R = random fact
    ========================================================= */
 
 document.addEventListener(
@@ -209,18 +254,16 @@ document.addEventListener(
     event => {
 
         const activeElement =
-            document.activeElement;
-
-        const tagName =
-            activeElement
-                ? activeElement.tagName
+            document.activeElement
+                ? document.activeElement.tagName
                 : "";
+
 
         if (
             event.key.toLowerCase() === "r" &&
-            tagName !== "INPUT" &&
-            tagName !== "TEXTAREA" &&
-            tagName !== "SELECT"
+            activeElement !== "INPUT" &&
+            activeElement !== "TEXTAREA" &&
+            activeElement !== "BUTTON"
         ) {
 
             randomFact();
@@ -232,7 +275,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   STATUS GLITCH
+   STATUS LIGHT
    ========================================================= */
 
 const statusDot =
@@ -241,7 +284,10 @@ const statusDot =
 
 setInterval(() => {
 
-    if (!statusDot) return;
+    if (!statusDot) {
+        return;
+    }
+
 
     statusDot.style.opacity =
         Math.random() > 0.08
@@ -252,54 +298,75 @@ setInterval(() => {
 
 
 /* =========================================================
-   TINY ARCHIVE INTERFERENCE
+   IMAGE LOAD HANDLING
    ========================================================= */
 
-const heroImage =
-    document.querySelector(".hero-image");
+const images =
+    document.querySelectorAll("img");
 
 
-if (heroImage) {
-
-    heroImage.addEventListener(
-        "mouseenter",
-        () => {
-
-            heroImage.classList.add(
-                "archive-active"
-            );
-
-        }
-    );
-
-
-    heroImage.addEventListener(
-        "mouseleave",
-        () => {
-
-            heroImage.classList.remove(
-                "archive-active"
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   IMAGE FAILURE FALLBACK
-   ========================================================= */
-
-document.querySelectorAll("img").forEach(image => {
+images.forEach(image => {
 
     image.addEventListener(
         "error",
         () => {
 
-            image.classList.add("image-missing");
+            image.classList.add(
+                "image-missing"
+            );
 
         }
     );
 
 });
+
+
+/* =========================================================
+   SMALL "ARCHIVE" INTERACTION
+   ========================================================= */
+
+const imageFigures =
+    document.querySelectorAll(
+        "figure"
+    );
+
+
+imageFigures.forEach(figure => {
+
+    figure.addEventListener(
+        "mouseenter",
+        () => {
+
+            figure.dataset.hovered = "true";
+
+        }
+    );
+
+
+    figure.addEventListener(
+        "mouseleave",
+        () => {
+
+            delete figure.dataset.hovered;
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   TOUCH DEVICES
+   Avoid hover-dependent weirdness.
+   ========================================================= */
+
+if (
+    window.matchMedia &&
+    window.matchMedia("(hover: none)").matches
+) {
+
+    document.body.classList.add(
+        "touch-device"
+    );
+
+}
