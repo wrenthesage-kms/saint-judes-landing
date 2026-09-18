@@ -1,372 +1,262 @@
-/* =========================================================
-   SAINT JUDE'S LANDING
-   navigation + archive machinery
-   ========================================================= */
+/*
+    SAINT JUDE'S LANDING
+    CITY RECORD // CLIENT SCRIPT
+
+    This is intentionally small.
+
+    The site is meant to feel like a collection of records,
+    not an application pretending to be a city.
+*/
 
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-const navButtons = document.querySelectorAll(
-    ".nav-btn[data-target]"
-);
+    const navLinks = document.querySelectorAll(".nav-link");
+    const views = document.querySelectorAll(".view");
+    const toast = document.getElementById("toast");
 
-const sections = document.querySelectorAll(
-    ".page-section"
-);
+    let toastTimer = null;
 
 
-function showSection(targetId) {
+    /*
+        ---------------------------------------------------------
+        VIEW SWITCHING
+        ---------------------------------------------------------
+    */
 
-    sections.forEach(section => {
+    function showView(viewId, updateHash = true) {
 
-        section.classList.toggle(
-            "active",
-            section.id === targetId
-        );
+        const target = document.getElementById(viewId);
 
-    });
-
-
-    navButtons.forEach(button => {
-
-        button.classList.toggle(
-            "active",
-            button.dataset.target === targetId
-        );
-
-    });
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================================
-   NAV BUTTON EVENTS
-   ========================================================= */
-
-navButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const target = button.dataset.target;
-
-        showSection(target);
-
-        history.replaceState(
-            null,
-            "",
-            "#" + target
-        );
-
-    });
-
-});
-
-
-/* =========================================================
-   OPEN SECTION FROM URL HASH
-   ========================================================= */
-
-const initialHash =
-    window.location.hash.replace("#", "");
-
-
-if (
-    initialHash &&
-    document.getElementById(initialHash)
-) {
-
-    showSection(initialHash);
-
-}
-
-
-/* =========================================================
-   BROWSER BACK / FORWARD
-   ========================================================= */
-
-window.addEventListener(
-    "hashchange",
-    () => {
-
-        const target =
-            window.location.hash.replace("#", "");
-
-        if (
-            target &&
-            document.getElementById(target)
-        ) {
-            showSection(target);
+        if (!target) {
+            return;
         }
 
-    }
-);
+
+        views.forEach(view => {
+            view.classList.toggle(
+                "active",
+                view.id === viewId
+            );
+        });
 
 
-/* =========================================================
-   RANDOM SAINT JUDE FACTS
-   ========================================================= */
-
-const facts = [
-
-    "Saint Jude may have been a fisherman, a soldier, or a drunk who stole a boat. The surviving records are not especially helpful.",
-
-    "The city has been rebuilt so many times that archaeological layers are part of ordinary construction.",
-
-    "Some buildings contain structures that are centuries or even millennia older than the building currently wrapped around them.",
-
-    "Mothball is inside Velvet. It is an enclave and market, not a sixth district.",
-
-    "Some businesses in Saint Jude's Landing do not accept official municipal currency.",
-
-    "Some residents have not paid municipal taxes in decades.",
-
-    "There are streets in Saint Jude's that answer to nobody.",
-
-    "Some behemoth remains are too large to move, so the city simply built around them.",
-
-    "The first major behemoth carcass was larger than the settlement that discovered it.",
-
-    "Behemoth material became building material, industrial material, fuel, chemicals, tools, commercial goods, and recreational substances.",
-
-    "There is no complete map of Saint Jude's Landing.",
-
-    "There is no single ground level anymore. There are only levels that somebody currently considers ground.",
-
-    "The city did not replace its past. It built over it.",
-
-    "The Neon Gut and Nine are connected by labor, transport, industrial supply, and illegal commerce.",
-
-    "Mothball's economy depends on things arriving from almost everywhere else in the city.",
-
-    "The city is still changing because people are still adding things to it.",
-
-    "Nobody designed Saint Jude's Landing. People just kept adding shit to it.",
-
-    "The practical solution adopted by outside governments was eventually to leave the city alone.",
-
-    "The Outliers began the same way many small structures in Saint Jude's begin: somebody had nowhere to sleep, somebody else said come on, and that was apparently enough.",
-
-    "Some things beneath Saint Jude's have no surviving explanation."
-
-];
+        navLinks.forEach(link => {
+            link.classList.toggle(
+                "active",
+                link.dataset.view === viewId
+            );
+        });
 
 
-const factPopup =
-    document.getElementById("fact-popup");
-
-const factText =
-    document.getElementById("fact-text");
-
-const randomFactButton =
-    document.getElementById("random-fact");
-
-const closeFactButton =
-    document.getElementById("close-fact");
+        if (updateHash) {
+            history.replaceState(
+                null,
+                "",
+                `#${viewId}`
+            );
+        }
 
 
-function randomFact() {
-
-    if (!factPopup || !factText) {
-        return;
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
 
-    const fact =
-        facts[
-            Math.floor(
-                Math.random() * facts.length
-            )
-        ];
+    navLinks.forEach(link => {
 
+        link.addEventListener("click", () => {
 
-    factText.textContent = fact;
-
-    factPopup.classList.add("show");
-
-}
-
-
-if (randomFactButton) {
-
-    randomFactButton.addEventListener(
-        "click",
-        randomFact
-    );
-
-}
-
-
-if (closeFactButton) {
-
-    closeFactButton.addEventListener(
-        "click",
-        () => {
-
-            factPopup.classList.remove(
-                "show"
+            showView(
+                link.dataset.view
             );
 
+        });
+
+    });
+
+
+    /*
+        ---------------------------------------------------------
+        HASH NAVIGATION
+        ---------------------------------------------------------
+    */
+
+    function loadFromHash() {
+
+        const hash = window.location.hash.replace("#", "");
+
+        if (
+            hash &&
+            document.getElementById(hash)
+        ) {
+            showView(hash, false);
         }
+
+    }
+
+
+    loadFromHash();
+
+
+    window.addEventListener("hashchange", loadFromHash);
+
+
+    /*
+        ---------------------------------------------------------
+        PLACE PLACEHOLDERS
+        ---------------------------------------------------------
+    */
+
+    const placeholderLinks = document.querySelectorAll(
+        "[data-placeholder]"
     );
 
-}
+
+    placeholderLinks.forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            showToast(
+                link.dataset.placeholder
+            );
+
+        });
+
+    });
 
 
-/* =========================================================
-   ESC CLOSES POPUP
-   ========================================================= */
+    /*
+        ---------------------------------------------------------
+        TOAST
+        ---------------------------------------------------------
+    */
 
-document.addEventListener(
-    "keydown",
-    event => {
+    function showToast(message) {
+
+        if (!toast) {
+            return;
+        }
+
+
+        clearTimeout(toastTimer);
+
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+
+        toastTimer = setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2800);
+
+    }
+
+
+    /*
+        ---------------------------------------------------------
+        KEYBOARD NAVIGATION
+        ---------------------------------------------------------
+    */
+
+    document.addEventListener("keydown", event => {
 
         if (
             event.key === "Escape" &&
-            factPopup &&
-            factPopup.classList.contains("show")
+            toast.classList.contains("show")
         ) {
-
-            factPopup.classList.remove(
-                "show"
-            );
-
+            toast.classList.remove("show");
         }
 
+    });
+
+
+    /*
+        ---------------------------------------------------------
+        IMAGE FAILURE HANDLING
+        ---------------------------------------------------------
+
+        Keeps a broken asset from making the entire record
+        look broken. It does not substitute fake imagery.
+    */
+
+    const images = document.querySelectorAll("img");
+
+
+    images.forEach(image => {
+
+        image.addEventListener("error", () => {
+
+            image.classList.add("asset-missing");
+
+            image.alt =
+                "IMAGE ASSET UNAVAILABLE — RECORD INCOMPLETE";
+
+        });
+
+    });
+
+
+    /*
+        ---------------------------------------------------------
+        SMALL RANDOM FIELD NOTE
+        ---------------------------------------------------------
+
+        These are intentionally not new lore.
+
+        They are existing SJL statements used as rotating
+        interface flavor.
+    */
+
+    const fieldNotes = [
+
+        "The map is wrong.",
+
+        "Nobody designed this place.",
+
+        "There is no single ground floor anymore.",
+
+        "Everything has a reason. Most of those reasons have been forgotten.",
+
+        "The city is not a setting.",
+
+        "Not everything is explained.",
+
+        "People are the city.",
+
+        "SJL functions despite everything because people keep making it function."
+
+    ];
+
+
+    const footerBottom = document.querySelector(".footer-bottom");
+
+
+    if (footerBottom) {
+
+        footerBottom.addEventListener(
+            "dblclick",
+            () => {
+
+                const note =
+                    fieldNotes[
+                        Math.floor(
+                            Math.random() * fieldNotes.length
+                        )
+                    ];
+
+                showToast(note);
+
+            }
+        );
+
     }
-);
-
-
-/* =========================================================
-   RANDOM FACT SHORTCUT
-   R = random fact
-   ========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        const activeElement =
-            document.activeElement
-                ? document.activeElement.tagName
-                : "";
-
-
-        if (
-            event.key.toLowerCase() === "r" &&
-            activeElement !== "INPUT" &&
-            activeElement !== "TEXTAREA" &&
-            activeElement !== "BUTTON"
-        ) {
-
-            randomFact();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   STATUS LIGHT
-   ========================================================= */
-
-const statusDot =
-    document.querySelector(".status-dot");
-
-
-setInterval(() => {
-
-    if (!statusDot) {
-        return;
-    }
-
-
-    statusDot.style.opacity =
-        Math.random() > 0.08
-            ? "1"
-            : "0.2";
-
-}, 900);
-
-
-/* =========================================================
-   IMAGE LOAD HANDLING
-   ========================================================= */
-
-const images =
-    document.querySelectorAll("img");
-
-
-images.forEach(image => {
-
-    image.addEventListener(
-        "error",
-        () => {
-
-            image.classList.add(
-                "image-missing"
-            );
-
-        }
-    );
 
 });
-
-
-/* =========================================================
-   SMALL "ARCHIVE" INTERACTION
-   ========================================================= */
-
-const imageFigures =
-    document.querySelectorAll(
-        "figure"
-    );
-
-
-imageFigures.forEach(figure => {
-
-    figure.addEventListener(
-        "mouseenter",
-        () => {
-
-            figure.dataset.hovered = "true";
-
-        }
-    );
-
-
-    figure.addEventListener(
-        "mouseleave",
-        () => {
-
-            delete figure.dataset.hovered;
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   TOUCH DEVICES
-   Avoid hover-dependent weirdness.
-   ========================================================= */
-
-if (
-    window.matchMedia &&
-    window.matchMedia("(hover: none)").matches
-) {
-
-    document.body.classList.add(
-        "touch-device"
-    );
-
-}
