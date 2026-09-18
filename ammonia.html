@@ -4,17 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AMMONIA // SJL OUTLIER RECORD</title>
+  <title>AMMONIA — SJL OUTLIER RECORD</title>
 
   <meta
     name="description"
-    content="Compromised Saint Jude's Landing archive record: Ammonia."
+    content="Compromised SJL personnel record: Ammonia, bat demi-human, graffiti artist, Neon Gut."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo+Black&display=swap"
     rel="stylesheet"
   >
 
@@ -23,66 +24,60 @@
 
 <body>
 
-  <div class="archive-noise"></div>
+  <div class="screen-noise"></div>
 
   <header class="site-header">
     <a class="back-link" href="index.html">← SAINT JUDE'S LANDING</a>
 
     <div class="header-status">
       <span>OUTLIER RECORD</span>
-      <span id="local-clock">--:--:--</span>
+      <span class="status-dot"></span>
+      <span id="local-clock">00:00:00</span>
     </div>
   </header>
 
+
   <main>
 
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
+    <!-- HERO -->
 
-    <section class="hero">
+    <section class="hero" id="top">
+
+      <div class="hero-stamp">
+        <span>PERSONNEL / OUTLIER</span>
+        <strong>ACCESS UNAUTHORIZED</strong>
+      </div>
 
       <div class="hero-image-wrap">
         <img
-          src="character-ammonia.PNG"
-          alt="Ammonia, a bat demi-human Outlier from the Neon Gut"
+          src="ammonia-hero.PNG"
+          alt="Ammonia perched in a Neon Gut environment"
           class="hero-image"
         >
+        <div class="image-note">IMAGE 01 / NEON GUT / RECORD PENDING</div>
       </div>
 
       <div class="hero-copy">
 
-        <div class="file-stamp">
-          FILE // OUTLIER-001
-        </div>
-
-        <p class="eyebrow">SAINT JUDE'S LANDING // COMPROMISED ARCHIVE</p>
+        <p class="eyebrow">SUBJECT 01 / NEON GUT</p>
 
         <h1>AMMONIA</h1>
 
         <div class="hero-meta">
-          <span>BAT DEMI HUMAN</span>
-          <span>NEON GUT</span>
-          <span>THE OUTLIERS</span>
+          <span>BAT DEMI-HUMAN</span>
+          <span>OUTLIER</span>
+          <span>GRAFFITI ARTIST</span>
         </div>
 
-        <p class="hero-warning">
+        <p class="hero-description">
+          Legendary graffiti artist. Neon Gut origin. Perpetually somewhere
+          above street level. Does not appear particularly interested in being
+          interviewed.
+        </p>
+
+        <div class="hero-warning">
+          <span>⚠</span>
           THIS RECORD WAS NOT INTENDED FOR PUBLIC ACCESS.
-        </p>
-
-        <p class="hero-intro">
-          Somebody uploaded the questionnaire. Somebody uploaded the
-          archive record. Somebody kept adding shit afterward.
-        </p>
-
-        <div class="hero-character">
-          <span class="label">SUBJECT RESPONSE</span>
-          <blockquote>
-            “Too many questions. Loud. Brain hurts. I'm Ammonia.
-            Don't touch my paint. Don't touch me at all. Just... stay
-            where I can see you. The air here smells like you. Salt
-            and panic. Makes my nose itch.”
-          </blockquote>
         </div>
 
       </div>
@@ -90,188 +85,1523 @@
     </section>
 
 
-    <!-- =========================================================
-         QUICK RECORD
-    ========================================================== -->
+    <!-- QUICK RECORD -->
 
     <section class="quick-record">
 
-      <div>
-        <span class="record-label">CLASSIFICATION</span>
-        <strong>Demi Human — Chiroptera Variant</strong>
+      <div class="quick-cell">
+        <small>NAME</small>
+        <strong>AMMONIA</strong>
       </div>
 
-      <div>
-        <span class="record-label">AFFILIATION</span>
-        <strong>The Outliers</strong>
+      <div class="quick-cell">
+        <small>SPECIES</small>
+        <strong>BAT DEMI-HUMAN</strong>
       </div>
 
-      <div>
-        <span class="record-label">ORIGIN</span>
-        <strong>Neon Gut</strong>
+      <div class="quick-cell">
+        <small>ORIGIN</small>
+        <strong>NEON GUT</strong>
       </div>
 
-      <div>
-        <span class="record-label">RECORD STATUS</span>
-        <strong>ACTIVE / COMPROMISED</strong>
+      <div class="quick-cell">
+        <small>STATUS</small>
+        <strong>OUTLIER</strong>
+      </div>
+
+      <div class="quick-cell">
+        <small>RECORD</small>
+        <strong>INCOMPLETE</strong>
       </div>
 
     </section>
 
 
-    <!-- =========================================================
-         NAV
-    ========================================================== -->
+    <!-- CONTENT NAV -->
 
-    <nav class="page-nav" aria-label="Ammonia record navigation">
-      <a href="#character">Character</a>
-      <a href="#archivist">Archivist</a>
-      <a href="#personal">Personal</a>
-      <a href="#physical">Physical</a>
-      <a href="#animal">Animal Behavior</a>
-      <a href="#personality">Personality</a>
-      <a href="#habits">Habits</a>
-      <a href="#social">Social</a>
-      <a href="#outlier">Outlier Record</a>
-      <a href="#history">History</a>
-      <a href="#room">Found in Their Room</a>
-      <a href="#quotes">Recorded Phrases</a>
+    <nav class="record-nav" aria-label="Character record navigation">
+      <a href="#character">CHARACTER</a>
+      <a href="#archivist">ARCHIVIST</a>
+      <a href="#personal">PERSONAL</a>
+      <a href="#physical">PHYSICAL</a>
+      <a href="#animal">ANIMAL</a>
+      <a href="#personality">PERSONALITY</a>
+      <a href="#really-personal">REALLY PERSONAL</a>
+      <a href="#routine">ROUTINE</a>
+      <a href="#social">SOCIAL</a>
+      <a href="#outlier">OUTLIER</a>
+      <a href="#history">HISTORY</a>
+      <a href="#objects">OBJECTS</a>
+      <a href="#phrases">PHRASES</a>
+      <a href="#wren">WREN</a>
     </nav>
 
 
-    <!-- =========================================================
-         CHARACTER
-    ========================================================== -->
+    <!-- CHARACTER -->
 
-    <section class="record-section character-section" id="character">
+    <section class="record-section subject-section" id="character">
 
       <div class="section-heading">
-        <span>01</span>
-        <h2>AMMONIA'S VERSION</h2>
+        <span class="section-number">01</span>
+        <div>
+          <p class="section-kicker">THE SUBJECT</p>
+          <h2>AMMONIA</h2>
+        </div>
       </div>
 
-      <div class="character-note">
-        <div class="paper-tab">SUBJECT ANSWERS</div>
+      <div class="subject-intro">
+        <div class="subject-label">
+          <span>CHARACTER</span>
+          <small>SELF-REPORTED</small>
+        </div>
 
-        <p class="large-answer">
-          “Too many questions. Loud. Brain hurts. I'm Ammonia.
-          Don't touch my paint. Don't touch me at all. Just... stay
-          where I can see you. The air here smells like you. Salt
-          and panic. Makes my nose itch.”
-        </p>
+        <blockquote>
+          “Too many questions. Loud. Brain hurts. I'm Ammonia. Don't touch my
+          paint. Don't touch me at all. Just... stay where I can see you. The
+          air here smells like you. Salt and panic. Makes my nose itch.”
+        </blockquote>
+      </div>
 
-        <p class="margin-note">
-          This is the part where the subject was apparently expected
-          to cooperate.
-        </p>
+      <div class="subject-photo">
+        <img
+          src="ammonia-portrait.PNG"
+          alt="Full-body portrait of Ammonia"
+        >
+        <span>SUBJECT PHOTOGRAPH / RECORD PENDING</span>
+      </div>
 
+      <div class="subject-note">
+        <strong>NOTE:</strong>
+        The subject was not compelled to complete the following record.
+        Responses are reproduced as provided.
       </div>
 
     </section>
 
 
-    <!-- =========================================================
-         ARCHIVIST
-    ========================================================== -->
+    <!-- ARCHIVIST -->
 
     <section class="record-section archivist-section" id="archivist">
 
-      <div class="section-heading archivist-heading">
-        <span>02</span>
-        <h2>SJL OMNISCIENT ARCHIVIST</h2>
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <div>
+          <p class="section-kicker">SJL OMNISCIENT ARCHIVIST</p>
+          <h2>CLINICAL RECORD</h2>
+        </div>
       </div>
 
-      <div class="archivist-grid">
+      <div class="classified-bar">
+        <span>SAINT JUDE'S LANDING</span>
+        <span>ARCHIVAL DATABASE</span>
+        <span>DATA INTEGRITY: PARTIAL</span>
+      </div>
 
-        <div class="archivist-record">
+      <article class="archivist-report">
 
-          <div class="record-header">
-            <span>DATA RETRIEVAL INITIATED</span>
-            <span>CONFIRMED</span>
+        <div class="report-row">
+          <span>SUBJECT</span>
+          <strong>Ammonia</strong>
+        </div>
+
+        <div class="report-row">
+          <span>CLASSIFICATION</span>
+          <strong>Demi Human — Chiroptera Variant</strong>
+        </div>
+
+        <div class="report-row">
+          <span>AFFILIATION</span>
+          <strong>The Outliers</strong>
+        </div>
+
+        <div class="report-row">
+          <span>LOCATION OF ORIGIN</span>
+          <strong>Neon Gut, Saint Jude's Landing</strong>
+        </div>
+
+        <div class="report-block">
+          <h3>ARCHIVAL NOTES</h3>
+
+          <p>
+            Subject displays atypical social conditioning, showing near
+            complete absence of shame response mechanisms regarding nudity
+            and public exposure, a trait often observed in Gut-born hybrids
+            who prioritize sensory utility over societal decorum.
+          </p>
+
+          <p>
+            Physical specifications confirm exaggerated pear-shaped
+            morphology, with high subcutaneous fat distribution in the lower
+            extremities and pelvic region, contrasting with a narrow thoracic
+            cavity.
+          </p>
+        </div>
+
+        <div class="report-block">
+          <h3>ENVIRONMENTAL DATA</h3>
+
+          <p>
+            The interrogation site is located in a Sub Level 3 bunker within
+            the Neon Gut district. Structural integrity is compromised by
+            decades of acidic rainfall and industrial runoff.
+          </p>
+
+          <p>
+            Current atmospheric composition includes elevated traces of
+            ozone, synthetic stimulants, and organic decay.
+          </p>
+        </div>
+
+        <div class="report-block threat">
+          <h3>THREAT ASSESSMENT</h3>
+
+          <p>
+            The subject is considered low threat in direct confrontation
+            unless territorial instincts are triggered; however, her proximity
+            to the 'Outlier' cell, specifically the Alligator variant known as
+            Benoit and the volatile human subject known as Riot, elevates the
+            immediate danger level to High.
+          </p>
+
+          <p>
+            Any interaction with the subject requires immediate assessment of
+            the surrounding crew's defensive posture.
+          </p>
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- PERSONAL INFORMATION -->
+
+    <section class="record-section questionnaire-section" id="personal">
+
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>PERSONAL INFORMATION</h2>
+        </div>
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field">
+          <label>Full name</label>
+          <div class="answer">RECORD PENDING</div>
+        </div>
+
+        <div class="field">
+          <label>Current name</label>
+          <div class="answer">Ammonia</div>
+        </div>
+
+        <div class="field">
+          <label>Nicknames</label>
+          <div class="answer">Am / the bat girl / purple</div>
+        </div>
+
+        <div class="field">
+          <label>Pronouns</label>
+          <div class="answer">She / Her</div>
+        </div>
+
+        <div class="field">
+          <label>Gender</label>
+          <div class="answer">Female</div>
+        </div>
+
+        <div class="field">
+          <label>Species</label>
+          <div class="answer">Bat Demi Human</div>
+        </div>
+
+        <div class="field">
+          <label>Species subtype / phenotype</label>
+          <div class="answer">“Fruit bat / Ghost bat mix? Idk. Just bat.”</div>
+        </div>
+
+        <div class="field">
+          <label>Age</label>
+          <div class="answer">Unknown. “Old enough.”</div>
+        </div>
+
+        <div class="field">
+          <label>Birthday</label>
+          <div class="answer">“Don't ask.”</div>
+        </div>
+
+        <div class="field">
+          <label>Zodiac sign</label>
+          <div class="answer">“Probably something dumb.”</div>
+        </div>
+
+        <div class="field">
+          <label>Blood type</label>
+          <div class="answer">“Red.”</div>
+        </div>
+
+        <div class="field">
+          <label>Height</label>
+          <div class="answer">“Short.”</div>
+        </div>
+
+        <div class="field">
+          <label>Weight</label>
+          <div class="answer">“Light.”</div>
+        </div>
+
+        <div class="field">
+          <label>Build</label>
+          <div class="answer">“Pear shaped. Big hips. Small chest.”</div>
+        </div>
+
+        <div class="field">
+          <label>Dominant hand</label>
+          <div class="answer">Right</div>
+        </div>
+
+        <div class="field">
+          <label>Origin</label>
+          <div class="answer">Neon Gut</div>
+        </div>
+
+        <div class="field">
+          <label>Current residence</label>
+          <div class="answer">Roofs. Tunnels. Wherever the Outliers are.</div>
+        </div>
+
+        <div class="field">
+          <label>Occupation</label>
+          <div class="answer">Graffiti. Making things pretty.</div>
+        </div>
+
+        <div class="field">
+          <label>Social identity</label>
+          <div class="answer">Outlier</div>
+        </div>
+
+        <div class="field">
+          <label>Languages</label>
+          <div class="answer">English. Bat noises.</div>
+        </div>
+
+        <div class="field">
+          <label>Accent / dialect</label>
+          <div class="answer">Blunt. Short sentences. No fluff.</div>
+        </div>
+
+        <div class="field">
+          <label>Education</label>
+          <div class="answer">Street smart. That's all.</div>
+        </div>
+
+        <div class="field">
+          <label>Relationship status</label>
+          <div class="answer">Alone. Fine with it.</div>
+        </div>
+
+      </div>
+
+      <div class="archivist-inline">
+        <span>SJL ARCHIVIST</span>
+        <p>
+          Exact civilian identity, birth date, blood classification, and
+          complete biological taxonomy remain incomplete.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- PHYSICAL -->
+
+    <section class="record-section questionnaire-section" id="physical">
+
+      <div class="section-heading">
+        <span class="section-number">04</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>PHYSICAL</h2>
+        </div>
+      </div>
+
+      <div class="image-feature split">
+
+        <div class="image-panel">
+          <img
+            src="ammonia-ears.PNG"
+            alt="Close study of Ammonia's large bat ears"
+          >
+          <span>EAR STRUCTURE / INDEPENDENT ARTICULATION</span>
+        </div>
+
+        <div class="field-stack">
+
+          <div class="field">
+            <label>Skin</label>
+            <div class="answer">Slate gray. Leathery.</div>
           </div>
 
-          <dl class="archival-facts">
-
-            <div>
-              <dt>SUBJECT</dt>
-              <dd>Ammonia</dd>
-            </div>
-
-            <div>
-              <dt>CLASSIFICATION</dt>
-              <dd>Demi Human (Chiroptera Variant)</dd>
-            </div>
-
-            <div>
-              <dt>AFFILIATION</dt>
-              <dd>The Outliers</dd>
-            </div>
-
-            <div>
-              <dt>LOCATION OF ORIGIN</dt>
-              <dd>Neon Gut, Saint Jude's Landing</dd>
-            </div>
-
-          </dl>
-
-          <div class="archival-block">
-            <h3>ARCHIVAL NOTES</h3>
-
-            <p>
-              Subject displays atypical social conditioning, showing
-              near complete absence of shame response mechanisms
-              regarding nudity and public exposure, a trait often
-              observed in Gut born hybrids who prioritize sensory
-              utility over societal decorum. Physical specifications
-              confirm exaggerated pear shaped morphology, with high
-              subcutaneous fat distribution in the lower extremities
-              and pelvic region, contrasting with a narrow thoracic
-              cavity.
-            </p>
+          <div class="field">
+            <label>Hair</label>
+            <div class="answer">Black and purple. Long. Messy.</div>
           </div>
 
-          <div class="archival-block">
-            <h3>ENVIRONMENTAL DATA</h3>
-
-            <p>
-              The interrogation site is located in a Sub Level 3
-              bunker within the Neon Gut district. Structural
-              integrity is compromised by decades of acidic rainfall
-              and industrial runoff. Current atmospheric composition
-              includes elevated traces of ozone, synthetic
-              stimulants, and organic decay.
-            </p>
+          <div class="field">
+            <label>Eyes</label>
+            <div class="answer">Black. Glassy. Like shiny rocks.</div>
           </div>
 
-          <div class="archival-block threat-block">
-            <h3>THREAT ASSESSMENT</h3>
+          <div class="field">
+            <label>Face</label>
+            <div class="answer">Sharp. High cheekbones.</div>
+          </div>
 
-            <p>
-              The subject is considered low threat in direct
-              confrontation unless territorial instincts are
-              triggered; however, her proximity to the 'Outlier'
-              cell, specifically the Alligator variant known as
-              Benoit and the volatile human subject known as Riot,
-              elevates the immediate danger level to
-              <strong>HIGH</strong>.
-            </p>
+          <div class="field">
+            <label>Ears</label>
+            <div class="answer">Big. Bat ears. They move when you talk.</div>
+          </div>
 
-            <p>
-              Any interaction with the subject requires immediate
-              assessment of the surrounding crew's defensive posture.
-            </p>
+          <div class="field">
+            <label>Tail</label>
+            <div class="answer">None.</div>
+          </div>
+
+          <div class="field">
+            <label>Wings</label>
+            <div class="answer">None. Just ears.</div>
+          </div>
+
+          <div class="field">
+            <label>Claws</label>
+            <div class="answer">Sharp.</div>
+          </div>
+
+          <div class="field">
+            <label>Teeth</label>
+            <div class="answer">Small. Normal.</div>
+          </div>
+
+          <div class="field">
+            <label>Hands</label>
+            <div class="answer">Paint stained. Claws.</div>
+          </div>
+
+          <div class="field">
+            <label>Feet</label>
+            <div class="answer">Small. In sneakers.</div>
+          </div>
+
+          <div class="field">
+            <label>Body covering</label>
+            <div class="answer">Skin leathery.</div>
+          </div>
+
+          <div class="field">
+            <label>Scars</label>
+            <div class="answer">Some from climbing.</div>
+          </div>
+
+          <div class="field">
+            <label>Tattoos</label>
+            <div class="answer">“My art is everywhere. My skin is mostly paint.”</div>
+          </div>
+
+          <div class="field">
+            <label>Piercings</label>
+            <div class="answer">None. Too much work.</div>
+          </div>
+
+          <div class="field">
+            <label>Other modifications</label>
+            <div class="answer">None.</div>
+          </div>
+
+          <div class="field">
+            <label>Distinguishing features</label>
+            <div class="answer">Hips, ears, eyes.</div>
+          </div>
+
+          <div class="field">
+            <label>Typical expression</label>
+            <div class="answer">Blank. Observant.</div>
+          </div>
+
+          <div class="field">
+            <label>Posture</label>
+            <div class="answer">Slumped. Perched.</div>
+          </div>
+
+          <div class="field">
+            <label>Movement</label>
+            <div class="answer">Quiet. Like I'm not there. Good at climbing.</div>
+          </div>
+
+          <div class="field">
+            <label>How they sit</label>
+            <div class="answer">Perched on edges. Legs tucked.</div>
+          </div>
+
+          <div class="field">
+            <label>How they sleep</label>
+            <div class="answer">Hanging upside down is better. Or curled up tight.</div>
+          </div>
+
+          <div class="field">
+            <label>When angry</label>
+            <div class="answer">Still. Very still. Ears pinned back.</div>
+          </div>
+
+          <div class="field">
+            <label>When scared</label>
+            <div class="answer">Freeze. Ears twitching hard.</div>
+          </div>
+
+          <div class="field">
+            <label>When genuinely happy</label>
+            <div class="answer">“…I don't really ‘do’ happy. Maybe less tense.”</div>
+          </div>
+
+          <div class="field">
+            <label>Scent</label>
+            <div class="answer">Spray paint. Rain. Old concrete.</div>
           </div>
 
         </div>
 
-        <figure class="archivist-image">
-          <img
-            src="world-archive-evidence.PNG"
-            alt="Archived evidence from Saint Jude's Landing"
-          >
-          <figcaption>
-            ARCHIVE MATERIAL // SOURCE CONDITION: POOR
-          </figcaption>
+      </div>
+
+      <div class="archivist-inline dark">
+        <span>SJL ARCHIVIST</span>
+
+        <div class="archivist-facts">
+
+          <p>
+            Subject height recorded at approximately 152 cm / 5'0".
+          </p>
+
+          <p>
+            Skin lacks standard human body hair. Fine, nearly imperceptible
+            down occurs along the spine. Surface is sleek and leathery with
+            matte, slightly pebbled high-friction areas at the knees and
+            elbows.
+          </p>
+
+          <p>
+            Body temperature generally registers approximately 3–5 degrees
+            below standard human baseline.
+          </p>
+
+          <p>
+            Ears possess independent articulation of up to approximately 180
+            degrees without corresponding head movement. Auditory sensitivity
+            extends across an unusually broad range. Subject can detect
+            mechanical vibration, distant electrical activity, and vascular
+            movement.
+          </p>
+
+          <p>
+            Echolocation is continuously present at an unconscious level and
+            becomes consciously intensified during high-risk climbing and
+            navigation through complete darkness.
+          </p>
+
+          <p>
+            Subject possesses superior low-light vision with enhanced
+            movement and contrast detection.
+          </p>
+
+          <p>
+            No wings, vestigial flight membranes, or flight-related skeletal
+            structures have been identified. Classification is based on
+            chiropteran cranial, dermal, ocular, and auditory characteristics.
+          </p>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ANIMAL BEHAVIOR -->
+
+    <section class="record-section questionnaire-section" id="animal">
+
+      <div class="section-heading">
+        <span class="section-number">05</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>ANIMAL BEHAVIOR</h2>
+        </div>
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field">
+          <label>Instincts</label>
+          <div class="answer">Climbing. Hearing things before people see them. Staying in dark.</div>
+        </div>
+
+        <div class="field">
+          <label>Animal habits</label>
+          <div class="answer">Eating weird shit. Perching instead of sitting.</div>
+        </div>
+
+        <div class="field">
+          <label>Things others notice</label>
+          <div class="answer">Staring. Too quiet. Can hear a pin drop three floors down.</div>
+        </div>
+
+        <div class="field">
+          <label>Normal to species / weird to humans</label>
+          <div class="answer">Eating bugs. Sleeping weirdly. Not caring about being naked.</div>
+        </div>
+
+        <div class="field">
+          <label>Things she does NOT do</label>
+          <div class="answer">Fly. Just climbing.</div>
+        </div>
+
+      </div>
+
+      <div class="image-feature single">
+        <img
+          src="ammonia-sleep.PNG"
+          alt="Ammonia sleeping upside down in a concealed Neon Gut structure"
+        >
+        <span>SLEEPING BEHAVIOR / ELEVATED CONCEALMENT</span>
+      </div>
+
+      <div class="archivist-inline">
+        <span>SJL ARCHIVIST</span>
+        <p>
+          Prolonged suspension is supported by tendon-locking mechanisms that
+          allow the subject to remain inverted without continuous muscular
+          effort. Subject commonly sleeps upside down in concealed elevated
+          spaces while maintaining passive auditory awareness of the ground
+          below.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- PERSONALITY -->
+
+    <section class="record-section questionnaire-section" id="personality">
+
+      <div class="section-heading">
+        <span class="section-number">06</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>PERSONALITY</h2>
+        </div>
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field wide">
+          <label>Core personality</label>
+          <div class="answer">Detached. Honest. Simple.</div>
+        </div>
+
+        <div class="field">
+          <label>First impression</label>
+          <div class="answer">Weird girl who doesn't wear clothes right. Scary eyes.</div>
+        </div>
+
+        <div class="field">
+          <label>Actually</label>
+          <div class="answer">Gentle. Quiet. Loyal to my pack.</div>
+        </div>
+
+        <div class="field">
+          <label>Private personality</label>
+          <div class="answer">Observant. Thinking about colors.</div>
+        </div>
+
+        <div class="field">
+          <label>Strengths</label>
+          <div class="answer">Knowing city. Seeing what others miss. Not lying.</div>
+        </div>
+
+        <div class="field">
+          <label>Flaws</label>
+          <div class="answer">Don't understand people. Don't care about social shit.</div>
+        </div>
+
+        <div class="field">
+          <label>Temper</label>
+          <div class="answer">Low, but dangerous when it breaks.</div>
+        </div>
+
+        <div class="field">
+          <label>Patience</label>
+          <div class="answer">High. Can wait hours for a wall to be empty.</div>
+        </div>
+
+        <div class="field">
+          <label>Impulse control</label>
+          <div class="answer">Good with art. Bad with hunger.</div>
+        </div>
+
+        <div class="field">
+          <label>Humor</label>
+          <div class="answer">“…Not really. Maybe a joke if it's weird enough.”</div>
+        </div>
+
+        <div class="field">
+          <label>Intelligence</label>
+          <div class="answer">Very smart about buildings/colors; not smart about feelings.</div>
+        </div>
+
+        <div class="field">
+          <label>Social awareness</label>
+          <div class="answer">Zero. Doesn't get rules.</div>
+        </div>
+
+        <div class="field">
+          <label>Emotional awareness</label>
+          <div class="answer">Low. Feels things, doesn't name them.</div>
+        </div>
+
+        <div class="field">
+          <label>Understands</label>
+          <div class="answer">Structure, sound, color theory, climbing.</div>
+        </div>
+
+        <div class="field">
+          <label>Doesn't understand</label>
+          <div class="answer">Why people pretend to like each other, why people wear so many clothes, why people care what she's doing.</div>
+        </div>
+
+        <div class="field">
+          <label>Embarrassment</label>
+          <div class="answer">Nothing. Shame is for people who care.</div>
+        </div>
+
+        <div class="field">
+          <label>Anger</label>
+          <div class="answer">People touching her stuff, threatening pack, loud pointless noises.</div>
+        </div>
+
+        <div class="field">
+          <label>Scared</label>
+          <div class="answer">Trapped; seen when she doesn't want to be.</div>
+        </div>
+
+        <div class="field">
+          <label>Happy</label>
+          <div class="answer">Perfect color match, fresh rain, quiet.</div>
+        </div>
+
+        <div class="field">
+          <label>Safe</label>
+          <div class="answer">Pack, high places, dark corners.</div>
+        </div>
+
+        <div class="field">
+          <label>Threatened</label>
+          <div class="answer">Crowds, cornered.</div>
+        </div>
+
+        <div class="field">
+          <label>Insecure</label>
+          <div class="answer">Nothing.</div>
+        </div>
+
+        <div class="field">
+          <label>Proud</label>
+          <div class="answer">Murals. They're mine.</div>
+        </div>
+
+        <div class="field">
+          <label>Refuses to admit</label>
+          <div class="answer">Likes being around others.</div>
+        </div>
+
+        <div class="field">
+          <label>Pretends not to care about</label>
+          <div class="answer">People.</div>
+        </div>
+
+        <div class="field wide">
+          <label>Cannot tolerate</label>
+          <div class="answer">Hypocrisy, fakes, being told what to do.</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- REALLY PERSONAL -->
+
+    <section class="record-section questionnaire-section messy-section" id="really-personal">
+
+      <div class="section-heading">
+        <span class="section-number">07</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>THE REALLY PERSONAL SHIT</h2>
+        </div>
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field">
+          <label>Favorite food</label>
+          <div class="answer">Insects, fresh fruit, scraps that taste good.</div>
+        </div>
+
+        <div class="field">
+          <label>Comfort food</label>
+          <div class="answer">Something sweet.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite drink</label>
+          <div class="answer">Water. Rain.</div>
+        </div>
+
+        <div class="field">
+          <label>Food she hates</label>
+          <div class="answer">Anything tasting like chemicals that aren't paint.</div>
+        </div>
+
+        <div class="field">
+          <label>Weird food habits</label>
+          <div class="answer">Things that shouldn't be eaten.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite colors</label>
+          <div class="answer">Deep violet. Neon green. Whatever pops against gray.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite smell</label>
+          <div class="answer">Rain on concrete. Fresh spray paint.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite sound</label>
+          <div class="answer">Hum of city. Rain hitting metal.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite weather</label>
+          <div class="answer">Rain. Thunder.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite season</label>
+          <div class="answer">Doesn't matter.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite time of day</label>
+          <div class="answer">Night.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite place</label>
+          <div class="answer">Rooftops. Highest point in Neon Gut.</div>
+        </div>
+
+        <div class="field">
+          <label>Place she avoids</label>
+          <div class="answer">Bright crowded squares.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite clothing</label>
+          <div class="answer">Cropped hoodie. Shorts. Whatever soft/loose.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite possession</label>
+          <div class="answer">Paint markers.</div>
+        </div>
+
+        <div class="field">
+          <label>Most sentimental thing</label>
+          <div class="answer">Whatever she stole first that she actually kept.</div>
+        </div>
+
+        <div class="field">
+          <label>Most useless thing she keeps</label>
+          <div class="answer">Broken spray can with cool color pattern.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite music</label>
+          <div class="answer">Low bass. Things that vibrate.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite artist / band</label>
+          <div class="answer">Doesn't matter. Just sound.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite song</label>
+          <div class="answer">Something with good rhythm.</div>
+        </div>
+
+        <div class="field">
+          <label>Movie / show</label>
+          <div class="answer">None. Too loud.</div>
+        </div>
+
+        <div class="field">
+          <label>Book</label>
+          <div class="answer">None.</div>
+        </div>
+
+        <div class="field">
+          <label>Game</label>
+          <div class="answer">None.</div>
+        </div>
+
+        <div class="field">
+          <label>Hobby</label>
+          <div class="answer">Graffiti. Climbing.</div>
+        </div>
+
+        <div class="field">
+          <label>Favorite animal</label>
+          <div class="answer">Anything that moves fast.</div>
+        </div>
+
+        <div class="field">
+          <label>With friends</label>
+          <div class="answer">Sitting in silence together.</div>
+        </div>
+
+        <div class="field">
+          <label>Alone</label>
+          <div class="answer">Art.</div>
+        </div>
+
+        <div class="field wide">
+          <label>Hates</label>
+          <div class="answer">Noise, light, touch without permission, being told “weird.”</div>
+        </div>
+
+      </div>
+
+      <div class="found-object-grid">
+
+        <div class="found-object">
+          <span>POCKETS / BAG</span>
+          <strong>Paint markers. Sketchbook. Half-eaten bugs. Weirdly smooth stone.</strong>
+        </div>
+
+        <div class="found-object">
+          <span>BEDROOM</span>
+          <strong>Paint cans. Torn fabric. Crickets. Sketchbook full of city maps.</strong>
+        </div>
+
+        <div class="found-object">
+          <span>FRIDGE</span>
+          <strong>RECORD PENDING</strong>
+        </div>
+
+        <div class="found-object">
+          <span>EMBARRASSING POSSESSION</span>
+          <strong>Stuffed animal from dumpster.</strong>
+        </div>
+
+        <div class="found-object">
+          <span>MOST EXPENSIVE</span>
+          <strong>Good markers.</strong>
+        </div>
+
+        <div class="found-object">
+          <span>STRANGE COLLECTION</span>
+          <strong>Interesting bottle caps.</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ROUTINE -->
+
+    <section class="record-section questionnaire-section" id="routine">
+
+      <div class="section-heading">
+        <span class="section-number">08</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>HABITS / ROUTINE</h2>
+        </div>
+      </div>
+
+      <div class="routine-strip">
+
+        <div>
+          <small>MORNING</small>
+          <p>Wake where she fell asleep. Find food.</p>
+        </div>
+
+        <div>
+          <small>AFTERNOON</small>
+          <p>Climbing. Painting. Looking for walls.</p>
+        </div>
+
+        <div>
+          <small>NIGHT</small>
+          <p>Working. Best time.</p>
+        </div>
+
+        <div>
+          <small>SLEEP</small>
+          <p>When dark. When tired.</p>
+        </div>
+
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field">
+          <label>Eating schedule</label>
+          <div class="answer">Whatever there.</div>
+        </div>
+
+        <div class="field">
+          <label>Smoking / vaping</label>
+          <div class="answer">No.</div>
+        </div>
+
+        <div class="field">
+          <label>Hygiene</label>
+          <div class="answer">Minimal. Smells like work.</div>
+        </div>
+
+        <div class="field">
+          <label>Cleaning</label>
+          <div class="answer">None.</div>
+        </div>
+
+        <div class="field">
+          <label>Spending</label>
+          <div class="answer">None. Doesn't need money.</div>
+        </div>
+
+        <div class="field">
+          <label>Work</label>
+          <div class="answer">Patient. Meticulous.</div>
+        </div>
+
+        <div class="field">
+          <label>Exercise</label>
+          <div class="answer">Climbing everything.</div>
+        </div>
+
+        <div class="field">
+          <label>Bored</label>
+          <div class="answer">Watch people. Find bugs.</div>
+        </div>
+
+        <div class="field">
+          <label>Can't sleep</label>
+          <div class="answer">Climb higher.</div>
+        </div>
+
+        <div class="field">
+          <label>Alone</label>
+          <div class="answer">Paint. Think colors.</div>
+        </div>
+
+        <div class="field">
+          <label>Nobody watching</label>
+          <div class="answer">Eat garbage. Sleep weirdly.</div>
+        </div>
+
+        <div class="field">
+          <label>Constant behavior</label>
+          <div class="answer">Check surroundings. Touch textures.</div>
+        </div>
+
+        <div class="field">
+          <label>Never</label>
+          <div class="answer">Wear shoes with socks and pants that cover everything. Pretend human.</div>
+        </div>
+
+        <div class="field">
+          <label>Annoying</label>
+          <div class="answer">Staring too long.</div>
+        </div>
+
+        <div class="field">
+          <label>Adorable, according to someone who knows her</label>
+          <div class="answer">Her ears twitch when she's thinking.</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SOCIAL -->
+
+    <section class="record-section questionnaire-section" id="social">
+
+      <div class="section-heading">
+        <span class="section-number">09</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>SOCIAL</h2>
+        </div>
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field">
+          <label>Strangers</label>
+          <div class="answer">Ignore unless in way.</div>
+        </div>
+
+        <div class="field">
+          <label>Friends</label>
+          <div class="answer">Quiet. Present.</div>
+        </div>
+
+        <div class="field">
+          <label>People she loves</label>
+          <div class="answer">Protective. Close.</div>
+        </div>
+
+        <div class="field">
+          <label>People she dislikes</label>
+          <div class="answer">Blank stare. Walk away.</div>
+        </div>
+
+        <div class="field">
+          <label>Authority</label>
+          <div class="answer">“I don't see them. They don't matter.”</div>
+        </div>
+
+        <div class="field">
+          <label>Vulnerable person</label>
+          <div class="answer">Watch. Wait. Maybe help if it makes sense.</div>
+        </div>
+
+        <div class="field">
+          <label>Threatens people</label>
+          <div class="answer">Vicious. Fast.</div>
+        </div>
+
+        <div class="field">
+          <label>Affection</label>
+          <div class="answer">Being near. Sharing food.</div>
+        </div>
+
+        <div class="field">
+          <label>Receives affection</label>
+          <div class="answer">Confusing. Just sits there.</div>
+        </div>
+
+        <div class="field">
+          <label>Apologies</label>
+          <div class="answer">Doesn't, unless actually hurt something important.</div>
+        </div>
+
+        <div class="field">
+          <label>Apology from others</label>
+          <div class="answer">“Okay.”</div>
+        </div>
+
+        <div class="field">
+          <label>Conflict</label>
+          <div class="answer">Physical. Direct. No arguing.</div>
+        </div>
+
+        <div class="field">
+          <label>Betrayal</label>
+          <div class="answer">Not pack → doesn't matter. If pack → they're gone.</div>
+        </div>
+
+        <div class="field">
+          <label>Rejection</label>
+          <div class="answer">Doesn't ask.</div>
+        </div>
+
+        <div class="field">
+          <label>When wrong</label>
+          <div class="answer">“Doesn't happen. But if it does, I just move on.”</div>
+        </div>
+
+        <div class="field">
+          <label>Praise</label>
+          <div class="answer">“Thanks.”</div>
+        </div>
+
+        <div class="field">
+          <label>Insults</label>
+          <div class="answer">Doesn't hear it.</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- OUTLIER -->
+
+    <section class="record-section outlier-section" id="outlier">
+
+      <div class="section-heading">
+        <span class="section-number">10</span>
+        <div>
+          <p class="section-kicker">SOCIAL IDENTITY</p>
+          <h2>OUTLIER RECORD</h2>
+        </div>
+      </div>
+
+      <div class="identity-warning">
+        <strong>OUTLIER ≠ CRIMINAL CLASSIFICATION</strong>
+
+        <p>
+          The Outliers are a loose found-family of wandering weirdos from
+          different corners of Saint Jude's Landing and beyond.
+        </p>
+
+        <p>
+          “Outlier” is a social identity. It is not a formal organization,
+          criminal designation, municipal classification, gang, company,
+          department, or fixed crew.
+        </p>
+
+        <p>
+          They have no permanent headquarters, no official membership roster,
+          and no requirement that every Outlier be present at any given time.
+        </p>
+      </div>
+
+      <div class="field-grid">
+
+        <div class="field">
+          <label>How she joined</label>
+          <div class="answer">RECORD PENDING</div>
+        </div>
+
+        <div class="field">
+          <label>Who found her</label>
+          <div class="answer">RECORD PENDING</div>
+        </div>
+
+        <div class="field">
+          <label>Why she stayed</label>
+          <div class="answer">“They're my pack. They're safe.”</div>
+        </div>
+
+        <div class="field">
+          <label>How often she disappears</label>
+          <div class="answer">RECORD PENDING</div>
+        </div>
+
+        <div class="field">
+          <label>Where she tends to sleep</label>
+          <div class="answer">Roofs. Tunnels. Wherever the Outliers are.</div>
+        </div>
+
+        <div class="field">
+          <label>What she contributes</label>
+          <div class="answer">Art. City knowledge. Scavenging. Finding exits.</div>
+        </div>
+
+        <div class="field">
+          <label>Infamous for</label>
+          <div class="answer">Graffiti. Climbing places she absolutely should not be.</div>
+        </div>
+
+        <div class="field">
+          <label>Other Outliers know</label>
+          <div class="answer">RECORD PENDING</div>
+        </div>
+
+        <div class="field">
+          <label>Other Outliers don't know</label>
+          <div class="answer">RECORD PENDING</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section class="record-section questionnaire-section" id="history">
+
+      <div class="section-heading">
+        <span class="section-number">11</span>
+        <div>
+          <p class="section-kicker">QUESTIONNAIRE</p>
+          <h2>HISTORY</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span>CHILDHOOD</span>
+          <p>“I was small. Still small. The walls were too high.”</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>FIRST ART</span>
+          <p>
+            “I had to climb to reach them. The paint felt good in my hands.
+            Cold metal, wet spray. It made the grey go away.”
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span>NAME</span>
+          <p>
+            “Ammonia. Because it burns. It stays in the nose. It makes your
+            eyes water. Like my art.”
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span>EARLY LIFE</span>
+          <p>RECORD PENDING</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>FAMILY</span>
+          <p>RECORD PENDING</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>EDUCATION</span>
+          <p>Street smart. That's all.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>FIRST JOB</span>
+          <p>None recorded.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>FIRST CRIME</span>
+          <p>RECORD PENDING</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>MAJOR EVENTS</span>
+          <p>RECORD PENDING</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>CURRENT SITUATION</span>
+          <p>
+            Wandering member of the Outliers. Continues producing graffiti
+            throughout Saint Jude's Landing.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOUND OBJECTS -->
+
+    <section class="record-section object-section" id="objects">
+
+      <div class="section-heading">
+        <span class="section-number">12</span>
+        <div>
+          <p class="section-kicker">RECOVERED MATERIAL</p>
+          <h2>FOUND IN HER ROOM</h2>
+        </div>
+      </div>
+
+      <div class="object-wall">
+
+        <figure>
+          <img src="ammonia-paint-cache.PNG" alt="Ammonia's paint supplies">
+          <figcaption>PAINT CACHE</figcaption>
+        </figure>
+
+        <figure>
+          <img src="ammonia-bottle-caps.PNG" alt="Collection of bottle caps">
+          <figcaption>UNEXPLAINED COLLECTION</figcaption>
+        </figure>
+
+        <figure>
+          <img src="ammonia-stuffed-animal.PNG" alt="Damaged stuffed animal">
+          <figcaption>ITEM REFUSED FOR COMMENT</figcaption>
+        </figure>
+
+        <figure>
+          <img src="ammonia-tag.PNG" alt="Ammonia's graffiti tag">
+          <figcaption>KNOWN SIGNATURE</figcaption>
+        </figure>
+
+      </div>
+
+      <div class="recovered-list">
+
+        <div>
+          <span>01</span>
+          <p>Paint markers.</p>
+        </div>
+
+        <div>
+          <span>02</span>
+          <p>Sketchbook.</p>
+        </div>
+
+        <div>
+          <span>03</span>
+          <p>Half-eaten bugs.</p>
+        </div>
+
+        <div>
+          <span>04</span>
+          <p>Weirdly smooth stone.</p>
+        </div>
+
+        <div>
+          <span>05</span>
+          <p>Paint-stained hoodies.</p>
+        </div>
+
+        <div>
+          <span>06</span>
+          <p>Crickets.</p>
+        </div>
+
+        <div>
+          <span>07</span>
+          <p>City maps.</p>
+        </div>
+
+        <div>
+          <span>08</span>
+          <p>Interesting bottle caps.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RECORDED PHRASES -->
+
+    <section class="record-section phrase-section" id="phrases">
+
+      <div class="section-heading">
+        <span class="section-number">13</span>
+        <div>
+          <p class="section-kicker">AUDIO / TRANSCRIPT</p>
+          <h2>RECORDED PHRASES</h2>
+        </div>
+      </div>
+
+      <div class="phrase-list">
+
+        <blockquote>
+          “Too many questions.”
+        </blockquote>
+
+        <blockquote>
+          “Don't touch my paint.”
+        </blockquote>
+
+        <blockquote>
+          “Don't touch me at all.”
+        </blockquote>
+
+        <blockquote>
+          “Just... stay where I can see you.”
+        </blockquote>
+
+        <blockquote>
+          “I don't see them. They don't matter.”
+        </blockquote>
+
+        <blockquote>
+          “Doesn't happen. But if it does, I just move on.”
+        </blockquote>
+
+        <blockquote>
+          “My art is everywhere. My skin is mostly paint.”
+        </blockquote>
+
+      </div>
+
+    </section>
+
+
+    <!-- ART -->
+
+    <section class="record-section art-section">
+
+      <div class="section-heading">
+        <span class="section-number">14</span>
+        <div>
+          <p class="section-kicker">VISUAL RECORD</p>
+          <h2>THE WALL TELLS HER WHAT IT WANTS TO BE</h2>
+        </div>
+      </div>
+
+      <div class="art-hero">
+
+        <img
+          src="ammonia-graffiti.PNG"
+          alt="Ammonia painting a grotesque neon mural"
+        >
+
+        <div class="art-copy">
+          <p class="quote">
+            “I don't plan. Planning is for people who fear mistakes.”
+          </p>
+
+          <p>
+            Subject's graffiti practice is primarily improvisational. She
+            incorporates cracks, rust, water damage, old paint, structural
+            texture, and existing graffiti into compositions rather than
+            treating the wall as a blank surface.
+          </p>
+
+          <p>
+            Her recurring imagery includes Behemoths, impossible anatomy,
+            creatures inhabiting infrastructure, industrial decay, and
+            entities described by witnesses as “things that shouldn't exist.”
+          </p>
+
+          <p>
+            Signature mark consists of three parallel tapering slashes
+            resembling a claw drag. The subject occasionally produces larger
+            versions of her name, but does not consider the name itself the
+            primary signature.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="art-grid">
+
+        <figure>
+          <img src="ammonia-nine-mural.PNG" alt="Ammonia's massive Nine mural">
+          <figcaption>THE NINE MURAL / LARGEST CONFIRMED WORK</figcaption>
+        </figure>
+
+        <figure>
+          <img src="ammonia-riot-mural.PNG" alt="Abstract mural of Riot by Ammonia">
+          <figcaption>OUTLIER STUDY / RIOT</figcaption>
         </figure>
 
       </div>
@@ -279,1152 +1609,140 @@
     </section>
 
 
-    <!-- =========================================================
-         PERSONAL INFORMATION
-    ========================================================== -->
+    <!-- WREN -->
 
-    <section class="record-section personal-section" id="personal">
+    <section class="record-section wren-section" id="wren">
 
       <div class="section-heading">
-        <span>03</span>
-        <h2>PERSONAL INFORMATION</h2>
-      </div>
-
-      <div class="questionnaire-grid">
-
-        <article class="info-card confirmed">
-          <span>FULL NAME</span>
-          <strong>Ammonia</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>NICKNAMES</span>
-          <strong>Am / the bat girl / purple</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>PRONOUNS</span>
-          <strong>She / Her</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>GENDER</span>
-          <strong>Female</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>SPECIES</span>
-          <strong>Bat Demi Human</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>SPECIES SUBTYPE / PHENOTYPE</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>AGE</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>BIRTHDAY</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>ZODIAC SIGN</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>BLOOD TYPE</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>HEIGHT</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>WEIGHT</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>BUILD</span>
-          <strong>Pear shaped / fuller lower body</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>DOMINANT HAND</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>ORIGIN</span>
-          <strong>Neon Gut</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>CURRENT RESIDENCE</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>OCCUPATION</span>
-          <strong>Graffiti artist / scavenger</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>SOCIAL IDENTITY</span>
-          <strong>Outlier</strong>
-        </article>
-
-        <article class="info-card confirmed">
-          <span>OUTLIER STATUS</span>
-          <strong>Founding / unofficial leader</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>LANGUAGES</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>ACCENT / DIALECT</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>EDUCATION</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>RELATIONSHIP STATUS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         PHYSICAL
-    ========================================================== -->
-
-    <section class="record-section physical-section" id="physical">
-
-      <div class="section-heading">
-        <span>04</span>
-        <h2>PHYSICAL</h2>
-      </div>
-
-      <div class="physical-layout">
-
-        <div class="physical-image">
-          <img
-            src="detail-ammonia-ears.PNG"
-            alt="Close-up of Ammonia's large bat ears"
-          >
-        </div>
-
-        <div class="questionnaire-list">
-
-          <div class="field confirmed">
-            <span>SKIN</span>
-            <p>Slate gray, leathery.</p>
-          </div>
-
-          <div class="field confirmed">
-            <span>HAIR</span>
-            <p>Long, messy, black and purple.</p>
-          </div>
-
-          <div class="field confirmed">
-            <span>EYES</span>
-            <p>Black, glassy.</p>
-          </div>
-
-          <div class="field confirmed">
-            <span>FACE</span>
-            <p>Sharp features, high cheekbones.</p>
-          </div>
-
-          <div class="field confirmed">
-            <span>EARS</span>
-            <p>Extremely large bat ears with independent movement.</p>
-          </div>
-
-          <div class="field pending">
-            <span>TAIL / WINGS / OTHER APPENDAGES</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>TEETH</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>HANDS / NAILS</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>SCARS</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>PIERCINGS</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>TATTOOS</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>BODY MODIFICATIONS</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field confirmed">
-            <span>DISTINGUISHING FEATURES</span>
-            <p>Large ears, black eyes, pear-shaped morphology.</p>
-          </div>
-
-          <div class="field pending">
-            <span>SCENT</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>BODY TEMPERATURE</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>TYPICAL POSTURE</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>HOW THEY WALK</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>HOW THEY SIT</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>HOW THEY SLEEP</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>WHEN SICK</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>WHEN ANGRY</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-          <div class="field pending">
-            <span>WHEN GENUINELY HAPPY</span>
-            <p>RECORD PENDING</p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         ANIMAL BEHAVIOR
-    ========================================================== -->
-
-    <section class="record-section animal-section" id="animal">
-
-      <div class="section-heading">
-        <span>05</span>
-        <h2>ANIMAL BEHAVIOR</h2>
-      </div>
-
-      <p class="section-intro">
-        SJL classification does not stop at ears, tails, wings, horns,
-        or other visible traits. Demi human behavior is part of the
-        record.
-      </p>
-
-      <div class="questionnaire-grid">
-
-        <article class="info-card pending">
-          <span>INSTINCTIVE BEHAVIORS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>ANIMAL HABITS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>UNUSUAL HUMAN BEHAVIORS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>SPECIES-SPECIFIC SENSORY TRAITS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>VOCALIZATIONS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>GROOMING</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>SLEEPING BEHAVIOR</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-        <article class="info-card pending">
-          <span>REACTION TO THREATS</span>
-          <strong>RECORD PENDING</strong>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         PERSONALITY
-    ========================================================== -->
-
-    <section class="record-section personality-section" id="personality">
-
-      <div class="section-heading">
-        <span>06</span>
-        <h2>PERSONALITY</h2>
-      </div>
-
-      <div class="personality-grid">
-
-        <div class="personality-card">
-          <span>CORE PERSONALITY</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>FIRST IMPRESSION</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>ACTUAL PERSONALITY</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>PRIVATE PERSONALITY</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>SOCIAL BEHAVIOR</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>EMOTIONAL RANGE</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>SENSE OF HUMOR</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>TEMPER</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>PATIENCE</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>IMPULSE CONTROL</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>FEARS</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>PET PEEVES</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>SECRETLY LOVES</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>PRETENDS NOT TO CARE ABOUT</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>GENUINELY ANGRY</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>EMBARRASSMENT</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>FINDS FUNNY</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>FINDS DISGUSTING</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>WILL NEVER DO</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>WILL ABSOLUTELY DO</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>FEELS SAFE</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>FEELS THREATENED</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>CONFLICT</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>APOLOGIES</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>SHOWS AFFECTION</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div class="personality-card">
-          <span>RECEIVES AFFECTION</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         REALLY PERSONAL SHIT
-    ========================================================== -->
-
-    <section class="record-section invasive-section" id="invasive">
-
-      <div class="section-heading">
-        <span>07</span>
-        <h2>THE REALLY PERSONAL SHIT</h2>
-      </div>
-
-      <p class="section-intro">
-        This section contains information nobody needed to know.
-        Which is exactly why it is here.
-      </p>
-
-      <div class="diary-grid">
-
-        <article class="diary-entry">
-          <span>FAVORITE FOOD</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>COMFORT FOOD</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE DRINK</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>ALCOHOL TOLERANCE</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE SNACK</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FOOD THEY HATE</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>WEIRD FOOD HABITS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE COLOR</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE SMELL</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>WORST SMELL</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>FAVORITE PLACE IN SJL</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>PLACE THEY AVOID</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE TIME OF DAY</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE WEATHER</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE SEASON</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>FAVORITE MUSIC</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>FAVORITE ARTIST / BAND</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>FAVORITE SONG</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>ANGRY MUSIC</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>SAD MUSIC</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>HORNY MUSIC</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>3 AM SJL MUSIC</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE MOVIE / SHOW</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE BOOK</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE GAME</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>FAVORITE CLOTHING ITEM</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>MOST EXPENSIVE THING</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>MOST SENTIMENTAL THING</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>MOST USELESS THING THEY REFUSE TO THROW AWAY</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>POCKETS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>BAG</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>UNDER THE BED</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>BATHROOM</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>BROWSER / SEARCH HISTORY</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>MOST EMBARRASSING PURCHASE</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>LAST THING THEY GOOGLED</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry">
-          <span>LAST PERSON THEY TEXTED</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article class="diary-entry wide">
-          <span>WHO THEY CALL WHEN SHIT GOES WRONG</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         HABITS
-    ========================================================== -->
-
-    <section class="record-section habits-section" id="habits">
-
-      <div class="section-heading">
-        <span>08</span>
-        <h2>HABITS / ROUTINE</h2>
-      </div>
-
-      <div class="habit-list">
-
-        <div><span>TYPICAL MORNING</span><strong>RECORD PENDING</strong></div>
-        <div><span>TYPICAL AFTERNOON</span><strong>RECORD PENDING</strong></div>
-        <div><span>TYPICAL NIGHT</span><strong>RECORD PENDING</strong></div>
-        <div><span>SLEEP SCHEDULE</span><strong>RECORD PENDING</strong></div>
-        <div><span>EATING SCHEDULE</span><strong>RECORD PENDING</strong></div>
-        <div><span>WORK HABITS</span><strong>RECORD PENDING</strong></div>
-        <div><span>HYGIENE</span><strong>RECORD PENDING</strong></div>
-        <div><span>CLEANING</span><strong>RECORD PENDING</strong></div>
-        <div><span>SPENDING</span><strong>RECORD PENDING</strong></div>
-        <div><span>SMOKING / VAPING</span><strong>RECORD PENDING</strong></div>
-        <div><span>EXERCISE / PHYSICAL HABITS</span><strong>RECORD PENDING</strong></div>
-        <div><span>WHEN BORED</span><strong>RECORD PENDING</strong></div>
-        <div><span>WHEN NOBODY IS WATCHING</span><strong>RECORD PENDING</strong></div>
-        <div><span>WHEN THEY CAN'T SLEEP</span><strong>RECORD PENDING</strong></div>
-        <div><span>WHEN ANGRY</span><strong>RECORD PENDING</strong></div>
-        <div><span>WHEN SAD</span><strong>RECORD PENDING</strong></div>
-
-      </div>
-
-      <div class="tiny-details">
-
+        <span class="section-number">15</span>
         <div>
-          <span>TINY DETAIL</span>
-          <p>RECORD PENDING</p>
+          <p class="section-kicker">CREATOR RECORD</p>
+          <h2>WREN</h2>
         </div>
-
-        <div>
-          <span>ANNOYING HABIT</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div>
-          <span>ADORABLE HABIT</span>
-          <p>RECORD PENDING</p>
-        </div>
-
-        <div>
-          <span>THING EVERYONE KNOWS ABOUT THEM</span>
-          <p>RECORD PENDING</p>
-        </div>
-
       </div>
 
-    </section>
+      <div class="wren-note">
 
+        <div class="wren-label">
+          <span>CREATOR — WREN</span>
+          <small>OUT-OF-UNIVERSE</small>
+        </div>
 
-    <!-- =========================================================
-         SOCIAL
-    ========================================================== -->
-
-    <section class="record-section social-section" id="social">
-
-      <div class="section-heading">
-        <span>09</span>
-        <h2>SOCIAL</h2>
-      </div>
-
-      <div class="social-grid">
-
-        <div><span>FAMILY</span><p>RECORD PENDING</p></div>
-        <div><span>FRIENDS</span><p>RECORD PENDING</p></div>
-        <div><span>BEST FRIEND</span><p>RECORD PENDING</p></div>
-        <div><span>CLOSEST OUTLIER</span><p>RECORD PENDING</p></div>
-        <div><span>TRUSTS MOST</span><p>RECORD PENDING</p></div>
-        <div><span>TRUSTS LEAST</span><p>RECORD PENDING</p></div>
-        <div><span>4 AM CALL</span><p>RECORD PENDING</p></div>
-        <div><span>WOULD HIDE A BODY FOR</span><p>RECORD PENDING</p></div>
-        <div><span>ARGUES WITH CONSTANTLY</span><p>RECORD PENDING</p></div>
-        <div><span>SECRETLY ADMIRES</span><p>RECORD PENDING</p></div>
-        <div><span>ANNOYS THE ABSOLUTE FUCK OUT OF THEM</span><p>RECORD PENDING</p></div>
-        <div><span>WOULD NEVER ADMIT THEY CARE ABOUT</span><p>RECORD PENDING</p></div>
-        <div><span>ROMANTIC HISTORY</span><p>RECORD PENDING</p></div>
-        <div><span>CURRENT ROMANTIC RELATIONSHIPS</span><p>RECORD PENDING</p></div>
-        <div><span>SEXUAL RELATIONSHIPS / PREFERENCES</span><p>RECORD PENDING</p></div>
-        <div><span>ENEMIES</span><p>RECORD PENDING</p></div>
-        <div><span>RIVALS</span><p>RECORD PENDING</p></div>
-        <div><span>PEOPLE THEY'VE FUCKED OVER</span><p>RECORD PENDING</p></div>
-        <div><span>PEOPLE WHO'VE FUCKED THEM OVER</span><p>RECORD PENDING</p></div>
-        <div><span>PEOPLE THEY OWE</span><p>RECORD PENDING</p></div>
-        <div><span>PEOPLE WHO OWE THEM</span><p>RECORD PENDING</p></div>
-        <div><span>WHO THEY PROTECT</span><p>RECORD PENDING</p></div>
-        <div><span>WHO PROTECTS THEM</span><p>RECORD PENDING</p></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         OUTLIER RECORD
-    ========================================================== -->
-
-    <section class="record-section outlier-section" id="outlier">
-
-      <div class="section-heading">
-        <span>10</span>
-        <h2>OUTLIER RECORD</h2>
-      </div>
-
-      <div class="outlier-intro">
         <p>
-          The Outliers are a loose found-family of wandering weirdos.
-          This is not a formal organization, criminal classification,
-          crew hierarchy, or fixed membership roster.
+          Ammonia started from Michigan's insectivorous bats, specifically the
+          big brown bat and eastern red bat. I wanted dark skin, huge ears,
+          black eyes, and the general feeling of a creature that belongs to
+          the city instead of somebody who was dressed up as a bat.
         </p>
+
+        <p>
+          She originally could have had wings, but she got much more
+          interesting when I took them away. She's better as this weird
+          terrestrial/arboreal little bastard who climbs everything and has
+          absolutely no interest in pretending to understand normal social
+          rules.
+        </p>
+
+        <p>
+          “Ammonia” is literally piss. I wanted the name to carry the smell
+          with it. She grew up around industrial shit, chemicals, wet
+          concrete, and garbage, and I liked the idea that her name felt
+          unpleasant before you even knew what she looked like.
+        </p>
+
+        <p>
+          She is also one of those characters I like because the contradictions
+          are the point. She's socially oblivious but not stupid. She's
+          extremely practical but artistically obsessive. She can be
+          completely shameless about her body and still have fashion sense.
+          She can look like she wandered out of a dumpster and then somehow
+          show up in an actual dress when Doll forces her to go somewhere
+          fancy.
+        </p>
+
+        <p>
+          She does care about people. She just doesn't use the same language
+          for caring that everybody else does.
+        </p>
+
       </div>
 
-      <div class="outlier-fields">
+      <div class="wren-gallery">
 
-        <div><span>HOW THEY JOINED</span><p>RECORD PENDING</p></div>
-        <div><span>WHO FOUND THEM</span><p>RECORD PENDING</p></div>
-        <div><span>WHY THEY STAYED</span><p>RECORD PENDING</p></div>
-        <div><span>HOW OFTEN THEY DISAPPEAR</span><p>RECORD PENDING</p></div>
-        <div><span>WHERE THEY SLEEP</span><p>RECORD PENDING</p></div>
-        <div><span>WHO THEY TRAVEL WITH</span><p>RECORD PENDING</p></div>
-        <div><span>WHERE THEY USUALLY TURN UP</span><p>RECORD PENDING</p></div>
-        <div><span>WHAT THEY CONTRIBUTE</span><p>RECORD PENDING</p></div>
-        <div><span>WHAT THEY ARE INFAMOUS FOR</span><p>RECORD PENDING</p></div>
-        <div><span>WHAT THE OTHER OUTLIERS KNOW</span><p>RECORD PENDING</p></div>
-        <div><span>WHAT THE OTHER OUTLIERS DON'T KNOW</span><p>RECORD PENDING</p></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         HISTORY
-    ========================================================== -->
-
-    <section class="record-section history-section" id="history">
-
-      <div class="section-heading">
-        <span>11</span>
-        <h2>HISTORY</h2>
-      </div>
-
-      <div class="history-list">
-
-        <article>
-          <span>CHILDHOOD</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>FAMILY BACKGROUND</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>WHERE THEY GREW UP</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>MAJOR EVENTS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>EDUCATION</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>FIRST JOB</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>FIRST CRIME</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>FIRST OUTLIER ENCOUNTER</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>HOW THEY ENDED UP HERE</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>SIGNIFICANT RELATIONSHIPS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>IMPORTANT INJURIES</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>IMPORTANT LOSSES</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>MAJOR TURNING POINTS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>CURRENT SITUATION</span>
-          <p>RECORD PENDING</p>
-        </article>
+        <img src="ammonia-rooftop.PNG" alt="Ammonia on a Neon Gut rooftop">
+        <img src="ammonia-room.PNG" alt="Ammonia's sleeping and painting space">
+        <img src="ammonia-eyes.PNG" alt="Close portrait of Ammonia's eyes">
 
       </div>
 
     </section>
 
 
-    <!-- =========================================================
-         FOUND IN THEIR ROOM
-    ========================================================== -->
+    <!-- FINAL -->
 
-    <section class="record-section room-section" id="room">
+    <section class="final-record">
 
-      <div class="section-heading">
-        <span>12</span>
-        <h2>FOUND IN THEIR ROOM</h2>
-      </div>
-
-      <div class="room-warning">
-        <span>OBJECTS RECOVERED</span>
-        <strong>WHY THE FUCK IS THIS IN THE DATABASE</strong>
-      </div>
-
-      <div class="room-grid">
-
-        <article>
-          <span>CLOTHES</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>RECEIPTS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>NOTES</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>PHOTOS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>TRASH</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>PERSONAL EFFECTS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>WEAPONS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>FOOD WRAPPERS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>BOOKS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>DRAWINGS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>UNFINISHED PROJECTS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>WEIRD LITTLE OBJECTS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>COLLECTIONS</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>OBJECTS THEY REFUSE TO EXPLAIN</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-      </div>
-
-      <figure class="room-image">
+      <div class="final-image">
         <img
-          src="ammonia-paint-supplies.PNG"
-          alt="Ammonia's paint supplies and personal objects"
+          src="ammonia-dossier.PNG"
+          alt="Compromised SJL dossier concerning Ammonia"
         >
-        <figcaption>
-          PHOTOGRAPHIC EVIDENCE // PERSONAL EFFECTS
-        </figcaption>
-      </figure>
-
-    </section>
-
-
-    <!-- =========================================================
-         QUOTES
-    ========================================================== -->
-
-    <section class="record-section quotes-section" id="quotes">
-
-      <div class="section-heading">
-        <span>13</span>
-        <h2>RECORDED PHRASES</h2>
       </div>
 
-      <p class="section-intro">
-        Not “character quotes.” Things actually heard.
-      </p>
+      <div class="final-copy">
 
-      <div class="quote-board">
+        <p class="eyebrow">END OF AVAILABLE RECORD</p>
 
-        <article>
-          <span>REPEATED PHRASE</span>
-          <p>RECORD PENDING</p>
-        </article>
+        <h2>THE WALL REMEMBERS.</h2>
 
-        <article>
-          <span>FAVORITE SWEAR</span>
-          <p>RECORD PENDING</p>
-        </article>
+        <p>
+          This file is incomplete. That is not unusual.
+        </p>
 
-        <article>
-          <span>WHAT THEY CALL OTHER PEOPLE</span>
-          <p>RECORD PENDING</p>
-        </article>
+        <p>
+          Additional records may exist in municipal archives, district
+          records, private collections, abandoned buildings, or on walls
+          throughout Saint Jude's Landing.
+        </p>
 
-        <article>
-          <span>WHEN ANGRY</span>
-          <p>RECORD PENDING</p>
-        </article>
+        <a href="neon-gut.html" class="return-link">
+          ← RETURN TO THE NEON GUT
+        </a>
 
-        <article>
-          <span>WHEN DRUNK</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-        <article>
-          <span>WHEN THEY THINK NOBODY IS LISTENING</span>
-          <p>RECORD PENDING</p>
-        </article>
-
-      </div>
-
-      <blockquote class="recorded-quote">
-        “Too many questions. Loud. Brain hurts.”
-        <cite>— Ammonia, apparently</cite>
-      </blockquote>
-
-    </section>
-
-
-    <!-- =========================================================
-         VISUAL RECORD
-    ========================================================== -->
-
-    <section class="visual-record">
-
-      <div class="visual-block">
-        <img
-          src="ammonia-rooftop.PNG"
-          alt="Ammonia perched above the Neon Gut"
-        >
-        <span>FIELD IMAGE // NEON GUT</span>
-      </div>
-
-      <div class="visual-block">
-        <img
-          src="ammonia-painting.PNG"
-          alt="Ammonia painting graffiti"
-        >
-        <span>FIELD IMAGE // ARTISTIC ACTIVITY</span>
-      </div>
-
-      <div class="visual-block">
-        <img
-          src="ammonia-mural.PNG"
-          alt="Ammonia's large Behemoth mural in Nine"
-        >
-        <span>FIELD IMAGE // NINE</span>
       </div>
 
     </section>
 
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer class="archive-footer">
-
-      <div class="footer-stamp">
-        SJL ARCHIVE
-      </div>
-
-      <div class="footer-data">
-        <span>FILE: OUTLIER-001</span>
-        <span>SUBJECT: AMMONIA</span>
-        <span>ORIGIN: NEON GUT</span>
-        <span>STATUS: ACTIVE</span>
-        <span>RECORD: COMPROMISED</span>
-      </div>
-
-      <p>
-        This file has been accessed outside authorized municipal
-        channels. Nobody appears particularly concerned.
-      </p>
-
-      <a href="index.html">← RETURN TO SAINT JUDE'S LANDING</a>
-
-    </footer>
 
   </main>
 
+
+  <footer class="archive-footer">
+
+    <div>
+      <strong>SJL MUNICIPAL ARCHIVE</strong>
+      <span>PERSONNEL / OUTLIER RECORD</span>
+    </div>
+
+    <div>
+      <span>RECORD STATUS: INCOMPLETE</span>
+      <span>LAST UPDATED: RECORD PENDING</span>
+      <span>SOURCE: RECORD PENDING</span>
+    </div>
+
+    <div>
+      <span>ACCESS: UNAUTHORIZED</span>
+      <span>INTEGRITY: COMPROMISED</span>
+    </div>
+
+    <p>
+      IF YOU ARE READING THIS, SOMEBODY FUCKED UP.
+    </p>
+
+  </footer>
+
+
   <script src="ammonia.js"></script>
+
 </body>
 </html>
