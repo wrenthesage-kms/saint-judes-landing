@@ -10,385 +10,293 @@
 
     <meta
         name="description"
-        content="Saint Jude's Landing // an archive of a city that has been accumulating itself for roughly nineteen hundred years."
+        content="Saint Jude's Landing — an ancient city that accumulated itself into something nobody can fully map."
     >
 
-    <title>SAINT JUDE'S LANDING // ARCHIVE</title>
+    <title>SAINT JUDE'S LANDING // CITY RECORD</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="site-noise"></div>
-<div id="light-leak"></div>
+    <div class="site-noise"></div>
+    <div class="site-vignette"></div>
 
-<header class="topbar">
+    <header class="masthead">
 
-    <div class="repo-mark">
-        <span class="repo-symbol">✦</span>
-        <span>SAINT JUDE'S LANDING</span>
-        <span class="repo-slash">//</span>
-        <span class="repo-muted">ARCHIVE</span>
-    </div>
-
-    <div class="top-status">
-        <span class="status-dot"></span>
-        <span>DOCUMENTING</span>
-        <span class="top-version">v.1900-ish</span>
-    </div>
-
-</header>
-
-
-<div class="page-shell">
-
-    <aside class="sidebar">
-
-        <div class="side-stamp">
-
-            <div class="stamp-big">SJL</div>
-
-            <div class="stamp-small">
-                SAINT JUDE'S<br>
-                LANDING
-            </div>
-
-            <div class="stamp-warning">
-                PUBLIC / INCOMPLETE /<br>
-                POSSIBLY STOLEN
-            </div>
-
+        <div class="masthead-mark">
+            <span class="mark-line"></span>
+            <span>SJL</span>
+            <span class="mark-line"></span>
         </div>
 
-
-        <div class="side-section">
-
-            <div class="side-label">
-                PAGES / FILES
-            </div>
-
-            <button class="nav-btn active" data-target="home">
-                <span>01</span>
-                <b>README</b>
-                <i>paper</i>
-            </button>
-
-            <button class="nav-btn" data-target="city">
-                <span>02</span>
-                <b>THE CITY</b>
-                <i>municipal</i>
-            </button>
-
-            <button class="nav-btn" data-target="history">
-                <span>03</span>
-                <b>HISTORY</b>
-                <i>old copy</i>
-            </button>
-
-            <button class="nav-btn" data-target="districts">
-                <span>04</span>
-                <b>DISTRICTS</b>
-                <i>flyer</i>
-            </button>
-
-            <button class="nav-btn" data-target="layers">
-                <span>05</span>
-                <b>CITY LAYERS</b>
-                <i>warning</i>
-            </button>
-
-            <button class="nav-btn" data-target="behemoths">
-                <span>06</span>
-                <b>BEHEMOTHS</b>
-                <i>evidence</i>
-            </button>
-
-            <button class="nav-btn" data-target="outliers">
-                <span>07</span>
-                <b>THE OUTLIERS</b>
-                <i>photo strip</i>
-            </button>
-
+        <div class="masthead-title">
+            <span class="eyebrow">MUNICIPAL / INDUSTRIAL / HISTORICAL RECORD</span>
+            <h1>SAINT JUDE'S<br><i>LANDING</i></h1>
         </div>
 
-
-        <div class="side-section">
-
-            <div class="side-label">
-                QUICK ACCESS
-            </div>
-
-            <button class="nav-btn minor" data-target="field-notes">
-                FIELD NOTES
-            </button>
-
-            <button class="nav-btn minor" id="random-fact">
-                RANDOM FACT
-            </button>
-
+        <div class="masthead-status">
+            <span>RECORD STATUS</span>
+            <strong>ONGOING</strong>
+            <small>NO COMPLETE MAP EXISTS</small>
         </div>
 
-
-        <div class="side-scribble">
-            <span>someone wrote:</span>
-            <strong>THE MAP IS WRONG.</strong>
-            <small>— leave it alone</small>
-        </div>
+    </header>
 
 
-        <div class="side-footer">
+    <nav class="main-nav" aria-label="Main navigation">
 
-            <div>STATUS: ALIVE</div>
-            <div>LAST UPDATED: UNKNOWN</div>
-            <div>MAINTAINER: NOBODY OFFICIAL</div>
+        <button class="nav-link active" data-view="city">
+            <span>01</span>
+            THE CITY
+        </button>
 
-        </div>
+        <button class="nav-link" data-view="history">
+            <span>02</span>
+            HISTORY
+        </button>
 
-    </aside>
+        <button class="nav-link" data-view="layers">
+            <span>03</span>
+            LAYERS
+        </button>
+
+        <button class="nav-link" data-view="behemoths">
+            <span>04</span>
+            BEHEMOTHS
+        </button>
+
+        <button class="nav-link" data-view="places">
+            <span>05</span>
+            PLACES
+        </button>
+
+        <button class="nav-link" data-view="outliers">
+            <span>06</span>
+            OUTLIERS
+        </button>
+
+        <button class="nav-link" data-view="field-notes">
+            <span>07</span>
+            FIELD NOTES
+        </button>
+
+    </nav>
 
 
-    <main class="main-content">
+    <main>
 
+        <!-- =========================================================
+             CITY
+        ========================================================== -->
 
-        <!-- =====================================================
-             HOME
-             ===================================================== -->
+        <section class="view active" id="city">
 
-        <section class="page-section active" id="home">
+            <div class="city-intro">
 
+                <div class="intro-copy">
 
-            <div class="home-hero">
+                    <p class="record-number">CITY RECORD // 001</p>
 
-                <img
-                    class="hero-image"
-                    src="hero-neon-gut.PNG"
-                    alt="The Neon Gut at night"
-                >
+                    <h2>
+                        There is no single
+                        <em>ground level.</em>
+                    </h2>
 
-                <div class="hero-image-wash"></div>
-
-                <div class="hero-image-caption">
-                    <span>FIELD IMAGE 001</span>
-                    <span>NEON GUT / UNKNOWN DATE</span>
-                </div>
-
-
-                <div class="hero-copy">
-
-                    <div class="hero-kicker">
-                        <span>README.md</span>
-                        <span>PUBLIC / INCOMPLETE / UNRELIABLE</span>
-                    </div>
-
-                    <h1>
-                        SAINT JUDE'S
-                        <em>LANDING</em>
-                    </h1>
-
-                    <div class="hero-slash"></div>
-
-                    <p class="hero-intro">
-                        An ancient city that was never actually planned.
-                        Roughly nineteen hundred years of construction,
-                        trade, migration, industry, disasters, bad decisions,
-                        abandoned buildings, strange businesses, dead things,
-                        living things, and people who simply refused to leave.
+                    <p class="lead">
+                        Saint Jude's Landing is approximately 1,900 years old.
+                        Nobody designed it. It accumulated.
                     </p>
 
-                    <div class="hero-warning">
-                        <span>!</span>
-                        THERE IS NO COMPLETE MAP.
-                        THERE HAS NEVER BEEN A COMPLETE MAP.
+                    <p>
+                        A wooden dock became storage. Storage became houses.
+                        Houses became streets. Streets became neighborhoods.
+                        Neighborhoods became factories, markets, tunnels,
+                        basements, bridges, rooftops, utility corridors,
+                        abandoned buildings, businesses, illegal businesses,
+                        and buildings built directly on top of things that
+                        were already there.
+                    </p>
+
+                    <p>
+                        Then people kept building.
+                    </p>
+
+                    <p>
+                        There is no master plan. There is no clean boundary
+                        between old and new. There is no point at which the
+                        city stopped becoming itself.
+                    </p>
+
+                    <div class="hard-note">
+                        <span>DO NOT ASSUME</span>
+                        <p>
+                            The map is wrong. The city is not.
+                        </p>
                     </div>
 
                 </div>
 
-            </div>
 
-
-            <div class="home-manifesto">
-
-                <div class="manifesto-label">
-                    <span>ARCHIVE NOTE</span>
-                    <span>DO NOT READ THIS LIKE A TOURIST BROCHURE</span>
-                </div>
-
-                <div class="manifesto-copy">
-                    <p>
-                        Saint Jude's Landing is not a clean historical site.
-                        It is not a city that was built once and maintained
-                        afterward.
-                    </p>
-
-                    <p class="manifesto-big">
-                        It accumulated.
-                    </p>
-
-                    <p>
-                        People built things. Other people built over them.
-                        Somebody moved in. Somebody else opened a business.
-                        Somebody dug a tunnel. Somebody flooded it.
-                        Somebody built a road over the tunnel.
-                        Somebody built an apartment over the road.
-                    </p>
-
-                    <p>
-                        Then nineteen hundred years happened.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="stat-strip">
-
-                <div class="stat-card stat-violet">
-                    <span class="stat-number">~1900</span>
-                    <span class="stat-label">YEARS OLD</span>
-                </div>
-
-                <div class="stat-card stat-pink">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">LAYERS</span>
-                </div>
-
-                <div class="stat-card stat-red">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">MAJOR DISTRICTS</span>
-                </div>
-
-                <div class="stat-card stat-yellow">
-                    <span class="stat-number">?</span>
-                    <span class="stat-label">KNOWN DEPTH</span>
-                </div>
-
-            </div>
-
-
-            <div class="home-collage">
-
-                <article class="archive-note torn-note">
-
-                    <span class="paper-number">NOTE / 001</span>
-
-                    <h2>
-                        NOBODY<br>
-                        DESIGNED<br>
-                        THIS PLACE.
-                    </h2>
-
-                    <p>
-                        Saint Jude's Landing began as a wooden dock,
-                        a few storage buildings, several houses, and
-                        an inland road that somebody apparently decided
-                        was good enough.
-                    </p>
-
-                    <p>
-                        Everything else happened afterward.
-                    </p>
-
-                    <strong class="handwritten">
-                        don't ask where the original street went
-                    </strong>
-
-                </article>
-
-
-                <figure class="image-polaroid tilted-left">
+                <figure class="intro-image">
 
                     <img
-                        src="neon-gut-street.PNG"
-                        alt="A wet Neon Gut street"
+                        src="world-impossible-geometry.PNG"
+                        alt="Impossible layered architecture in Saint Jude's Landing"
                     >
 
                     <figcaption>
-                        <b>FIG. 001</b>
-                        nobody cleaned this street for 43 years.
-                        probably.
+                        FIG. 001 — SPATIAL RECORD
+                        <span>LOCATION: UNVERIFIED</span>
                     </figcaption>
 
                 </figure>
 
+            </div>
 
-                <article class="archive-note dark-note">
 
-                    <span class="paper-number">CORE RULE</span>
+            <div class="city-statement">
 
-                    <h2>
-                        EVERYTHING<br>
-                        HAS A REASON.
-                    </h2>
+                <span class="statement-mark">SJL</span>
 
-                    <p>
-                        Most of those reasons have been forgotten.
-                    </p>
+                <p>
+                    <strong>SJL functions despite everything</strong>
+                    because people keep making it function.
+                </p>
 
-                    <ul class="ugly-list">
-                        <li>A street exists because somebody built a house.</li>
-                        <li>A neighborhood exists because people kept doing the same shit there.</li>
-                        <li>An industry exists because somebody found something valuable.</li>
-                        <li>A gang exists because people started protecting their own.</li>
-                        <li>A building survives because nobody demolished it.</li>
-                        <li>A name survives because nobody changed it.</li>
-                    </ul>
+            </div>
+
+
+            <div class="city-grid">
+
+                <article class="city-piece piece-wide">
+
+                    <div class="piece-image">
+                        <img
+                            src="sjl-city-crosssection.PNG"
+                            alt="Cross section of Saint Jude's Landing"
+                        >
+                    </div>
+
+                    <div class="piece-text">
+
+                        <span class="piece-label">STRUCTURAL RECORD</span>
+
+                        <h3>Built through accumulation.</h3>
+
+                        <p>
+                            The city grew around whatever was already there.
+                            Old roads remain underneath newer roads. Buildings
+                            have basements underneath older foundations.
+                            Utility systems pass through abandoned structures.
+                            New construction occasionally reveals rooms nobody
+                            remembers building.
+                        </p>
+
+                        <p>
+                            Some routes exist because somebody needed to get
+                            somewhere three hundred years ago. Some exist
+                            because somebody knocked a hole through a wall.
+                            Some exist because the wall was never actually
+                            where the records said it was.
+                        </p>
+
+                    </div>
 
                 </article>
 
 
-                <figure class="image-polaroid tilted-right">
+                <article class="city-piece">
 
                     <img
-                        src="neon-gut-underpass.PNG"
-                        alt="A Neon Gut underpass"
+                        src="world-archive-evidence.PNG"
+                        alt="Archived evidence from Saint Jude's Landing"
                     >
 
-                    <figcaption>
-                        <b>FIELD PHOTO</b>
-                        underpass / east gut / date unknown
-                    </figcaption>
+                    <div class="piece-text">
 
-                </figure>
+                        <span class="piece-label">PUBLIC RECORD</span>
+
+                        <h3>Everything passes through.</h3>
+
+                        <p>
+                            Fish. Salt. Grain. Leather. Metal. Tools.
+                            Manufactured goods. Stolen goods. Smuggled goods.
+                            Illegal goods. Things that technically belonged to
+                            someone else.
+                        </p>
+
+                        <p>
+                            Things nobody wanted to admit existed.
+                        </p>
+
+                    </div>
+
+                </article>
 
 
-                <article class="archive-note red-note-card">
+                <article class="city-piece">
 
-                    <span class="paper-number">LOCAL ADVICE</span>
+                    <img
+                        src="portrait-interior-velvet-mansion.PNG"
+                        alt="Interior of an old Velvet mansion"
+                    >
 
-                    <h2>DO NOT ASSUME.</h2>
+                    <div class="piece-text">
 
-                    <p>
-                        A street can connect to a tunnel.
-                        A shop can have three floors above it and
-                        another building underneath it.
-                    </p>
+                        <span class="piece-label">CIVIC CONDITION</span>
 
-                    <p>
-                        A district can disappear for several blocks
-                        and show up again somewhere else.
-                    </p>
+                        <h3>Technically, there is a government.</h3>
 
-                    <strong>
-                        THERE IS NO SINGLE GROUND FLOOR ANYMORE.
-                    </strong>
+                        <p>
+                            Mayor. Courts. Police. Taxes. Permits. Zoning.
+                            Departments. Municipal offices.
+                        </p>
+
+                        <p>
+                            Actual authority is fragmented between
+                            corporations, factories, unions, families,
+                            gangs, landlords, private security, smugglers,
+                            religious groups, wealthy people, and businesses.
+                        </p>
+
+                    </div>
 
                 </article>
 
             </div>
 
 
-            <div class="home-wide-image">
+            <div class="city-bottom">
 
-                <img
-                    src="sjl-city-crosssection.PNG"
-                    alt="Cutaway view of Saint Jude's Landing showing its accumulated layers"
-                >
+                <div class="city-warning">
+                    <span>READ THIS CORRECTLY</span>
+                    <h3>DO NOT READ THIS LIKE A TOURIST BROCHURE.</h3>
+                </div>
 
-                <div class="wide-image-label">
-                    <span>SJL / CROSS SECTION</span>
-                    <strong>THIS IS NOT TO SCALE.</strong>
-                    <span>IT IS ALSO NOT COMPLETELY WRONG.</span>
+                <div class="city-stats">
+
+                    <div>
+                        <strong>~1,900</strong>
+                        <span>YEARS OF ACCUMULATION</span>
+                    </div>
+
+                    <div>
+                        <strong>4</strong>
+                        <span>CORE DISTRICTS</span>
+                    </div>
+
+                    <div>
+                        <strong>∞</strong>
+                        <span>WAYS TO GET LOST</span>
+                    </div>
+
+                    <div>
+                        <strong>?</strong>
+                        <span>UNMAPPED DEPTH</span>
+                    </div>
+
                 </div>
 
             </div>
@@ -396,771 +304,289 @@
         </section>
 
 
+        <!-- =========================================================
+             HISTORY
+        ========================================================== -->
 
-        <!-- =====================================================
-             CITY
-             ===================================================== -->
-
-        <section class="page-section" id="city">
+        <section class="view" id="history">
 
             <div class="section-header">
 
-                <span class="section-number">02 //</span>
-
                 <div>
-                    <span class="section-file">CITY / README</span>
-                    <h1>THE CITY</h1>
+                    <span class="record-number">HISTORICAL RECORD // 002</span>
+                    <h2>Everything else happened afterward.</h2>
                 </div>
 
                 <p>
-                    What Saint Jude's Landing actually is,
-                    without pretending anybody fully understands it.
+                    Dates are approximate. Records disagree.
+                    Some records are lying.
                 </p>
 
             </div>
 
 
-            <div class="section-photo-banner">
+            <div class="history-layout">
 
-                <img
-                    src="world-impossible-geometry.PNG"
-                    alt="Impossible overlapping architecture in Saint Jude's Landing"
-                >
+                <figure class="newspaper">
 
-                <div class="photo-stamp">
-                    <span>ARCHITECTURAL SURVEY</span>
-                    <strong>NON-LINEAR</strong>
-                    <small>geometry disputed</small>
+                    <img
+                        src="texture-newspaper.PNG"
+                        alt="Old newspaper texture"
+                    >
+
+                    <figcaption>
+                        SURVIVING PRINT MATERIAL
+                    </figcaption>
+
+                </figure>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-entry">
+
+                        <div class="timeline-date">
+                            ~1,900 YEARS AGO
+                        </div>
+
+                        <div class="timeline-body">
+
+                            <h3>THE LANDING</h3>
+
+                            <p>
+                                The earliest settlement begins as a wooden dock,
+                                storage, several houses, a rough road inland,
+                                and access to freshwater.
+                            </p>
+
+                            <p>
+                                People build wherever the ground supports them.
+                                There is no master plan.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-entry">
+
+                        <div class="timeline-date">
+                            EARLY CENTURIES
+                        </div>
+
+                        <div class="timeline-body">
+
+                            <h3>TRADE TAKES OVER</h3>
+
+                            <p>
+                                The settlement becomes a useful place to move
+                                goods, people, materials, and information.
+                            </p>
+
+                            <p>
+                                The dock becomes a city because people keep
+                                finding reasons to stay.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-entry major">
+
+                        <div class="timeline-date">
+                            ~1,100 YEARS AGO
+                        </div>
+
+                        <div class="timeline-body">
+
+                            <span class="danger-label">MAJOR EVENT</span>
+
+                            <h3>THE FIRST BEHEMOTH</h3>
+
+                            <p>
+                                A carcass washes ashore larger than the
+                                settlement itself.
+                            </p>
+
+                            <p>
+                                Its bones are unusually dense. Its hide resists
+                                fire. Its blood contaminates the surrounding
+                                land for years.
+                            </p>
+
+                            <p>
+                                People harvest everything they can.
+                            </p>
+
+                            <p>
+                                Behemoth material becomes useful.
+                                Then valuable.
+                                Then profitable.
+                            </p>
+
+                            <p>
+                                Eventually an entire industrial economy grows
+                                around it.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-entry">
+
+                        <div class="timeline-date">
+                            FOLLOWING CENTURIES
+                        </div>
+
+                        <div class="timeline-body">
+
+                            <h3>INDUSTRY</h3>
+
+                            <p>
+                                Processing facilities, factories, chemical
+                                plants, transport systems, worker housing,
+                                warehouses, foundries, and associated
+                                infrastructure spread through the city.
+                            </p>
+
+                            <p>
+                                Behemoth remains become construction material,
+                                fuel, chemicals, tools, manufactured goods,
+                                recreational substances, and commercial
+                                products.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-entry">
+
+                        <div class="timeline-date">
+                            INDUSTRIAL AGE → PRESENT
+                        </div>
+
+                        <div class="timeline-body">
+
+                            <h3>THE DISASTERS</h3>
+
+                            <ul class="incident-list">
+                                <li>Factory explosions</li>
+                                <li>Chemical spills</li>
+                                <li>Power failures</li>
+                                <li>Labor riots</li>
+                                <li>Gang wars</li>
+                                <li>Fires</li>
+                                <li>Structural collapses</li>
+                                <li>Disease outbreaks</li>
+                                <li>Containment failures</li>
+                                <li>Financial crashes</li>
+                                <li>Missing shipments</li>
+                                <li>Missing people</li>
+                                <li>Missing buildings</li>
+                            </ul>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-entry">
+
+                        <div class="timeline-date">
+                            CURRENT RECORD
+                        </div>
+
+                        <div class="timeline-body">
+
+                            <h3>OUTSIDE GOVERNMENTS STOP TRYING.</h3>
+
+                            <p>
+                                At some point, outside governments decide that
+                                Saint Jude's Landing is too expensive, too
+                                complicated, too entrenched, and still too
+                                useful to dismantle.
+                            </p>
+
+                            <p>
+                                The practical solution becomes leaving it
+                                alone.
+                            </p>
+
+                            <p class="record-red">
+                                No one is coming to fix it.
+                            </p>
+
+                        </div>
+
+                    </article>
+
                 </div>
 
             </div>
 
 
-            <div class="long-copy">
+            <div class="jude-record">
 
-                <div class="copy-block">
-
-                    <span class="margin-note">ORIGIN / FILE 0001</span>
-
-                    <h2>A DOCK, BASICALLY.</h2>
-
-                    <p>
-                        The first settlement was small enough that calling
-                        it a city would have been ridiculous. There was a
-                        wooden dock, storage space, several houses, a rough
-                        inland road, and freshwater nearby. People built
-                        where the ground would support them because there
-                        was no reason to do anything else.
-                    </p>
-
-                    <p>
-                        No master plan was waiting for them. Nobody drew
-                        out elegant avenues and designated future districts.
-                        People put buildings where they needed buildings.
-                        They dug drainage after drainage became a problem.
-                        They widened roads when carts could no longer get
-                        through them. Then somebody built on top of that.
-                    </p>
-
+                <div class="jude-title">
+                    <span>ORIGIN FIGURE</span>
+                    <h3>JUDE OF THE LANDING</h3>
                 </div>
 
-
-                <div class="copy-photo-row">
-
-                    <div class="copy-block">
-
-                        <span class="margin-note">TRADE</span>
-
-                        <h2>EVERYTHING PASSED THROUGH.</h2>
-
-                        <p>
-                            Fish, salt, grain, leather, metal, tools,
-                            manufactured goods, stolen goods, smuggled
-                            goods, illegal goods, things that technically
-                            belonged to someone else, and things nobody
-                            wanted to admit existed.
-                        </p>
-
-                    </div>
-
-                    <figure class="small-photo">
-
-                        <img
-                            src="world-archive-evidence.PNG"
-                            alt="Saint Jude's archive evidence"
-                        >
-
-                        <figcaption>
-                            receipts / cargo notes / names
-                        </figcaption>
-
-                    </figure>
-
-                </div>
-
-
-                <div class="copy-block">
-
-                    <span class="margin-note">THE LANDING</span>
-
-                    <h2>SO WHO THE FUCK WAS JUDE?</h2>
-
-                    <p>
-                        Nobody knows.
-                    </p>
+                <div class="jude-columns">
 
                     <p>
                         The oldest surviving references call him
-                        “Jude of the Landing.” One account describes
-                        a fisherman. Another describes a soldier.
-                        One particularly questionable source insists
-                        Jude was a drunk who stole a boat and accidentally
-                        founded the settlement.
+                        <strong>“Jude of the Landing.”</strong>
                     </p>
 
                     <p>
-                        There is no reliable evidence that he was ever
-                        a saint.
+                        One account describes a fisherman.
+                        Another describes a soldier.
+                        One particularly questionable source insists Jude was
+                        a drunk who stole a boat and accidentally founded the
+                        settlement.
                     </p>
 
-                    <p class="highlight-text">
-                        At some point somebody started calling him
-                        Saint Jude. Nobody corrected them.
+                    <p>
+                        There is no reliable evidence that he was ever a saint.
+                        At some point somebody started calling him Saint Jude.
+                        Nobody corrected them.
+                    </p>
+
+                    <p class="jude-last">
                         The name survived.
                     </p>
 
                 </div>
 
-
-                <div class="city-interior-split">
-
-                    <figure class="portrait-photo">
-
-                        <img
-                            src="portrait-interior-velvet-mansion.PNG"
-                            alt="Interior of a decaying Velvet mansion"
-                        >
-
-                        <figcaption>
-                            VELVET / INTERIOR / DATE UNKNOWN
-                        </figcaption>
-
-                    </figure>
-
-
-                    <div class="copy-block">
-
-                        <span class="margin-note">MODERN SAINT JUDE</span>
-
-                        <h2>TECHNICALLY, THERE IS A GOVERNMENT.</h2>
-
-                        <p>
-                            There is a mayor. There are courts. There are
-                            police. There are taxes, permits, departments,
-                            zoning regulations, municipal offices, and
-                            enough paperwork to prove that somebody is
-                            theoretically in charge.
-                        </p>
-
-                        <p>
-                            Actual authority is considerably messier.
-                        </p>
-
-                        <p>
-                            Corporations, factories, unions, families,
-                            gangs, landlords, private security, smugglers,
-                            religious organizations, wealthy individuals,
-                            businesses, and heavily armed groups all control
-                            pieces of the city in practice.
-                        </p>
-
-                        <p>
-                            Some streets answer to nobody.
-                            Some buildings have their own rules.
-                            Some businesses do not accept official currency.
-                            Some residents have not paid municipal taxes
-                            in decades.
-                        </p>
-
-                        <p>
-                            Somehow, the city continues functioning.
-                        </p>
-
-                    </div>
-
-                </div>
-
             </div>
 
         </section>
 
 
-
-        <!-- =====================================================
-             HISTORY
-             ===================================================== -->
-
-        <section class="page-section" id="history">
-
-            <div class="section-header">
-
-                <span class="section-number">03 //</span>
-
-                <div>
-                    <span class="section-file">HISTORY / BAD RECORDS</span>
-                    <h1>HISTORY</h1>
-                </div>
-
-                <p>
-                    Approximately nineteen hundred years of accumulated problems.
-                </p>
-
-            </div>
-
-
-            <div class="history-image">
-
-                <img
-                    src="texture-newspaper.PNG"
-                    alt="Old newspaper clipping about Saint Jude's Landing"
-                >
-
-                <div class="history-caption">
-                    <span>ARCHIVED PRESS / YEAR UNKNOWN</span>
-                    <strong>THE HEADLINE IS PARTIALLY MISSING.</strong>
-                </div>
-
-            </div>
-
-
-            <div class="timeline">
-
-                <article class="timeline-item">
-
-                    <div class="timeline-date">
-                        ~1900 YEARS AGO
-                    </div>
-
-                    <div class="timeline-body">
-
-                        <span class="timeline-file">ORIGIN / 0001</span>
-
-                        <h2>THE LANDING</h2>
-
-                        <p>
-                            A small waterfront settlement develops around
-                            a wooden dock, storage buildings, houses,
-                            freshwater, and a rough road inland.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-date">
-                        EARLY CENTURIES
-                    </div>
-
-                    <div class="timeline-body">
-
-                        <span class="timeline-file">TRADE / 0017</span>
-
-                        <h2>TRADE TAKES OVER</h2>
-
-                        <p>
-                            The settlement becomes a useful trading point.
-                            Fish, salt, grain, leather, metal, smuggled goods,
-                            and everything else people can carry begin moving
-                            through the Landing.
-                        </p>
-
-                        <p>
-                            Governments discover that Saint Jude's is easier
-                            to tax than to control.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item behemoth-event">
-
-                    <div class="timeline-date">
-                        ~1100 YEARS AGO
-                    </div>
-
-                    <div class="timeline-body">
-
-                        <span class="timeline-file">BIOLOGICAL EVENT / RED</span>
-
-                        <div class="timeline-evidence">
-
-                            <img
-                                src="world-behemoth-bone.PNG"
-                                alt="Behemoth bone incorporated into architecture"
-                            >
-
-                            <div>
-
-                                <h2>THE FIRST BEHEMOTH</h2>
-
-                                <p>
-                                    An enormous carcass washes ashore.
-                                </p>
-
-                                <p>
-                                    It is larger than the settlement.
-                                    Its bones are unusually dense.
-                                    Its hide resists fire.
-                                    Its blood contaminates the surrounding land
-                                    for years.
-                                </p>
-
-                                <p>
-                                    People harvest everything they can remove.
-                                </p>
-
-                                <div class="timeline-stamp">
-                                    BONES / TEETH / CLAWS / HIDE / ORGANS /
-                                    BLOOD / GLANDS / UNKNOWN
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-date">
-                        FOLLOWING CENTURIES
-                    </div>
-
-                    <div class="timeline-body">
-
-                        <span class="timeline-file">INDUSTRY / EXPANSION</span>
-
-                        <h2>INDUSTRY</h2>
-
-                        <p>
-                            Behemoth material becomes useful.
-                            Then valuable.
-                            Then profitable enough to build an entire
-                            industrial economy around.
-                        </p>
-
-                        <p>
-                            Processing plants, factories, chemical
-                            facilities, foundries, warehouses, worker
-                            housing, transportation networks, and
-                            everything required to keep them running
-                            appear across the city.
-                        </p>
-
-                        <figure class="inline-photo">
-
-                            <img
-                                src="world-behemoth-processing.PNG"
-                                alt="Industrial Behemoth processing facility"
-                            >
-
-                            <figcaption>
-                                NINE / PROCESSING FLOOR / PHOTOGRAPHER UNKNOWN
-                            </figcaption>
-
-                        </figure>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-date">
-                        INDUSTRIAL AGE → PRESENT
-                    </div>
-
-                    <div class="timeline-body">
-
-                        <span class="timeline-file">INCIDENT LOG / TOO MANY</span>
-
-                        <h2>EVERYTHING GOES WRONG.</h2>
-
-                        <p>
-                            There is no single collapse.
-                            There are hundreds of disasters.
-                        </p>
-
-                        <div class="disaster-grid">
-
-                            <span>FACTORY EXPLOSIONS</span>
-                            <span>CHEMICAL SPILLS</span>
-                            <span>POWER FAILURES</span>
-                            <span>LABOR RIOTS</span>
-                            <span>GANG WARS</span>
-                            <span>FIRES</span>
-                            <span>STRUCTURAL COLLAPSES</span>
-                            <span>DISEASE OUTBREAKS</span>
-                            <span>CONTAINMENT FAILURES</span>
-                            <span>FINANCIAL CRASHES</span>
-                            <span>MISSING SHIPMENTS</span>
-                            <span>MISSING PEOPLE</span>
-                            <span>MISSING BUILDINGS</span>
-
-                        </div>
-
-                        <p>
-                            Saint Jude's survives all of them.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-date">
-                        CURRENT
-                    </div>
-
-                    <div class="timeline-body">
-
-                        <span class="timeline-file">PRESENT / UNRESOLVED</span>
-
-                        <h2>NOBODY IS COMING TO FIX IT.</h2>
-
-                        <p>
-                            Outside governments eventually decide that
-                            Saint Jude's is too expensive, too complicated,
-                            too entrenched, and still too useful to bother
-                            dismantling.
-                        </p>
-
-                        <p class="highlight-text">
-                            The practical solution is to leave it alone.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             DISTRICTS
-             ===================================================== -->
-
-        <section class="page-section" id="districts">
-
-            <div class="section-header">
-
-                <span class="section-number">04 //</span>
-
-                <div>
-                    <span class="section-file">CITY / TERRITORY</span>
-                    <h1>DISTRICTS</h1>
-                </div>
-
-                <p>
-                    Five major identities. Not five clean shapes on a map.
-                </p>
-
-            </div>
-
-
-            <div class="district-note">
-                <strong>IMPORTANT:</strong>
-                District boundaries are social, physical, historical,
-                and sometimes vertical. A building can connect to another
-                district without technically being in it. Mothball is an
-                enclave inside Velvet, not a sixth district.
-            </div>
-
-
-            <div class="district-feature neon-gut">
-
-                <img
-                    src="district-neon-gut.PNG"
-                    alt="The Neon Gut"
-                >
-
-                <div class="district-feature-content">
-
-                    <span class="district-number">01 / NEON GUT</span>
-
-                    <h2>THE NEON GUT</h2>
-
-                    <div class="district-meta">
-                        ORIGIN: AMMONIA / RIOT
-                    </div>
-
-                    <p>
-                        The vertical heartbeat of the city's underbelly.
-                        The Gut grew around commerce, entertainment,
-                        smuggling, cheap housing, street economies, illegal
-                        businesses, and every other industry that benefits
-                        from not asking too many questions.
-                    </p>
-
-                    <p>
-                        Flickering magenta and cyan signs hang over
-                        black rainwater. Burnt electronics mix with
-                        street food. Sirens compete with bass from
-                        illegal clubs. People shout because nobody can
-                        hear otherwise.
-                    </p>
-
-                    <div class="district-tags">
-                        <span>SMUGGLERS</span>
-                        <span>CLUBS</span>
-                        <span>STREET ECONOMY</span>
-                        <span>ADRENALINE JUNKIES</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="district-mini-grid">
-
-
-                <article class="district-mini hollows">
-
-                    <img
-                        src="district-hollows.PNG"
-                        alt="The Hollows"
-                    >
-
-                    <div class="district-mini-copy">
-
-                        <span>02 / LIMINAL</span>
-
-                        <h2>THE HOLLOWS</h2>
-
-                        <p>
-                            Old residential territory that was gradually
-                            abandoned, neglected, subdivided, forgotten,
-                            and reclaimed.
-                        </p>
-
-                        <p>
-                            Fog sits heavy here. Wind moves through broken
-                            windows. Yards disappear under vegetation that
-                            looks almost normal until somebody gets close.
-                        </p>
-
-                        <p>
-                            People come here because they want to be left alone.
-                            Some are hiding. Some simply stopped wanting to
-                            participate in the rest of the city.
-                        </p>
-
-                        <div class="district-tags">
-                            <span>FOG</span>
-                            <span>ABANDONED HOMES</span>
-                            <span>OVERGROWTH</span>
-                            <span>PRIVACY</span>
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="district-mini nine">
-
-                    <img
-                        src="district-nine.PNG"
-                        alt="Nine industrial district"
-                    >
-
-                    <div class="district-mini-copy">
-
-                        <span>03 / INDUSTRIAL</span>
-
-                        <h2>NINE</h2>
-
-                        <p>
-                            Industrial mass. Factories, processing plants,
-                            warehouses, transport systems, foundries, chemical
-                            facilities, worker housing, and machinery large
-                            enough to make people look temporary.
-                        </p>
-
-                        <p>
-                            Behemoth remains are not unusual here.
-                            Some were processed. Some were incorporated into
-                            machines. Some were too large to move.
-                        </p>
-
-                        <p>
-                            In parts of Nine, the distinction between building,
-                            machine, and carcass has stopped being useful.
-                        </p>
-
-                        <div class="district-tags">
-                            <span>FACTORIES</span>
-                            <span>OIL</span>
-                            <span>HOT IRON</span>
-                            <span>BEHEMOTH REMAINS</span>
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="district-mini velvet">
-
-                    <img
-                        src="district-velvet.PNG"
-                        alt="Velvet district"
-                    >
-
-                    <div class="district-mini-copy">
-
-                        <span>04 / OLD MONEY</span>
-
-                        <h2>VELVET</h2>
-
-                        <p>
-                            Old wealth that never quite managed to disappear.
-                            Mansions, institutions, estates, old businesses,
-                            inherited properties, and buildings that were once
-                            expensive enough to justify maintaining them.
-                        </p>
-
-                        <p>
-                            Now there is mold on the walls, mildew in the
-                            curtains, damp stone under expensive carpets,
-                            and spiderwebs hanging from chandeliers nobody
-                            can afford to replace.
-                        </p>
-
-                        <p>
-                            It is beautiful sometimes.
-                            It is grotesque sometimes.
-                            Usually it is both.
-                        </p>
-
-                        <div class="district-tags">
-                            <span>OLD MONEY</span>
-                            <span>MANSIONS</span>
-                            <span>DECAY</span>
-                            <span>MOTHBALL</span>
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="district-mini mothball">
-
-                    <img
-                        src="district-mothball.PNG"
-                        alt="Mothball market"
-                    >
-
-                    <div class="district-mini-copy">
-
-                        <span>04.5 / ENCLAVE / MARKET</span>
-
-                        <h2>MOTHBALL</h2>
-
-                        <p>
-                            Mothball is physically part of Velvet but functions
-                            like its own little ecosystem.
-                        </p>
-
-                        <p>
-                            Narrow storefronts, cramped alleys, upper floors
-                            packed with inventory, basements used as storage,
-                            old buildings subdivided into whatever businesses
-                            fit inside them.
-                        </p>
-
-                        <p>
-                            Furniture, jewelry, clothes, tools, books, weapons,
-                            religious objects, broken machines, family heirlooms,
-                            stolen goods, industrial components, behemoth-derived
-                            materials, and unidentified objects move through here.
-                        </p>
-
-                        <div class="district-tags">
-                            <span>THRIFT</span>
-                            <span>CURIO</span>
-                            <span>SECONDHAND</span>
-                            <span>COLLECTORS</span>
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-
-            <div class="district-evidence-strip">
-
-                <figure>
-                    <img
-                        src="portrait-neon-gut-alley.PNG"
-                        alt="Neon Gut alley"
-                    >
-                    <figcaption>
-                        GUT / ALLEY / FIELD PHOTO
-                    </figcaption>
-                </figure>
-
-                <figure>
-                    <img
-                        src="portrait-nine-behemoth-skull.PNG"
-                        alt="Behemoth skull in Nine"
-                    >
-                    <figcaption>
-                        NINE / BEHEMOTH REMAINS
-                    </figcaption>
-                </figure>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
+        <!-- =========================================================
              LAYERS
-             ===================================================== -->
+        ========================================================== -->
 
-        <section class="page-section" id="layers">
+        <section class="view" id="layers">
 
             <div class="section-header">
 
-                <span class="section-number">05 //</span>
-
                 <div>
-                    <span class="section-file">CONSTRUCTION / VERTICAL</span>
-                    <h1>CITY LAYERS</h1>
+                    <span class="record-number">SPATIAL RECORD // 003</span>
+                    <h2>There is no single ground floor anymore.</h2>
                 </div>
 
                 <p>
-                    Saint Jude's stopped expanding outward a long time ago.
+                    Elevation is local. Depth is contextual.
+                    Maps are suggestions.
                 </p>
 
             </div>
@@ -1168,177 +594,157 @@
 
             <div class="layer-intro">
 
-                <div class="layer-big">
-                    THERE IS NO<br>
-                    SINGLE GROUND<br>
-                    LEVEL ANYMORE.
+                <img
+                    src="sjl-city-crosssection.PNG"
+                    alt="Saint Jude's Landing city cross-section"
+                >
+
+                <div>
+
+                    <p class="lead">
+                        Saint Jude's Landing behaves like a vertical city
+                        somebody kept stacking onto itself.
+                    </p>
+
+                    <p>
+                        The following levels are useful for describing where
+                        something is. They are not a guarantee that the route
+                        between two points will behave normally.
+                    </p>
+
+                    <p>
+                        Some structures occupy multiple levels simultaneously.
+                        Some entrances no longer connect to the places their
+                        records claim they connect to.
+                    </p>
+
                 </div>
-
-                <p>
-                    There are only levels that somebody currently considers
-                    ground.
-                </p>
-
-            </div>
-
-
-            <div class="layer-photo-grid">
-
-                <figure class="layer-photo large">
-
-                    <img
-                        src="layers-above.PNG"
-                        alt="Upper levels of Saint Jude's Landing"
-                    >
-
-                    <figcaption>
-                        ABOVE / +03 / ELEVATED INFRASTRUCTURE
-                    </figcaption>
-
-                </figure>
-
-                <figure class="layer-photo">
-
-                    <img
-                        src="layers-surface.PNG"
-                        alt="Street level in Saint Jude's Landing"
-                    >
-
-                    <figcaption>
-                        SURFACE / 00 / CURRENT GROUND
-                    </figcaption>
-
-                </figure>
 
             </div>
 
 
             <div class="layer-stack">
 
-                <div class="layer upper">
+                <article class="layer layer-above">
 
-                    <div class="layer-index">+03</div>
+                    <div class="layer-number">+03</div>
 
-                    <div>
-                        <h2>ABOVE</h2>
-
+                    <div class="layer-copy">
+                        <span>ELEVATED</span>
+                        <h3>ABOVE</h3>
                         <p>
-                            Elevated walkways, bridges, rooftops,
-                            suspended platforms, external staircases,
-                            upper markets, service corridors, additions
-                            built on top of additions.
+                            Elevated walkways, bridges, rooftops, suspended
+                            platforms, external stairs, upper markets, service
+                            corridors.
                         </p>
                     </div>
 
-                </div>
+                    <img
+                        src="layers-above.PNG"
+                        alt="Above-level infrastructure"
+                    >
+
+                </article>
 
 
-                <div class="layer surface">
+                <article class="layer layer-surface">
 
-                    <div class="layer-index">00</div>
+                    <div class="layer-number">00</div>
 
-                    <div>
-                        <h2>WHAT PEOPLE CALL STREET LEVEL</h2>
-
+                    <div class="layer-copy">
+                        <span>CURRENT STREET LEVEL</span>
+                        <h3>SURFACE</h3>
                         <p>
-                            The current surface. Roads, storefronts,
-                            factories, apartments, markets, entrances,
-                            exits, traffic, rain, trash, pedestrians,
-                            and whatever else has survived long enough
-                            to still be here.
+                            Whatever the local street happens to be.
+                            Commerce, housing, businesses, roads, alleys,
+                            public spaces, private spaces, and everything
+                            people have built between them.
                         </p>
                     </div>
 
-                </div>
+                    <img
+                        src="layers-surface.PNG"
+                        alt="Surface level"
+                    >
+
+                </article>
 
 
-                <div class="layer lower">
+                <article class="layer layer-below">
 
-                    <div class="layer-index">-01</div>
+                    <div class="layer-number">-01</div>
 
-                    <div>
-                        <h2>BELOW</h2>
-
+                    <div class="layer-copy">
+                        <span>SUBSTRUCTURE</span>
+                        <h3>BELOW</h3>
                         <p>
                             Ancient foundations, buried roads, drainage,
-                            abandoned basements, utility tunnels,
-                            industrial infrastructure, storage spaces,
-                            collapsed structures, sealed chambers,
-                            and archaeological layers.
+                            basements, utility tunnels, industrial
+                            infrastructure.
                         </p>
                     </div>
 
-                </div>
+                    <img
+                        src="layers-deep.PNG"
+                        alt="Below-level infrastructure"
+                    >
+
+                </article>
 
 
-                <div class="layer deep">
+                <article class="layer layer-unknown">
 
-                    <div class="layer-index">???</div>
+                    <div class="layer-number">???</div>
 
-                    <div>
-                        <h2>THE PART NOBODY MAPPED</h2>
-
+                    <div class="layer-copy">
+                        <span>UNVERIFIED</span>
+                        <h3>DEEP</h3>
                         <p>
-                            Unexplored tunnels, buried structures,
-                            unidentified remains, forgotten rooms,
-                            unknown behemoth material, buildings nobody
-                            remembers constructing, and records that
-                            contradict one another.
+                            Unmapped tunnels. Buried structures. Forgotten
+                            rooms. Contradictory records. Unidentified remains.
+                            Places people insist are not there.
                         </p>
                     </div>
 
-                </div>
+                    <div class="unknown-block">
+                        <span>RECORD INCOMPLETE</span>
+                    </div>
+
+                </article>
 
             </div>
 
 
-            <div class="layer-deep-image">
+            <div class="layer-note">
 
-                <img
-                    src="layers-deep.PNG"
-                    alt="Deep underground chamber beneath Saint Jude's Landing"
-                >
+                <span>FIELD WARNING</span>
 
-                <div>
-                    <span>DEPTH UNKNOWN</span>
-                    <strong>STAIRCASE CONTINUES.</strong>
-                </div>
-
-            </div>
-
-
-            <div class="layer-warning">
-
-                <span>ARCHAEOLOGICAL NOTICE</span>
-
-                Construction crews are advised to stop digging when
-                they encounter a staircase that should not exist.
-                This advice is routinely ignored.
+                <p>
+                    If you hear something moving below you —
+                    <strong>do not assume it is a pipe.</strong>
+                </p>
 
             </div>
 
         </section>
 
 
-
-        <!-- =====================================================
+        <!-- =========================================================
              BEHEMOTHS
-             ===================================================== -->
+        ========================================================== -->
 
-        <section class="page-section" id="behemoths">
+        <section class="view" id="behemoths">
 
             <div class="section-header">
 
-                <span class="section-number">06 //</span>
-
                 <div>
-                    <span class="section-file">BIOLOGICAL / INDUSTRIAL / UNKNOWN</span>
-                    <h1>BEHEMOTHS</h1>
+                    <span class="record-number">BIOLOGICAL / INDUSTRIAL RECORD // 004</span>
+                    <h2>BEHEMOTHS</h2>
                 </div>
 
                 <p>
-                    Nobody agrees on what they are. Saint Jude's has
-                    made an industry out of them anyway.
+                    Nobody agrees what they are.
+                    Everyone agrees they are useful.
                 </p>
 
             </div>
@@ -1346,149 +752,326 @@
 
             <div class="behemoth-hero">
 
-                <div class="behemoth-hero-image">
+                <div class="behemoth-copy">
 
-                    <img
-                        src="world-behemoth-hide.PNG"
-                        alt="Close-up of harvested Behemoth hide"
-                    >
+                    <span class="piece-label">PRIMARY INDUSTRIAL DRIVER</span>
 
-                    <span>HARVESTED MATERIAL / SAMPLE UNKNOWN</span>
-
-                </div>
-
-
-                <div class="behemoth-hero-copy">
-
-                    <span class="red-label">
-                        BIOLOGICAL / INDUSTRIAL / UNKNOWN
-                    </span>
-
-                    <h2>
-                        SOME OF THEM LOOK LIKE ANIMALS.
-                        SOME OF THEM DO NOT.
-                    </h2>
+                    <h3>
+                        Biologically inconsistent.
+                        Physically inconvenient.
+                        Extremely profitable.
+                    </h3>
 
                     <p>
+                        Some resemble animals. Some do not.
                         Some decay normally. Some do not.
                         Some are found dead. Some are found alive.
-                        Some keep moving after they should be dead.
+                        Some continue moving after death.
+                    </p>
+
+                    <p>
+                        The city has spent approximately eleven centuries
+                        learning what can be removed from them and what can
+                        be done with it.
+                    </p>
+
+                    <p>
+                        Bone. Teeth. Hide. Blood. Organs. Claws. Glands.
+                        Other tissue.
+                    </p>
+
+                    <p>
+                        Once harvested, those materials enter ordinary life.
+                        Buildings contain them. Machines contain them.
+                        Chemicals contain them. People buy products made from
+                        them without necessarily knowing what they are.
                     </p>
 
                 </div>
 
-            </div>
-
-
-            <div class="behemoth-detail-grid">
-
                 <figure>
-
                     <img
-                        src="portrait-nine-behemoth-skull.PNG"
-                        alt="Behemoth skull in Nine"
+                        src="world-behemoth-hide.PNG"
+                        alt="Behemoth hide"
                     >
-
-                    <figcaption>
-                        NINE / SKULL / SCALE UNKNOWN
-                    </figcaption>
-
+                    <figcaption>SPECIMEN MATERIAL // HIDE</figcaption>
                 </figure>
 
-
-                <div class="behemoth-grid">
-
-                    <article>
-                        <span class="behemoth-num">01</span>
-                        <h2>CARCASSES</h2>
-                        <p>
-                            Enormous remains have been discovered across the
-                            city's history. The largest were too large to move,
-                            so people built around them.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span class="behemoth-num">02</span>
-                        <h2>MATERIAL</h2>
-                        <p>
-                            Bone, hide, teeth, claws, organs, blood, glands,
-                            and other tissues became industrial resources.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span class="behemoth-num">03</span>
-                        <h2>INDUSTRY</h2>
-                        <p>
-                            Behemoth-derived materials became building materials,
-                            tools, fuel, chemicals, manufactured goods,
-                            recreational substances, and commercial products.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span class="behemoth-num">04</span>
-                        <h2>UNKNOWN</h2>
-                        <p>
-                            Nobody has a complete biological classification.
-                            Every attempt eventually runs into something that
-                            does not fit.
-                        </p>
-                    </article>
-
-                </div>
-
             </div>
 
 
-            <div class="behemoth-material-strip">
+            <div class="behemoth-gallery">
 
                 <figure>
                     <img
                         src="world-behemoth-bone.PNG"
-                        alt="Behemoth bone incorporated into a structure"
+                        alt="Behemoth bone"
                     >
+                    <figcaption>BONE // DENSITY RECORD</figcaption>
                 </figure>
 
                 <figure>
                     <img
                         src="world-behemoth-processing.PNG"
-                        alt="Behemoth processing machinery"
+                        alt="Behemoth processing facility"
                     >
+                    <figcaption>PROCESSING // INDUSTRIAL</figcaption>
                 </figure>
 
                 <figure>
                     <img
                         src="world-chemical-vial.PNG"
-                        alt="Industrial chemical vial"
+                        alt="Chemical vial containing behemoth-derived material"
                     >
+                    <figcaption>DERIVATIVE // CHEMICAL</figcaption>
                 </figure>
+
+                <figure>
+                    <img
+                        src="portrait-nine-behemoth-skull.PNG"
+                        alt="Massive behemoth skull"
+                    >
+                    <figcaption>NINE // REMAINS</figcaption>
+                </figure>
+
+            </div>
+
+
+            <div class="behemoth-warning">
+
+                <span>IMPORTANT</span>
+
+                <p>
+                    “Behemoth” is a practical word, not a complete biological
+                    classification.
+                </p>
+
+                <p>
+                    Do not assume two specimens belong to the same species
+                    because they share a shape.
+                </p>
+
+                <p>
+                    Do not assume something is dead because it is no longer
+                    breathing.
+                </p>
 
             </div>
 
         </section>
 
 
+        <!-- =========================================================
+             PLACES
+        ========================================================== -->
 
-        <!-- =====================================================
-             OUTLIERS
-             ===================================================== -->
-
-        <section class="page-section" id="outliers">
+        <section class="view" id="places">
 
             <div class="section-header">
 
-                <span class="section-number">07 //</span>
-
                 <div>
-                    <span class="section-file">PEOPLE / UNOFFICIAL RECORD</span>
-                    <h1>THE OUTLIERS</h1>
+                    <span class="record-number">GEOGRAPHICAL RECORD // 005</span>
+                    <h2>PLACES</h2>
                 </div>
 
                 <p>
-                    Four people who found each other and became difficult
-                    to separate.
+                    Four core districts. One enclave.
+                    One community outside the city.
+                </p>
+
+            </div>
+
+
+            <div class="place-grid">
+
+                <a
+                    class="place neon-gut"
+                    href="#"
+                    data-placeholder="Neon Gut page coming soon"
+                >
+
+                    <img
+                        src="district-neon-gut.PNG"
+                        alt="The Neon Gut"
+                    >
+
+                    <div class="place-overlay">
+                        <span>DISTRICT // 01</span>
+                        <h3>THE NEON GUT</h3>
+                        <p>
+                            Commerce. Clubs. Smuggling. Cheap housing.
+                            Street economies.
+                        </p>
+                        <strong>AMMONIA / RIOT / MOLD</strong>
+                    </div>
+
+                </a>
+
+
+                <a
+                    class="place hollows"
+                    href="#"
+                    data-placeholder="The Hollows page coming soon"
+                >
+
+                    <img
+                        src="district-hollows.PNG"
+                        alt="The Hollows"
+                    >
+
+                    <div class="place-overlay">
+                        <span>DISTRICT // 02</span>
+                        <h3>THE HOLLOWS</h3>
+                        <p>
+                            Old houses. Fog. Overgrowth.
+                            Something watching from somewhere.
+                        </p>
+                        <strong>TANSY</strong>
+                    </div>
+
+                </a>
+
+
+                <a
+                    class="place nine"
+                    href="#"
+                    data-placeholder="Nine page coming soon"
+                >
+
+                    <img
+                        src="district-nine.PNG"
+                        alt="Nine industrial district"
+                    >
+
+                    <div class="place-overlay">
+                        <span>DISTRICT // 03</span>
+                        <h3>NINE</h3>
+                        <p>
+                            Factories. Processing plants. Foundries.
+                            Teeth, slime, raw muscle.
+                        </p>
+                        <strong>BENOIT</strong>
+                    </div>
+
+                </a>
+
+
+                <a
+                    class="place velvet"
+                    href="#"
+                    data-placeholder="Velvet page coming soon"
+                >
+
+                    <img
+                        src="district-velvet.PNG"
+                        alt="Velvet district"
+                    >
+
+                    <div class="place-overlay">
+                        <span>DISTRICT // 04</span>
+                        <h3>VELVET</h3>
+                        <p>
+                            Old wealth. Estates. Mold. Lace.
+                            Cosmic wrongness.
+                        </p>
+                        <strong>DOLL / MIDGE</strong>
+                    </div>
+
+                </a>
+
+
+                <a
+                    class="place mothball"
+                    href="#"
+                    data-placeholder="Mothball page coming soon"
+                >
+
+                    <img
+                        src="district-mothball.PNG"
+                        alt="Mothball enclave"
+                    >
+
+                    <div class="place-overlay">
+
+                        <span>ENCLAVE // WITHIN VELVET</span>
+
+                        <h3>MOTHBALL</h3>
+
+                        <p>
+                            Secondhand commerce, salvage, repair, thrift,
+                            curios, collectors, stolen goods, and things
+                            nobody can identify.
+                        </p>
+
+                        <strong>NOT A DISTRICT</strong>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    class="place pugad"
+                    href="#"
+                    data-placeholder="Pugad page coming soon"
+                >
+
+                    <div class="pugad-placeholder">
+                        <span>OUTSIDE SJL</span>
+                        <strong>PUGAD</strong>
+                        <small>LOCAL RECORD INCOMPLETE</small>
+                    </div>
+
+                    <div class="place-overlay">
+
+                        <span>RURAL COMMUNITY</span>
+
+                        <h3>PUGAD</h3>
+
+                        <p>
+                            Wild land, local businesses, self-sufficient
+                            infrastructure, generations of people, and a
+                            long-running connection to SJL.
+                        </p>
+
+                        <strong>CHECHE</strong>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="mothball-correction">
+
+                <strong>MOTHBALL IS NOT A DISTRICT.</strong>
+
+                <span>
+                    It is an enclave inside Velvet.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             OUTLIERS
+        ========================================================== -->
+
+        <section class="view" id="outliers">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="record-number">SOCIAL RECORD // 006</span>
+                    <h2>THE OUTLIERS</h2>
+                </div>
+
+                <p>
+                    Not an organization. Not a gang.
+                    Not a clubhouse.
                 </p>
 
             </div>
@@ -1496,500 +1079,274 @@
 
             <div class="outlier-intro">
 
-                <p>
-                    There is no formal hierarchy.
-                    There is no grand mission.
-                    There is no sensible reason they should work as well
-                    as they do.
-                </p>
-
-                <p class="big-quote">
-                    “You got somewhere to sleep?”
-                    <br>
-                    “No.”
-                    <br>
-                    “Come on.”
+                <p class="lead">
+                    The Outliers are a loose found-family of wandering weirdos
+                    from different corners of Saint Jude's Landing and beyond.
                 </p>
 
                 <p>
-                    That is enough to start a family in Saint Jude's Landing.
+                    The Outliers started with Ammonia, a legendary graffiti
+                    artist who travels throughout Saint Jude's Landing leaving
+                    and creating murals. Along the way, she finds other
+                    outlier weirdos who decide to join the traveling and stay
+                    as a loose family.
                 </p>
+
+                <p>
+                    Not every Outlier is always present. Some live at home.
+                    Some are wandering elsewhere. Some are spending time in
+                    another district. Some disappear for a while.
+                </p>
+
+                <p>
+                    They do not have a permanent home. They have bunkers,
+                    tunnels, abandoned rooms, inns, apartments, rooftops,
+                    hideouts, and other places scattered throughout every
+                    district.
+                </p>
+
+                <div class="outlier-definition">
+
+                    <span>DEFINITION</span>
+
+                    <strong>OUTLIER = SOCIAL IDENTITY</strong>
+
+                    <p>
+                        They do illegal shit.
+                        So does literally every other fucking person in
+                        Saint Jude's Landing.
+                    </p>
+
+                    <p>
+                        Illegal activity is normal in SJL and is not
+                        inherently what defines the Outliers.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="character-grid">
+            <div class="outlier-roster">
 
-
-                <article class="character ammonia">
-
-                    <div class="character-photo">
-
-                        <img
-                            src="character-ammonia.PNG"
-                            alt="Ammonia in the Neon Gut"
-                        >
-
-                        <span class="photo-mark">
-                            FIELD PHOTO / 01
-                        </span>
-
-                    </div>
-
-                    <div class="character-content">
-
-                        <div class="character-top">
-                            <span>01</span>
-                            <span>NEON GUT</span>
-                        </div>
-
-                        <h2>AMMONIA</h2>
-
-                        <div class="character-type">
-                            BAT / ADULT / NATURALIST
-                        </div>
-
-                        <p>
-                            Quiet, observant, physically instinctive, and
-                            socially unfiltered. Ammonia climbs things instead
-                            of using stairs, sits in strange places, and will
-                            investigate anything that catches her attention.
-                        </p>
-
-                        <p>
-                            She eats bugs.
-                        </p>
-
-                        <p>
-                            She also eats garbage.
-                        </p>
-
-                        <p>
-                            This is not a performance, a rebellion, or evidence
-                            that she is stupid. Her definition of disgust is
-                            simply different.
-                        </p>
-
-                        <div class="character-facts">
-                            <span>PAINT MARKER</span>
-                            <span>CLIMBS EVERYTHING</span>
-                            <span>EATS BUGS</span>
-                            <span>BLACK EYES</span>
-                            <span>GIANT BAT EARS</span>
-                        </div>
-
-                    </div>
-
+                <article>
+                    <div class="roster-number">01</div>
+                    <h3>AMMONIA</h3>
+                    <span>NEON GUT // BAT DEMI-HUMAN</span>
+                    <p>
+                        Legendary graffiti artist. Unofficial center of the
+                        group. Travels everywhere.
+                    </p>
                 </article>
 
-
-                <article class="character benoit">
-
-                    <div class="character-photo">
-
-                        <img
-                            src="character-benoit.PNG"
-                            alt="Benoit in Nine"
-                        >
-
-                        <span class="photo-mark">
-                            FIELD PHOTO / 02
-                        </span>
-
-                    </div>
-
-                    <div class="character-content">
-
-                        <div class="character-top">
-                            <span>02</span>
-                            <span>NINE</span>
-                        </div>
-
-                        <h2>BENOIT</h2>
-
-                        <div class="character-type">
-                            GATOR / ADULT / WALL
-                        </div>
-
-                        <p>
-                            Massive, calm, practical, and difficult to rattle.
-                            Benoit is not stupid, emotionless, permanently angry,
-                            or pretending not to care.
-                        </p>
-
-                        <p>
-                            He is simply tired.
-                        </p>
-
-                        <p>
-                            His protectiveness is practical. He checks injuries,
-                            repairs equipment, carries people, notices when
-                            somebody is missing, and puts himself between
-                            problems and the people he considers his.
-                        </p>
-
-                        <div class="character-facts">
-                            <span>INDUSTRIAL WORKER</span>
-                            <span>OLIVE SCALES</span>
-                            <span>GOLD EYES</span>
-                            <span>REPTILIAN EARS</span>
-                            <span>HUGE TAIL</span>
-                        </div>
-
-                    </div>
-
+                <article>
+                    <div class="roster-number">02</div>
+                    <h3>DOLL</h3>
+                    <span>MOTHBALL // MOUSE DEMI-HUMAN</span>
+                    <p>
+                        Mothball-born menace with an alarming handbag.
+                    </p>
                 </article>
 
-
-                <article class="character doll">
-
-                    <div class="character-photo">
-
-                        <img
-                            src="character-doll.PNG"
-                            alt="Doll in Mothball"
-                        >
-
-                        <span class="photo-mark">
-                            FIELD PHOTO / 03
-                        </span>
-
-                    </div>
-
-                    <div class="character-content">
-
-                        <div class="character-top">
-                            <span>03</span>
-                            <span>MOTHBALL / VELVET</span>
-                        </div>
-
-                        <h2>DOLL</h2>
-
-                        <div class="character-type">
-                            MOUSE / ADULT / TINY MENACE
-                        </div>
-
-                        <p>
-                            Small, hyperactive, profane, fiercely protective,
-                            and entirely comfortable living in the rotten
-                            edges of the city.
-                        </p>
-
-                        <p>
-                            Doll collects ugly things because she likes them.
-                            Old things. Broken things. Things with history.
-                            Things everyone else already decided were worthless.
-                        </p>
-
-                        <p>
-                            Her handbag contains switchblades, dynamite,
-                            and an unreasonable amount of junk.
-                        </p>
-
-                        <div class="character-facts">
-                            <span>CURIO RAT</span>
-                            <span>RED CARDIGAN</span>
-                            <span>HANDBAG</span>
-                            <span>PROFANE</span>
-                            <span>NOT HELPLESS</span>
-                        </div>
-
-                    </div>
-
+                <article>
+                    <div class="roster-number">03</div>
+                    <h3>BENOIT</h3>
+                    <span>NINE // GATOR DEMI-HUMAN</span>
+                    <p>
+                        Industrial-scale presence. Calm, practical,
+                        protective.
+                    </p>
                 </article>
 
+                <article>
+                    <div class="roster-number">04</div>
+                    <h3>RIOT</h3>
+                    <span>NEON GUT // HUMAN</span>
+                    <p>
+                        The only human Outlier. Trouble finds him.
+                        Sometimes he goes looking.
+                    </p>
+                </article>
 
-                <article class="character riot">
+                <article>
+                    <div class="roster-number">05</div>
+                    <h3>MOLD</h3>
+                    <span>NEON GUT // OPOSSUM DEMI-HUMAN</span>
+                    <p>CHARACTER RECORD COMING SOON.</p>
+                </article>
 
-                    <div class="character-photo">
+                <article>
+                    <div class="roster-number">06</div>
+                    <h3>MIDGE</h3>
+                    <span>MOTHBALL // RED PANDA DEMI-HUMAN</span>
+                    <p>CHARACTER RECORD COMING SOON.</p>
+                </article>
 
-                        <img
-                            src="character-riot.PNG"
-                            alt="Riot in the Neon Gut"
-                        >
+                <article>
+                    <div class="roster-number">07</div>
+                    <h3>TANSY</h3>
+                    <span>HOLLOWS // MOTH DEMI-HUMAN</span>
+                    <p>
+                        Hollows-born. Finds beauty in things that are
+                        fucked up.
+                    </p>
+                </article>
 
-                        <span class="photo-mark">
-                            FIELD PHOTO / 04
-                        </span>
-
-                    </div>
-
-                    <div class="character-content">
-
-                        <div class="character-top">
-                            <span>04</span>
-                            <span>NEON GUT</span>
-                        </div>
-
-                        <h2>RIOT</h2>
-
-                        <div class="character-type">
-                            HUMAN / ADULT / ADRENALINE ADDICT
-                        </div>
-
-                        <p>
-                            Riot lives for stimulation. Noise, movement,
-                            strangers, crowds, fights, new places, bad ideas,
-                            machinery he probably should not touch.
-                        </p>
-
-                        <p>
-                            Boredom is the enemy.
-                        </p>
-
-                        <p>
-                            He does not necessarily want trouble.
-                            He simply has an almost supernatural talent for
-                            finding situations in which something is happening.
-                        </p>
-
-                        <p>
-                            Once somebody becomes his person, however,
-                            he shows up.
-                        </p>
-
-                        <div class="character-facts">
-                            <span>LONG DREADS</span>
-                            <span>PINK IRIS</span>
-                            <span>NEON CHARMS</span>
-                            <span>RESTLESS</span>
-                            <span>“FUCK IT.”</span>
-                        </div>
-
-                    </div>
-
+                <article>
+                    <div class="roster-number">08</div>
+                    <h3>CHECHE</h3>
+                    <span>PUGAD // RECORD INCOMPLETE</span>
+                    <p>
+                        The bridge between Pugad and the city.
+                    </p>
                 </article>
 
             </div>
 
 
-            <div class="character-detail-strip">
+            <div class="outlier-footnote">
 
-                <figure>
-                    <img
-                        src="detail-ammonia-ears.PNG"
-                        alt="Ammonia's bat ears"
-                    >
-                    <figcaption>AMMONIA / DO NOT TOUCH</figcaption>
-                </figure>
+                <span>STATUS</span>
 
-                <figure>
-                    <img
-                        src="detail-doll-handbag.PNG"
-                        alt="Doll's handbag contents"
-                    >
-                    <figcaption>DOLL / BAG INVENTORY DISPUTED</figcaption>
-                </figure>
-
-                <figure>
-                    <img
-                        src="detail-benoit-eye.PNG"
-                        alt="Benoit's eye"
-                    >
-                    <figcaption>BENOIT / PHOTOGRAPHER TOO CLOSE</figcaption>
-                </figure>
-
-                <figure>
-                    <img
-                        src="detail-riot-dreads.PNG"
-                        alt="Riot's dreadlocks"
-                    >
-                    <figcaption>RIOT / STOP MOVING</figcaption>
-                </figure>
+                <p>
+                    Membership is not fixed. Presence is not guaranteed.
+                    There is no headquarters.
+                </p>
 
             </div>
 
         </section>
 
 
-
-        <!-- =====================================================
+        <!-- =========================================================
              FIELD NOTES
-             ===================================================== -->
+        ========================================================== -->
 
-        <section class="page-section" id="field-notes">
+        <section class="view" id="field-notes">
 
             <div class="section-header">
 
-                <span class="section-number">∞ //</span>
-
                 <div>
-                    <span class="section-file">MISC / UNSORTED</span>
-                    <h1>FIELD NOTES</h1>
+                    <span class="record-number">UNSORTED MATERIAL // 007</span>
+                    <h2>FIELD NOTES</h2>
                 </div>
 
                 <p>
-                    Things worth knowing before you start walking around.
+                    Things worth keeping even when nobody knows where
+                    they belong.
                 </p>
 
             </div>
 
 
-            <div class="notes-evidence">
-
-                <figure class="note-photo">
-
-                    <img
-                        src="world-corroded-staircase.PNG"
-                        alt="Corroded staircase"
-                    >
-
-                    <figcaption>
-                        FOUND UNDER A MUNICIPAL BUILDING.
-                        NO BUILDING PLANS SHOW IT.
-                    </figcaption>
-
-                </figure>
-
-
-                <figure class="note-photo small">
-
-                    <img
-                        src="texture-metal-rune.PNG"
-                        alt="Symbol etched into metal"
-                    >
-
-                    <figcaption>
-                        MARKING / ORIGIN UNKNOWN
-                    </figcaption>
-
-                </figure>
-
-            </div>
-
-
-            <div class="notes-grid">
-
-                <article class="field-note">
-
-                    <span>NOTE 001</span>
-
-                    <h2>THE MAP IS WRONG.</h2>
-
-                    <p>
-                        Every map is wrong. Some are simply less wrong
-                        than others.
-                    </p>
-
-                </article>
-
-
-                <article class="field-note">
-
-                    <span>NOTE 002</span>
-
-                    <h2>MOTHBALL IS NOT A DISTRICT.</h2>
-
-                    <p>
-                        It is an enclave and market inside Velvet.
-                        Calling it a sixth district will get you corrected
-                        by somebody who has probably been stabbed over this.
-                    </p>
-
-                </article>
-
-
-                <article class="field-note">
-
-                    <span>NOTE 003</span>
-
-                    <h2>THE CITY IS NOT A SETTING.</h2>
-
-                    <p>
-                        It is the accumulated result of nineteen hundred
-                        years of people making decisions and then building
-                        more shit on top of those decisions.
-                    </p>
-
-                </article>
-
-
-                <article class="field-note">
-
-                    <span>NOTE 004</span>
-
-                    <h2>NOT EVERYTHING IS EXPLAINED.</h2>
-
-                    <p>
-                        Some records are missing. Some structures are
-                        unidentified. Some things simply have no surviving
-                        explanation.
-                    </p>
-
-                </article>
-
-
-                <article class="field-note">
-
-                    <span>NOTE 005</span>
-
-                    <h2>PEOPLE ARE THE CITY.</h2>
-
-                    <p>
-                        The Landing is full of families, crews, gangs,
-                        workers, artists, criminals, collectors, fugitives,
-                        scientists, addicts, businesses, religious groups,
-                        weird little communities, and people who just
-                        found somewhere to sleep.
-                    </p>
-
-                </article>
-
-
-                <article class="field-note warning-note">
-
-                    <span>NOTE 006</span>
-
-                    <h2>IF YOU HEAR SOMETHING MOVING BELOW YOU—</h2>
-
-                    <p>
-                        Do not assume it is a pipe.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            <div class="texture-strip">
+            <div class="field-feature">
 
                 <img
-                    src="texture-blood-concrete.PNG"
-                    alt=""
+                    src="world-corroded-staircase.PNG"
+                    alt="Corroded staircase"
                 >
-
-                <img
-                    src="texture-cigarette-puddle.PNG"
-                    alt=""
-                >
-
-                <img
-                    src="texture-abandoned-phone.PNG"
-                    alt=""
-                >
-
-            </div>
-
-
-            <div class="final-note">
-
-                <div class="final-symbol">
-                    SJL
-                </div>
 
                 <div>
 
-                    <h2>SAINT JUDE'S LANDING</h2>
+                    <span class="piece-label">UNVERIFIED LOCATION</span>
+
+                    <h3>
+                        Everything has a reason.
+                        Most of those reasons have been forgotten.
+                    </h3>
 
                     <p>
-                        Ancient. Crowded. Industrial. Layered.
-                        Difficult to control. Still inhabited.
-                        Still changing. Still accumulating shit.
+                        The archive contains infrastructure with no surviving
+                        documentation, symbols nobody can translate,
+                        abandoned technology, physical evidence from places
+                        that no longer appear on maps, and objects that seem
+                        ordinary until somebody asks where they came from.
                     </p>
 
-                    <p class="final-line">
-                        Nobody is coming to save it.
-                        Nobody needs to.
+                </div>
+
+            </div>
+
+
+            <div class="field-gallery">
+
+                <figure>
+                    <img
+                        src="texture-blood-concrete.PNG"
+                        alt="Blood on concrete"
+                    >
+                    <figcaption>
+                        MATERIAL RECORD // BLOOD / CONCRETE
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                        src="texture-cigarette-puddle.PNG"
+                        alt="Cigarette and puddle"
+                    >
+                    <figcaption>
+                        STREET RECORD // 04:17
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                        src="texture-metal-rune.PNG"
+                        alt="Metal rune"
+                    >
+                    <figcaption>
+                        SYMBOL // UNTRANSLATED
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                        src="texture-abandoned-phone.PNG"
+                        alt="Abandoned phone"
+                    >
+                    <figcaption>
+                        OBJECT // OWNER UNKNOWN
+                    </figcaption>
+                </figure>
+
+            </div>
+
+
+            <div class="field-final">
+
+                <div class="field-final-image">
+
+                    <img
+                        src="neon-gut-underpass.PNG"
+                        alt="Neon Gut underpass"
+                    >
+
+                </div>
+
+                <div class="field-final-copy">
+
+                    <span>GENERAL INSTRUCTION</span>
+
+                    <h3>NOT EVERYTHING IS EXPLAINED.</h3>
+
+                    <p>
+                        Some records are incomplete because the information
+                        was lost.
+                    </p>
+
+                    <p>
+                        Some are incomplete because nobody has figured it out.
+                    </p>
+
+                    <p>
+                        Some are incomplete because the person documenting it
+                        disappeared.
+                    </p>
+
+                    <p>
+                        Do not fill the gaps just because the page looks
+                        unfinished.
                     </p>
 
                 </div>
@@ -2000,34 +1357,94 @@
 
     </main>
 
-</div>
+
+    <!-- =============================================================
+         FOOTER
+    ============================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <div>
+                <span class="footer-code">SJL // CITY RECORD</span>
+                <h2>
+                    THE CITY IS NOT A SETTING.
+                </h2>
+            </div>
+
+            <div class="footer-copy">
+                <p>
+                    Ancient. Crowded. Industrial. Layered.
+                    Difficult to control.
+                </p>
+
+                <p>
+                    Still inhabited.
+                    Still changing.
+                    Still accumulating shit.
+                </p>
+            </div>
+
+        </div>
 
 
-<div id="fact-popup" class="fact-popup">
+        <div class="footer-tags">
 
-    <button id="close-fact" aria-label="Close random fact">
-        ×
-    </button>
+            <span>DARK FANTASY</span>
+            <span>URBAN HORROR</span>
+            <span>SUPERNATURAL THRILLER</span>
+            <span>GRIMDARK</span>
+            <span>SLICE OF LIFE — THE FUCKED UP KIND</span>
+            <span>SANDBOX RPG</span>
+            <span>OPEN WORLD</span>
 
-    <span>RANDOM LANDING FACT</span>
-
-    <p id="fact-text"></p>
-
-</div>
-
-
-<footer class="site-footer">
-
-    <span>SAINT JUDE'S LANDING</span>
-    <span>///</span>
-    <span>THIS CITY HAS BEEN HERE LONGER THAN YOUR FAMILY</span>
-    <span>///</span>
-    <span>ARCHIVE STATUS: UNFINISHED</span>
-
-</footer>
+        </div>
 
 
-<script src="script.js"></script>
+        <div class="footer-tags content-tags">
+
+            <span>SMUT</span>
+            <span>MONSTER FUCKING</span>
+            <span>GORE</span>
+            <span>BODY HORROR</span>
+            <span>VIOLENCE</span>
+            <span>PSYCHOLOGICAL HORROR</span>
+            <span>DUBIOUS CONSENT</span>
+            <span>CNC</span>
+            <span>GOREY SLAPSTICK</span>
+            <span>CHAOS ENERGY</span>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                RECORD STATUS: ACTIVE
+            </span>
+
+            <span>
+                © SAINT JUDE'S LANDING
+            </span>
+
+            <span>
+                THE MAP IS WRONG.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <div
+        class="toast"
+        id="toast"
+        aria-live="polite"
+    ></div>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
