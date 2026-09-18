@@ -1,262 +1,211 @@
 /*
-    SAINT JUDE'S LANDING
-    CITY RECORD // CLIENT SCRIPT
+  SAINT JUDE'S LANDING
+  Municipal Archive / Site Controller
 
-    This is intentionally small.
+  IMAGE RULE:
+  All canonical SJL image assets live in /images/
+  and use exact uppercase .PNG filenames.
 
-    The site is meant to feel like a collection of records,
-    not an application pretending to be a city.
+  If the image directory ever changes, change ONLY this variable.
 */
 
+const IMAGE_DIRECTORY = "images/";
+
+
+/* =========================================================
+   IMAGE RECORD HANDLING
+========================================================= */
+
+function markMissingImages() {
+  const images = document.querySelectorAll("img");
+
+  images.forEach((image) => {
+
+    image.addEventListener("error", () => {
+      image.classList.add("image-missing");
+
+      image.setAttribute(
+        "alt",
+        `${image.alt || "Image"} — image record pending`
+      );
+
+      image.dataset.missing = "true";
+    });
+
+  });
+}
+
+
+/* =========================================================
+   INTERNAL NAVIGATION
+========================================================= */
+
+function activateHashTarget() {
+
+  const hash = window.location.hash;
+
+  if (!hash) {
+    return;
+  }
+
+  const target = document.querySelector(hash);
+
+  if (!target) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+}
+
+
+function updateActiveNavigation() {
+
+  const sections = document.querySelectorAll(".page-section");
+  const navigationLinks = document.querySelectorAll(".main-nav a");
+
+  if (!sections.length || !navigationLinks.length) {
+    return;
+  }
+
+  const scrollPosition = window.scrollY + 180;
+
+  let currentSection = "";
+
+  sections.forEach((section) => {
+
+    if (scrollPosition >= section.offsetTop) {
+      currentSection = section.id;
+    }
+
+  });
+
+  navigationLinks.forEach((link) => {
+
+    const linkTarget = link.getAttribute("href").replace("#", "");
+
+    if (linkTarget === currentSection) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+
+  });
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION STYLE
+========================================================= */
+
+function addActiveNavigationStyle() {
+
+  const style = document.createElement("style");
+
+  style.textContent = `
+    .main-nav a.active {
+      color: var(--black);
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+  `;
+
+  document.head.appendChild(style);
+}
+
+
+/* =========================================================
+   IMAGE DIRECTORY REFERENCE
+========================================================= */
+
+function exposeImageDirectory() {
+
+  window.SJL = window.SJL || {};
+
+  window.SJL.imageDirectory = IMAGE_DIRECTORY;
+
+  window.SJL.image = function(filename) {
+    return `${IMAGE_DIRECTORY}${filename}`;
+  };
+
+}
+
+
+/* =========================================================
+   ARCHIVE STATUS
+========================================================= */
+
+function updateArchiveStatus() {
+
+  const status = document.querySelector(".header-status");
+
+  if (!status) {
+    return;
+  }
+
+  const missingImages = document.querySelectorAll(
+    "img.image-missing"
+  ).length;
+
+  if (missingImages > 0) {
+
+    const existingNotice = status.querySelector(".missing-count");
+
+    if (existingNotice) {
+      existingNotice.remove();
+    }
+
+    const notice = document.createElement("span");
+
+    notice.className = "missing-count";
+    notice.textContent = `${missingImages} IMAGE RECORDS PENDING`;
+
+    notice.style.color = "var(--yellow)";
+
+    status.appendChild(notice);
+  }
+
+}
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const navLinks = document.querySelectorAll(".nav-link");
-    const views = document.querySelectorAll(".view");
-    const toast = document.getElementById("toast");
-
-    let toastTimer = null;
-
-
-    /*
-        ---------------------------------------------------------
-        VIEW SWITCHING
-        ---------------------------------------------------------
-    */
-
-    function showView(viewId, updateHash = true) {
-
-        const target = document.getElementById(viewId);
-
-        if (!target) {
-            return;
-        }
-
-
-        views.forEach(view => {
-            view.classList.toggle(
-                "active",
-                view.id === viewId
-            );
-        });
-
-
-        navLinks.forEach(link => {
-            link.classList.toggle(
-                "active",
-                link.dataset.view === viewId
-            );
-        });
-
-
-        if (updateHash) {
-            history.replaceState(
-                null,
-                "",
-                `#${viewId}`
-            );
-        }
-
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-
-
-    navLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            showView(
-                link.dataset.view
-            );
-
-        });
-
-    });
-
-
-    /*
-        ---------------------------------------------------------
-        HASH NAVIGATION
-        ---------------------------------------------------------
-    */
-
-    function loadFromHash() {
-
-        const hash = window.location.hash.replace("#", "");
-
-        if (
-            hash &&
-            document.getElementById(hash)
-        ) {
-            showView(hash, false);
-        }
-
-    }
-
-
-    loadFromHash();
-
-
-    window.addEventListener("hashchange", loadFromHash);
-
-
-    /*
-        ---------------------------------------------------------
-        PLACE PLACEHOLDERS
-        ---------------------------------------------------------
-    */
-
-    const placeholderLinks = document.querySelectorAll(
-        "[data-placeholder]"
-    );
-
-
-    placeholderLinks.forEach(link => {
-
-        link.addEventListener("click", event => {
-
-            event.preventDefault();
-
-            showToast(
-                link.dataset.placeholder
-            );
-
-        });
-
-    });
-
-
-    /*
-        ---------------------------------------------------------
-        TOAST
-        ---------------------------------------------------------
-    */
-
-    function showToast(message) {
-
-        if (!toast) {
-            return;
-        }
-
-
-        clearTimeout(toastTimer);
-
-
-        toast.textContent = message;
-
-        toast.classList.add("show");
-
-
-        toastTimer = setTimeout(() => {
-
-            toast.classList.remove("show");
-
-        }, 2800);
-
-    }
-
-
-    /*
-        ---------------------------------------------------------
-        KEYBOARD NAVIGATION
-        ---------------------------------------------------------
-    */
-
-    document.addEventListener("keydown", event => {
-
-        if (
-            event.key === "Escape" &&
-            toast.classList.contains("show")
-        ) {
-            toast.classList.remove("show");
-        }
-
-    });
-
-
-    /*
-        ---------------------------------------------------------
-        IMAGE FAILURE HANDLING
-        ---------------------------------------------------------
-
-        Keeps a broken asset from making the entire record
-        look broken. It does not substitute fake imagery.
-    */
-
-    const images = document.querySelectorAll("img");
-
-
-    images.forEach(image => {
-
-        image.addEventListener("error", () => {
-
-            image.classList.add("asset-missing");
-
-            image.alt =
-                "IMAGE ASSET UNAVAILABLE — RECORD INCOMPLETE";
-
-        });
-
-    });
-
-
-    /*
-        ---------------------------------------------------------
-        SMALL RANDOM FIELD NOTE
-        ---------------------------------------------------------
-
-        These are intentionally not new lore.
-
-        They are existing SJL statements used as rotating
-        interface flavor.
-    */
-
-    const fieldNotes = [
-
-        "The map is wrong.",
-
-        "Nobody designed this place.",
-
-        "There is no single ground floor anymore.",
-
-        "Everything has a reason. Most of those reasons have been forgotten.",
-
-        "The city is not a setting.",
-
-        "Not everything is explained.",
-
-        "People are the city.",
-
-        "SJL functions despite everything because people keep making it function."
-
-    ];
-
-
-    const footerBottom = document.querySelector(".footer-bottom");
-
-
-    if (footerBottom) {
-
-        footerBottom.addEventListener(
-            "dblclick",
-            () => {
-
-                const note =
-                    fieldNotes[
-                        Math.floor(
-                            Math.random() * fieldNotes.length
-                        )
-                    ];
-
-                showToast(note);
-
-            }
-        );
-
-    }
+  exposeImageDirectory();
+
+  addActiveNavigationStyle();
+
+  markMissingImages();
+
+  activateHashTarget();
+
+  updateActiveNavigation();
+
+  window.addEventListener(
+    "scroll",
+    updateActiveNavigation,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "hashchange",
+    activateHashTarget
+  );
+
+  /*
+    Give broken-image handlers time to fire before checking
+    the archive status.
+  */
+  window.setTimeout(
+    updateArchiveStatus,
+    500
+  );
 
 });
