@@ -43,13 +43,13 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 100;
-  opacity: 0.08;
+  opacity: 0.06;
   background-image:
     repeating-linear-gradient(
       0deg,
-      transparent 0px,
+      transparent 0,
       transparent 3px,
-      rgba(255,255,255,0.12) 4px
+      rgba(255,255,255,0.1) 4px
     );
   mix-blend-mode: screen;
 }
@@ -69,11 +69,15 @@ a {
   pointer-events: none;
   z-index: 99;
   opacity: 0.025;
-  background-image:
-    url("texture-newspaper.PNG");
+  background-image: url("texture-newspaper.PNG");
   background-size: 700px;
   mix-blend-mode: overlay;
 }
+
+
+/* =========================
+   HEADER
+========================= */
 
 .nine-header {
   min-height: 100vh;
@@ -84,7 +88,7 @@ a {
   background:
     linear-gradient(
       110deg,
-      rgba(0,0,0,0.88),
+      rgba(0,0,0,0.9),
       rgba(35,34,27,0.75)
     );
 }
@@ -151,7 +155,7 @@ a {
   color: var(--yellow);
   font-size: clamp(12px, 1.4vw, 18px);
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   line-height: 1.6;
 }
 
@@ -197,7 +201,9 @@ a {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .nine-hero {
   display: grid;
@@ -252,32 +258,34 @@ a {
   max-width: 550px;
 }
 
-.hero-warning {
+.hero-note {
   margin-top: 35px;
   border-left: 4px solid var(--rust);
   padding: 15px 20px;
   background: #151512;
 }
 
-.hero-warning strong,
-.hero-warning span {
+.hero-note strong,
+.hero-note span {
   display: block;
 }
 
-.hero-warning strong {
+.hero-note strong {
   font-size: 10px;
   letter-spacing: 0.2em;
   color: var(--yellow);
   margin-bottom: 7px;
 }
 
-.hero-warning span {
+.hero-note span {
   font-size: 13px;
   color: var(--dirty-white);
 }
 
 
-/* INTRO */
+/* =========================
+   INTRO
+========================= */
 
 .industrial-intro {
   display: grid;
@@ -288,7 +296,7 @@ a {
   padding: 12vw 5vw;
 }
 
-.intro-stamp {
+.intro-mark {
   align-self: start;
   border: 1px solid #5b5948;
   padding: 25px;
@@ -296,7 +304,7 @@ a {
   background: #11110f;
 }
 
-.intro-stamp span {
+.intro-mark span {
   display: block;
   font-size: clamp(4rem, 8vw, 8rem);
   line-height: 0.8;
@@ -304,7 +312,7 @@ a {
   color: var(--rust);
 }
 
-.intro-stamp small {
+.intro-mark small {
   display: block;
   margin-top: 30px;
   color: var(--muted);
@@ -331,7 +339,9 @@ a {
 }
 
 
-/* IMAGE STRIP */
+/* =========================
+   IMAGE STRIP
+========================= */
 
 .image-strip {
   display: grid;
@@ -356,7 +366,6 @@ a {
   filter: saturate(0.65) contrast(1.15);
 }
 
-.image-strip figcaption,
 figure figcaption {
   padding: 12px 15px;
   font-size: 9px;
@@ -365,7 +374,9 @@ figure figcaption {
 }
 
 
-/* SECTION */
+/* =========================
+   GENERAL SECTION
+========================= */
 
 .section-block {
   max-width: 1500px;
@@ -396,7 +407,9 @@ figure figcaption {
 }
 
 
-/* INDUSTRY */
+/* =========================
+   INDUSTRY
+========================= */
 
 .industry-grid {
   display: grid;
@@ -442,7 +455,9 @@ figure figcaption {
 }
 
 
-/* FULL BLEED */
+/* =========================
+   FULL BLEED
+========================= */
 
 .full-bleed {
   position: relative;
@@ -482,7 +497,9 @@ figure figcaption {
 }
 
 
-/* WORKERS */
+/* =========================
+   WORKERS
+========================= */
 
 .workers-section {
   padding: 11vw 5vw;
@@ -498,6 +515,7 @@ figure figcaption {
 }
 
 .workers-image {
+  margin: 0;
   transform: rotate(-1deg);
   border: 8px solid #191915;
   box-shadow: 0 20px 60px rgba(0,0,0,0.45);
@@ -538,7 +556,9 @@ figure figcaption {
 }
 
 
-/* NIGHT */
+/* =========================
+   NIGHT
+========================= */
 
 .night-shift {
   display: grid;
@@ -579,7 +599,9 @@ figure figcaption {
 }
 
 
-/* YARD */
+/* =========================
+   YARD
+========================= */
 
 .yard-grid {
   display: grid;
@@ -630,7 +652,9 @@ figure figcaption {
 }
 
 
-/* LANDMARK */
+/* =========================
+   LANDMARK
+========================= */
 
 .landmark {
   display: grid;
@@ -681,7 +705,9 @@ figure figcaption {
 }
 
 
-/* MACHINE */
+/* =========================
+   MACHINE
+========================= */
 
 .machine-section {
   display: grid;
@@ -721,7 +747,9 @@ figure figcaption {
 }
 
 
-/* UNDERWORKS */
+/* =========================
+   UNDERWORKS
+========================= */
 
 .underworks-section {
   max-width: 1500px;
@@ -771,7 +799,7 @@ figure figcaption {
   filter: saturate(0.45) contrast(1.15);
 }
 
-.underworks-warning {
+.underworks-note {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -781,18 +809,20 @@ figure figcaption {
   background: #17150f;
 }
 
-.underworks-warning strong {
+.underworks-note strong {
   color: var(--yellow);
   font-size: 13px;
   letter-spacing: 0.08em;
 }
 
-.underworks-warning span {
+.underworks-note span {
   color: #989488;
 }
 
 
-/* CREATURE */
+/* =========================
+   CREATURE
+========================= */
 
 .creature-section {
   display: grid;
@@ -846,7 +876,9 @@ figure figcaption {
 }
 
 
-/* BENOIT */
+/* =========================
+   BENOIT
+========================= */
 
 .benoit-section {
   display: grid;
@@ -935,7 +967,9 @@ figure figcaption {
 }
 
 
-/* ARCHIVE */
+/* =========================
+   OTHER SHIT
+========================= */
 
 .archive-section {
   max-width: 1500px;
@@ -998,7 +1032,9 @@ figure figcaption {
 }
 
 
-/* ARTIFACT */
+/* =========================
+   ARTIFACT
+========================= */
 
 .artifact-section {
   display: grid;
@@ -1039,7 +1075,9 @@ figure figcaption {
 }
 
 
-/* EVIDENCE */
+/* =========================
+   EVIDENCE / TEXTURE
+========================= */
 
 .evidence-strip {
   display: grid;
@@ -1048,6 +1086,7 @@ figure figcaption {
 }
 
 .evidence-piece {
+  margin: 0;
   border-right: 1px solid #403e34;
   background: #11110f;
 }
@@ -1071,7 +1110,9 @@ figure figcaption {
 }
 
 
-/* END */
+/* =========================
+   END
+========================= */
 
 .nine-ending {
   min-height: 90vh;
@@ -1106,6 +1147,7 @@ figure figcaption {
 .ending-copy p {
   color: #8e8c80;
   font-size: 18px;
+  line-height: 1.7;
 }
 
 .exit-links {
@@ -1131,7 +1173,9 @@ figure figcaption {
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .nine-footer {
   padding: 35px 5vw;
@@ -1157,7 +1201,9 @@ figure figcaption {
 }
 
 
-/* MISSING IMAGE */
+/* =========================
+   MISSING IMAGE
+========================= */
 
 img.image-missing {
   min-height: 150px;
@@ -1174,8 +1220,45 @@ img.image-missing {
   filter: none !important;
 }
 
+.image-missing-label {
+  display: block;
+  padding: 10px 15px;
+  color: var(--muted);
+  background: #11110f;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
 
-/* RESPONSIVE */
+
+/* =========================
+   REVEAL
+========================= */
+
+.section-block,
+.workers-section,
+.night-shift,
+.landmark,
+.machine-section,
+.creature-section,
+.benoit-section,
+.archive-section,
+.artifact-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.record-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 900px) {
 
@@ -1208,7 +1291,7 @@ img.image-missing {
     grid-template-columns: 1fr;
   }
 
-  .intro-stamp {
+  .intro-mark {
     max-width: 300px;
   }
 
