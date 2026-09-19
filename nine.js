@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
-     NINE LOCAL CLOCK
-  ========================= */
+     LOCAL CLOCK
+  ========================== */
 
   const clock = document.getElementById("clock");
 
   function updateClock() {
+
     if (!clock) return;
 
     const now = new Date();
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       second: "2-digit",
       hour12: false
     });
+
   }
 
   updateClock();
@@ -24,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     MISSING IMAGE HANDLING
-  ========================= */
+     MISSING IMAGES
+  ========================== */
 
   const images = document.querySelectorAll("img");
 
@@ -35,20 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       img.classList.add("image-missing");
 
-      img.alt = "IMAGE RECORD PENDING";
+      img.alt = "Image not available yet.";
 
-      if (!img.dataset.failed) {
-        img.dataset.failed = "true";
+      if (img.dataset.failed) return;
 
-        const label = document.createElement("span");
+      img.dataset.failed = "true";
 
-        label.className = "missing-image-label";
-        label.textContent = "IMAGE RECORD PENDING";
+      const label = document.createElement("span");
 
-        if (img.parentElement) {
-          img.parentElement.classList.add("image-record-missing");
-          img.parentElement.appendChild(label);
-        }
+      label.className = "image-missing-label";
+      label.textContent = "this image isn't here yet. gimme a sec.";
+
+      if (img.parentElement) {
+        img.parentElement.classList.add("image-record-missing");
+        img.parentElement.appendChild(label);
       }
 
     });
@@ -58,35 +60,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
      LOCAL NAVIGATION
-  ========================= */
+  ========================== */
 
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  document
+    .querySelectorAll('a[href^="#"]')
+    .forEach((link) => {
 
-    link.addEventListener("click", (event) => {
+      link.addEventListener("click", (event) => {
 
-      const targetID = link.getAttribute("href");
+        const targetID = link.getAttribute("href");
 
-      if (!targetID || targetID === "#") return;
+        if (!targetID || targetID === "#") return;
 
-      const target = document.querySelector(targetID);
+        const target = document.querySelector(targetID);
 
-      if (!target) return;
+        if (!target) return;
 
-      event.preventDefault();
+        event.preventDefault();
 
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
       });
 
     });
 
-  });
-
 
   /* =========================
-     INDUSTRIAL IMAGE PARALLAX
-  ========================= */
+     INDUSTRIAL PARALLAX
+  ========================== */
 
   const parallaxImages = document.querySelectorAll(
     ".full-bleed img, .night-image img, .machine-image img"
@@ -108,26 +112,31 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const center = rect.top + rect.height / 2;
-      const distance = (center - viewportHeight / 2) * 0.025;
+      const distance =
+        (center - viewportHeight / 2) * 0.025;
 
-      img.style.transform = `translateY(${distance}px) scale(1.035)`;
+      img.style.transform =
+        `translateY(${distance}px) scale(1.035)`;
 
     });
 
   }
 
-  window.addEventListener("scroll", updateParallax, {
-    passive: true
-  });
+  window.addEventListener(
+    "scroll",
+    updateParallax,
+    { passive: true }
+  );
 
   updateParallax();
 
 
   /* =========================
-     SMALL INDUSTRIAL GLITCH
-  ========================= */
+     NINE TITLE GLITCH
+  ========================== */
 
-  const title = document.querySelector(".header-title h1");
+  const title =
+    document.querySelector(".header-title h1");
 
   if (title) {
 
@@ -139,7 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "scaleX(0.82) translateX(3px)";
 
         setTimeout(() => {
-          title.style.transform = "scaleX(0.82)";
+
+          title.style.transform =
+            "scaleX(0.82)";
+
         }, 80);
 
       }
@@ -150,33 +162,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     ARCHIVE IMAGE OBSERVER
-  ========================= */
+     SCROLL REVEALS
+  ========================== */
 
   const revealTargets = document.querySelectorAll(
-    ".section-block, .workers-section, .night-shift, .landmark, .machine-section, .creature-section, .benoit-section, .archive-section, .artifact-section"
+    ".section-block, " +
+    ".workers-section, " +
+    ".night-shift, " +
+    ".landmark, " +
+    ".machine-section, " +
+    ".creature-section, " +
+    ".benoit-section, " +
+    ".archive-section, " +
+    ".artifact-section"
   );
 
-  const observer = new IntersectionObserver(
-    (entries) => {
+  const observer =
+    new IntersectionObserver(
+      (entries) => {
 
-      entries.forEach((entry) => {
+        entries.forEach((entry) => {
 
-        if (entry.isIntersecting) {
+          if (!entry.isIntersecting) return;
 
-          entry.target.classList.add("record-visible");
+          entry.target.classList.add(
+            "record-visible"
+          );
 
           observer.unobserve(entry.target);
 
-        }
+        });
 
-      });
-
-    },
-    {
-      threshold: 0.08
-    }
-  );
+      },
+      {
+        threshold: 0.08
+      }
+    );
 
   revealTargets.forEach((target) => {
     observer.observe(target);
@@ -184,8 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     CONSOLE RECORD
-  ========================= */
+     NINE CONSOLE
+  ========================== */
 
   console.log(
     "%cNINE / SAINT JUDE'S LANDING",
@@ -193,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   console.log(
-    "%cIndustrial records loaded.",
+    "%cSomebody has to make all this shit useful.",
     "color:#9a4d2e;"
   );
 
