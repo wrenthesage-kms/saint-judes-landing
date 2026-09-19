@@ -1,6 +1,9 @@
 /*
   SAINT JUDE'S LANDING
-  Municipal Archive / Site Controller
+  Site controller.
+
+  This is not a municipal archive.
+  There is no fucking database pretending to know everything.
 
   IMAGE RULE:
   All canonical SJL image assets live in /images/
@@ -13,26 +16,30 @@ const IMAGE_DIRECTORY = "images/";
 
 
 /* =========================================================
-   IMAGE RECORD HANDLING
+   IMAGE HANDLING
 ========================================================= */
 
 function markMissingImages() {
+
   const images = document.querySelectorAll("img");
 
   images.forEach((image) => {
 
     image.addEventListener("error", () => {
+
       image.classList.add("image-missing");
 
       image.setAttribute(
         "alt",
-        `${image.alt || "Image"} — image record pending`
+        `${image.alt || "Image"} — it's fucking coming`
       );
 
       image.dataset.missing = "true";
+
     });
 
   });
+
 }
 
 
@@ -55,13 +62,20 @@ function activateHashTarget() {
   }
 
   window.requestAnimationFrame(() => {
+
     target.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+
   });
+
 }
 
+
+/* =========================================================
+   ACTIVE SECTION
+========================================================= */
 
 function updateActiveNavigation() {
 
@@ -86,7 +100,9 @@ function updateActiveNavigation() {
 
   navigationLinks.forEach((link) => {
 
-    const linkTarget = link.getAttribute("href").replace("#", "");
+    const linkTarget = link
+      .getAttribute("href")
+      .replace("#", "");
 
     if (linkTarget === currentSection) {
       link.classList.add("active");
@@ -95,31 +111,12 @@ function updateActiveNavigation() {
     }
 
   });
+
 }
 
 
 /* =========================================================
-   ACTIVE NAVIGATION STYLE
-========================================================= */
-
-function addActiveNavigationStyle() {
-
-  const style = document.createElement("style");
-
-  style.textContent = `
-    .main-nav a.active {
-      color: var(--black);
-      background: var(--cyan);
-      border-color: var(--cyan);
-    }
-  `;
-
-  document.head.appendChild(style);
-}
-
-
-/* =========================================================
-   IMAGE DIRECTORY REFERENCE
+   IMAGE DIRECTORY
 ========================================================= */
 
 function exposeImageDirectory() {
@@ -136,38 +133,24 @@ function exposeImageDirectory() {
 
 
 /* =========================================================
-   ARCHIVE STATUS
+   SMALL INTERACTION SHIT
 ========================================================= */
 
-function updateArchiveStatus() {
+function addImageInteractions() {
 
-  const status = document.querySelector(".header-status");
+  const images = document.querySelectorAll("img");
 
-  if (!status) {
-    return;
-  }
+  images.forEach((image) => {
 
-  const missingImages = document.querySelectorAll(
-    "img.image-missing"
-  ).length;
+    image.addEventListener("mouseenter", () => {
+      image.closest("figure")?.classList.add("image-hovered");
+    });
 
-  if (missingImages > 0) {
+    image.addEventListener("mouseleave", () => {
+      image.closest("figure")?.classList.remove("image-hovered");
+    });
 
-    const existingNotice = status.querySelector(".missing-count");
-
-    if (existingNotice) {
-      existingNotice.remove();
-    }
-
-    const notice = document.createElement("span");
-
-    notice.className = "missing-count";
-    notice.textContent = `${missingImages} IMAGE RECORDS PENDING`;
-
-    notice.style.color = "var(--yellow)";
-
-    status.appendChild(notice);
-  }
+  });
 
 }
 
@@ -180,9 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   exposeImageDirectory();
 
-  addActiveNavigationStyle();
-
   markMissingImages();
+
+  addImageInteractions();
 
   activateHashTarget();
 
@@ -197,15 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener(
     "hashchange",
     activateHashTarget
-  );
-
-  /*
-    Give broken-image handlers time to fire before checking
-    the archive status.
-  */
-  window.setTimeout(
-    updateArchiveStatus,
-    500
   );
 
 });
