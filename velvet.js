@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  /*
+    LOCAL CLOCK
+
+    Velvet keeps time like everybody else.
+    The weird shit can wait.
+  */
+
   const clock = document.getElementById("local-clock");
 
   function updateClock() {
@@ -20,10 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-    IMAGE RECORD HANDLING
+    MISSING IMAGES
 
-    Missing planned PNGs are intentionally left as visible archive placeholders.
-    This lets the page exist before the image set is finished.
+    Planned images are allowed to not exist yet.
+    The page stays intact instead of leaving a broken-image icon
+    sitting in the middle of somebody's house.
   */
 
   const images = document.querySelectorAll("img");
@@ -42,10 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
       replacement.setAttribute("role", "img");
       replacement.setAttribute(
         "aria-label",
-        `Image record pending: ${img.getAttribute("src") || "unknown file"}`
+        "Image not available yet"
       );
 
       img.replaceWith(replacement);
+
     });
 
   });
@@ -54,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /*
     LOCAL NAVIGATION
 
-    Keeps Velvet feeling like an archive page rather than a single
-    uninterrupted wall of text.
+    Sticky navigation stays useful without turning the page
+    into a giant uninterrupted scroll.
   */
 
   const navLinks = document.querySelectorAll(".district-nav a");
@@ -74,7 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       event.preventDefault();
 
-      const navHeight = document.querySelector(".district-nav")?.offsetHeight || 0;
+      const navHeight =
+        document.querySelector(".district-nav")?.offsetHeight || 0;
 
       const targetPosition =
         target.getBoundingClientRect().top +
@@ -93,10 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-    SUBTLE VELVET TITLE DISTORTION
+    VELVET TITLE MOVEMENT
 
-    Not glitch-cyberpunk. Just enough visual instability to imply
-    something about the district isn't sitting correctly.
+    Tiny instability. Nothing flashy.
+    The district is old enough that it doesn't need a glitch filter.
   */
 
   const heroTitle = document.querySelector(".hero h1");
@@ -126,15 +136,15 @@ document.addEventListener("DOMContentLoaded", () => {
   /*
     SLOW IMAGE MOVEMENT
 
-    Very restrained. Velvet should feel old and heavy, not like a
-    cyberpunk website screaming at the user.
+    Heavy, restrained movement.
+    Velvet is not Neon Gut.
   */
 
   const parallaxImages = document.querySelectorAll(
     ".hero-image img, .garden-image img, .wrong-image img, .full-image img"
   );
 
-  window.addEventListener("scroll", () => {
+  function updateParallax() {
 
     const viewportCenter = window.innerHeight / 2;
 
@@ -144,49 +154,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
-      const distance = rect.top + rect.height / 2 - viewportCenter;
+      const distance =
+        rect.top + rect.height / 2 - viewportCenter;
+
       const movement = distance * -0.018;
 
       img.style.transform = `translateY(${movement}px)`;
 
     });
 
-  }, { passive: true });
+  }
+
+  window.addEventListener(
+    "scroll",
+    updateParallax,
+    { passive: true }
+  );
+
+  updateParallax();
 
 
   /*
-    ARCHIVE VISIBILITY
+    LITTLE ENTRANCE MOVEMENT
 
-    Small fade/shift when records enter view.
+    Things drift into place instead of behaving like database cards.
   */
 
-  const archiveObjects = document.querySelectorAll(".archive-object");
+  const sections = document.querySelectorAll(
+    ".split-section, .image-text, .ballroom-section, .garden-section, " +
+    ".institutions-section, .detail-strip, .dining-section, " +
+    ".ritual-section, .wrong-entity, .geometry-section, .doll-section, " +
+    ".threshold-section, .archive-section, .final-section"
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("velvet-section-ready");
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
 
       entries.forEach((entry) => {
 
-        if (entry.isIntersecting) {
+        if (!entry.isIntersecting) return;
 
-          entry.target.classList.add("record-visible");
-          observer.unobserve(entry.target);
+        entry.target.classList.add("velvet-section-visible");
 
-        }
+        observer.unobserve(entry.target);
 
       });
 
     },
     {
-      threshold: 0.15
+      threshold: 0.08
     }
   );
 
-  archiveObjects.forEach((object) => observer.observe(object));
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
 
 
   /*
-    CONSOLE EASTER EGG
+    CONSOLE EASTER EGGS
+
+    Just Velvet being Velvet.
   */
 
   console.log(
@@ -195,12 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   console.log(
-    "%cRECORD NOTE: Mothball is an enclave inside Velvet. It is not a district.",
+    "%cMothball is inside Velvet. It is not a district.",
     "font-family: monospace; color: #8d1e2f;"
   );
 
   console.log(
-    "%cIf you found another staircase, don't worry about it.",
+    "%cIf the house has another staircase, apparently that's fine.",
     "font-family: monospace; color: #bcae9a;"
   );
 
