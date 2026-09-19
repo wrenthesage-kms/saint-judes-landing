@@ -872,7 +872,7 @@ a {
 }
 
 .missing-image::after {
-  content: "IMAGE RECORD PENDING";
+  content: "GIMME A SEC. THIS IMAGE ISN'T HERE YET.";
 }
 
 .record-visible {
