@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* LOCAL CLOCK */
+
   const clock = document.getElementById("local-clock");
 
   function updateClock() {
+
     if (!clock) return;
 
     const now = new Date();
@@ -12,17 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
       minute: "2-digit",
       second: "2-digit"
     });
+
   }
 
   updateClock();
   setInterval(updateClock, 1000);
 
 
-  /*
-   * BROKEN IMAGE HANDLING
-   * Missing future assets become archive placeholders instead of
-   * leaving ugly browser-broken-image icons everywhere.
-   */
+  /* BROKEN IMAGE HANDLING */
 
   document.querySelectorAll("img").forEach((image) => {
 
@@ -36,27 +36,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
       image.style.display = "none";
 
-      if (wrapper) {
-        wrapper.classList.add("image-missing");
+      if (!wrapper) return;
 
-        const notice = document.createElement("div");
-        notice.className = "missing-image";
-        notice.innerHTML = `
-          <span>IMAGE RECORD</span>
-          <strong>RECORD PENDING</strong>
-          <small>${image.getAttribute("src") || "UNKNOWN FILE"}</small>
-        `;
+      wrapper.classList.add("image-missing");
 
-        wrapper.appendChild(notice);
-      }
+      const notice = document.createElement("div");
+
+      notice.className = "missing-image";
+
+      notice.innerHTML = `
+        <span>RIOT'S PAGE</span>
+        <strong>GIMME A SEC. THIS IMAGE ISN'T HERE YET.</strong>
+        <small>${image.getAttribute("src") || "UNKNOWN FILE"}</small>
+      `;
+
+      wrapper.appendChild(notice);
+
     });
 
   });
 
 
-  /*
-   * SMOOTH INTERNAL NAVIGATION
-   */
+  /* SMOOTH INTERNAL NAVIGATION */
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
@@ -89,20 +90,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /*
-   * ARCHIVE SECTION REVEAL
-   */
+  /* SECTION REVEAL */
 
-  const sections = document.querySelectorAll(".section");
+  const sections = document.querySelectorAll(".page-section");
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, observerInstance) => {
 
       entries.forEach((entry) => {
 
-        if (entry.isIntersecting) {
-          entry.target.classList.add("record-visible");
-        }
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("record-visible");
+
+        observerInstance.unobserve(entry.target);
 
       });
 
@@ -117,16 +118,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /*
-   * VERY SMALL RIOT-APPROPRIATE IMAGE MOVEMENT.
-   * Nothing dramatic. Just enough to make the archive feel alive.
-   */
+  /* RIOT-APPROPRIATE IMAGE MOVEMENT */
 
   const movingImages = document.querySelectorAll(
-    ".hero-image img, .feature-image img, .crew-image img, .room-image img"
+    ".hero-image img, .large-image img, .behavior-image img, .personal-objects img, .objects-layout figure img, .nine-images img"
   );
 
-  window.addEventListener("scroll", () => {
+  let ticking = false;
+
+  function updateImageMovement() {
+
+    if (window.innerWidth <= 700) {
+      ticking = false;
+      return;
+    }
 
     const scrollY = window.scrollY;
 
@@ -134,20 +139,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const rect = image.getBoundingClientRect();
 
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      if (
+        rect.bottom < 0 ||
+        rect.top > window.innerHeight
+      ) {
+        return;
+      }
 
-      const movement = Math.sin((scrollY + index * 400) * 0.002) * 3;
+      const movement =
+        Math.sin((scrollY + index * 400) * 0.002) * 3;
 
-      image.style.transform = `translateY(${movement}px)`;
+      image.style.transform =
+        `translateY(${movement}px)`;
 
     });
 
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+
+    if (!ticking) {
+
+      window.requestAnimationFrame(
+        updateImageMovement
+      );
+
+      ticking = true;
+
+    }
+
+  }, {
+    passive: true
   });
 
+  updateImageMovement();
 
-  /*
-   * TINY ARCHIVE GLITCH.
-   */
+
+  /* TINY RIOT GLITCH */
 
   const heroTitle = document.querySelector(".hero h1");
 
@@ -158,10 +187,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Math.random() > 0.88) {
 
         heroTitle.style.transform =
-          `translate(${Math.random() * 4 - 2}px, ${Math.random() * 2 - 1}px)`;
+          `translate(
+            ${Math.random() * 4 - 2}px,
+            ${Math.random() * 2 - 1}px
+          )`;
+
+        heroTitle.style.textShadow =
+          `${Math.random() * 5 - 2}px 0 rgba(255,39,125,.65),
+           ${Math.random() * -5 + 2}px 0 rgba(37,230,255,.55)`;
 
         setTimeout(() => {
+
           heroTitle.style.transform = "";
+          heroTitle.style.textShadow = "";
+
         }, 70);
 
       }
@@ -171,18 +210,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /*
-   * CONSOLE EASTER EGG
-   */
+  /* SMALL LABEL GLITCH */
+
+  const labels = document.querySelectorAll(
+    ".section-label, .field-label, .eyebrow"
+  );
+
+  labels.forEach((label) => {
+
+    label.addEventListener("mouseenter", () => {
+
+      if (Math.random() > 0.55) {
+
+        label.style.transform =
+          `translateX(${Math.random() * 3 - 1.5}px)`;
+
+        setTimeout(() => {
+          label.style.transform = "";
+        }, 100);
+
+      }
+
+    });
+
+  });
+
+
+  /* CONSOLE EASTER EGG */
 
   console.log(
-    "%c RIOT / SJL OUTLIER RECORD ",
+    "%c RIOT ",
     "background:#ff277d;color:#080709;font-weight:900;padding:5px 9px;"
   );
 
   console.log(
-    "%cIf you touched his tech, that's between you and Riot.",
+    "%cNeon Gut / Human / Outlier",
     "color:#25e6ff;font-family:monospace;"
+  );
+
+  console.log(
+    "%cIf you touched his tech, that's between you and Riot.",
+    "color:#ff277d;font-family:monospace;"
   );
 
 });
