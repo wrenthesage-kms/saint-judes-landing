@@ -1,9 +1,8 @@
 /*
   THE NEON GUT
-  District Controller
 
-  This page intentionally has its own behavior and visual identity.
-  It does not use the SJL municipal page controller.
+  This page has its own shit going on.
+  It does not use the SJL city-page controller.
 */
 
 
@@ -34,13 +33,12 @@ function updateGutClock() {
 
   const minuteString = String(minutes).padStart(2, "0");
 
-  clock.textContent =
-    `${hours}:${minuteString} ${period}`;
+  clock.textContent = `${hours}:${minuteString} ${period}`;
 }
 
 
 /* =========================================================
-   IMAGE FAILURE
+   BROKEN IMAGES
 ========================================================= */
 
 function handleMissingImages() {
@@ -52,7 +50,7 @@ function handleMissingImages() {
       image.classList.add("image-missing");
 
       image.alt =
-        `${image.alt || "Image"} — image record pending`;
+        `${image.alt || "Image"} — this shit isn't here yet`;
 
     });
 
@@ -106,7 +104,7 @@ function smoothGutNavigation() {
 
 
 /* =========================================================
-   SMALL DISTRICT GLITCH
+   GUT GLITCH
 ========================================================= */
 
 function occasionalGlitch() {
