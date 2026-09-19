@@ -607,18 +607,6 @@ img {
   position: relative;
 }
 
-.ritual-image::after {
-  content: "RECORD PENDING";
-  position: absolute;
-  right: -15px;
-  bottom: 25px;
-  padding: 10px 15px;
-  background: var(--blood);
-  color: var(--white);
-  font: 9px "DM Mono", monospace;
-  transform: rotate(-4deg);
-}
-
 .ritual-image img {
   aspect-ratio: 2 / 3;
   object-fit: cover;
@@ -887,10 +875,7 @@ img {
   font-size: 8px;
 }
 
-.velvet-footer a:first-child {
-  color: var(--gold);
-}
-
+.velvet-footer a:first-child,
 .velvet-footer a:last-child {
   color: var(--gold);
 }
@@ -915,7 +900,7 @@ img {
 }
 
 .missing-image::after {
-  content: "IMAGE RECORD PENDING";
+  content: "GIMME A SEC. THIS IMAGE ISN'T HERE YET.";
 }
 
 @media (max-width: 900px) {
