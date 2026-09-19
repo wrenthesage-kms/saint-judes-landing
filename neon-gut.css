@@ -58,7 +58,6 @@ body::before {
   z-index: 30;
   pointer-events: none;
   opacity: 0.035;
-
   background:
     repeating-linear-gradient(
       0deg,
@@ -74,11 +73,9 @@ body::before {
   z-index: 29;
   pointer-events: none;
   opacity: 0.025;
-
   background-image:
     radial-gradient(circle at 15% 20%, white 0 1px, transparent 1px),
     radial-gradient(circle at 75% 60%, white 0 1px, transparent 1px);
-
   background-size: 17px 21px, 29px 31px;
 }
 
@@ -87,7 +84,6 @@ body::before {
   inset: 0;
   z-index: 28;
   pointer-events: none;
-
   box-shadow:
     inset 0 0 150px rgba(0,0,0,0.8),
     inset 0 0 35px rgba(255,20,159,0.05);
@@ -126,11 +122,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0.8rem clamp(1rem, 4vw, 4rem);
-
   border-bottom: 1px solid var(--line);
-
   font: 0.62rem var(--mono);
 }
 
@@ -158,15 +151,12 @@ a {
   color: var(--cyan);
 }
 
-
 .gut-logo {
   padding:
     clamp(3rem, 9vw, 8rem)
     clamp(1rem, 5vw, 5rem)
     clamp(2rem, 5vw, 4rem);
-
   text-align: center;
-
   background:
     radial-gradient(
       ellipse at center,
@@ -178,7 +168,6 @@ a {
 .logo-small {
   display: block;
   margin-bottom: 0.5rem;
-
   color: var(--dirty);
   font: 0.7rem var(--mono);
   letter-spacing: 0.25em;
@@ -186,11 +175,9 @@ a {
 
 .gut-logo h1 {
   margin: 0;
-
   font: 900 clamp(5rem, 18vw, 16rem) var(--display);
   line-height: 0.68;
   letter-spacing: -0.07em;
-
   transform: rotate(-2deg);
 }
 
@@ -206,37 +193,31 @@ a {
 .logo-bottom {
   display: block;
   margin-top: 1.8rem;
-
   color: var(--cyan);
   font: 0.6rem var(--mono);
   letter-spacing: 0.12em;
 }
-
 
 .gut-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.35rem;
-
   padding: 0 1rem 1rem;
 }
 
 .gut-nav a {
   padding: 0.35rem 0.7rem;
-
   border: 1px solid transparent;
-
   color: var(--dirty);
-
   font: 0.6rem var(--mono);
   letter-spacing: 0.08em;
   text-decoration: none;
-
   transition: 0.15s;
 }
 
-.gut-nav a:hover {
+.gut-nav a:hover,
+.gut-nav a:focus {
   color: var(--black);
   background: var(--pink);
   border-color: var(--pink);
@@ -253,9 +234,7 @@ main {
 
 .gut-label {
   margin: 0 0 1rem;
-
   color: var(--cyan);
-
   font: 0.62rem var(--mono);
   letter-spacing: 0.14em;
 }
@@ -284,11 +263,9 @@ p {
 
 .big-gut-line {
   color: var(--cream);
-
   font:
     900 clamp(1.4rem, 3vw, 2.6rem)
     var(--display);
-
   line-height: 0.9;
   text-transform: uppercase;
 }
@@ -300,23 +277,18 @@ p {
 
 .gut-hero {
   position: relative;
-
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-
   min-height: 80vh;
 }
 
 .hero-copy {
   position: relative;
   z-index: 2;
-
   align-self: center;
-
   padding:
     clamp(3rem, 8vw, 8rem)
     clamp(1rem, 5vw, 5rem);
-
   background:
     linear-gradient(
       120deg,
@@ -329,9 +301,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-
   margin-bottom: 2rem;
-
   font: 0.58rem var(--mono);
 }
 
@@ -353,9 +323,7 @@ p {
 
 .hero-sub {
   margin: 1.5rem 0;
-
   color: var(--cyan);
-
   font:
     900 clamp(1.6rem, 3vw, 3rem)
     var(--display);
@@ -375,12 +343,9 @@ p {
 .gut-hero-image img {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   filter:
     saturate(1.35)
     contrast(1.12);
@@ -388,10 +353,8 @@ p {
 
 .gut-hero-image::after {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(
       90deg,
@@ -403,7 +366,6 @@ p {
       rgba(7,6,7,0.65),
       transparent 35%
     );
-
   pointer-events: none;
 }
 
@@ -413,13 +375,10 @@ p {
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
-
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-
   color: var(--cream);
-
   font: 0.58rem var(--mono);
 }
 
@@ -430,7 +389,6 @@ p {
 
 .street-section {
   width: min(1450px, calc(100% - 2rem));
-
   margin: auto;
   padding: clamp(6rem, 12vw, 12rem) 0;
 }
@@ -439,11 +397,8 @@ p {
   width: fit-content;
   margin-left: auto;
   margin-bottom: 3rem;
-
   padding: 0.8rem;
-
   border: 1px solid var(--pink);
-
   transform: rotate(3deg);
 }
 
@@ -466,7 +421,6 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 5rem;
-
   margin-bottom: 4rem;
 }
 
@@ -479,9 +433,7 @@ p {
 .main-street-image {
   position: relative;
   margin: 0;
-
   border: 1px solid var(--line);
-
   background: var(--black-2);
 }
 
@@ -493,9 +445,7 @@ p {
 .main-street-image figcaption {
   display: flex;
   justify-content: space-between;
-
   padding: 0.7rem;
-
   color: var(--dirty);
   font: 0.58rem var(--mono);
 }
@@ -504,13 +454,11 @@ p {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
   gap: 0.8rem;
-
   margin-top: 0.8rem;
 }
 
 .street-gallery figure {
   margin: 0;
-
   background: var(--black-2);
   border: 1px solid var(--line);
 }
@@ -532,9 +480,7 @@ p {
 .rain-section figcaption,
 .detail-strip figcaption {
   padding: 0.6rem;
-
   color: var(--dirty);
-
   font: 0.56rem var(--mono);
 }
 
@@ -547,21 +493,25 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(3rem, 8vw, 9rem);
-
   width: min(1200px, calc(100% - 2rem));
-
   margin: auto;
   padding: 6rem 0;
-
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
 .ordinary-copy {
   max-width: 650px;
-
   color: var(--dirty);
   font-size: 1.05rem;
+}
+
+.ordinary-last-line {
+  color: var(--cream);
+  font:
+    900 1.5rem
+    var(--display);
+  text-transform: uppercase;
 }
 
 
@@ -573,9 +523,7 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
   gap: 4rem;
-
   width: min(1400px, calc(100% - 2rem));
-
   margin: auto;
   padding: clamp(6rem, 12vw, 12rem) 0;
 }
@@ -591,9 +539,7 @@ p {
 
 .convenience-image {
   margin: 0;
-
   border: 1px solid var(--line);
-
   transform: rotate(0.7deg);
 }
 
@@ -609,7 +555,6 @@ p {
 
 .nightlife-section {
   padding: clamp(6rem, 12vw, 12rem) 1rem;
-
   background:
     linear-gradient(
       135deg,
@@ -648,13 +593,11 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 5rem;
-
   margin-top: 4rem;
 }
 
 .nightlife-list {
   padding: 1.5rem;
-
   border-left: 4px solid var(--pink);
   background: rgba(255,20,159,0.035);
 }
@@ -667,7 +610,6 @@ p {
 .nightlife-list ul {
   margin: 1rem 0 0;
   padding-left: 1.2rem;
-
   color: var(--dirty);
 }
 
@@ -684,9 +626,7 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 4rem;
-
   width: min(1400px, calc(100% - 2rem));
-
   margin: auto;
   padding: 7rem 0;
 }
@@ -702,20 +642,16 @@ p {
 .glitch-image {
   position: relative;
   margin: 0;
-
   border: 1px solid var(--cyan);
-
   box-shadow:
     10px 10px 0 rgba(255,20,159,0.12),
     -8px -8px 0 rgba(32,229,220,0.07);
-
   transform: rotate(-0.7deg);
 }
 
 .glitch-image img {
   aspect-ratio: 1 / 1;
   object-fit: cover;
-
   filter:
     saturate(1.4)
     contrast(1.15);
@@ -728,7 +664,6 @@ p {
 
 .underbelly-section {
   padding: clamp(6rem, 12vw, 12rem) 1rem;
-
   background:
     linear-gradient(
       180deg,
@@ -775,9 +710,7 @@ p {
 
 .rain-section {
   position: relative;
-
   width: 100%;
-
   margin: 4rem 0;
 }
 
@@ -794,10 +727,8 @@ p {
 
 .rain-section figure::after {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(
       0deg,
@@ -812,10 +743,8 @@ p {
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
-
   display: flex;
   justify-content: space-between;
-
   color: var(--cream);
 }
 
@@ -829,7 +758,6 @@ p {
 .rain-caption strong,
 .rain-caption span {
   display: block;
-
   font-family: var(--display);
   text-transform: uppercase;
 }
@@ -853,7 +781,6 @@ p {
 
 .people-section {
   width: min(1400px, calc(100% - 2rem));
-
   margin: auto;
   padding: clamp(6rem, 12vw, 12rem) 0;
 }
@@ -871,12 +798,9 @@ p {
 .person-card {
   display: flex;
   flex-direction: column;
-
   background: var(--black-2);
   border: 1px solid var(--line);
-
   text-decoration: none;
-
   transition: 0.18s;
 }
 
@@ -893,7 +817,6 @@ p {
 .person-coming {
   display: grid;
   place-items: center;
-
   background:
     repeating-linear-gradient(
       -45deg,
@@ -902,10 +825,8 @@ p {
       #0b090b 12px,
       #0b090b 24px
     );
-
   color: var(--dirty);
   text-align: center;
-
   font: 0.65rem var(--mono);
 }
 
@@ -945,7 +866,6 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-
   width: 60%;
   margin: 3rem 0 0 auto;
 }
@@ -967,7 +887,6 @@ p {
 
 .music-section {
   width: min(1200px, calc(100% - 2rem));
-
   margin: auto;
   padding: clamp(6rem, 12vw, 12rem) 0;
 }
@@ -982,17 +901,13 @@ p {
 
 .soundcloud-frame {
   padding: 1rem;
-
-  border:
-    1px solid var(--pink);
-
+  border: 1px solid var(--pink);
   background:
     linear-gradient(
       135deg,
       rgba(255,20,159,0.08),
       rgba(32,229,220,0.03)
     );
-
   box-shadow:
     12px 12px 0 rgba(255,20,159,0.08);
 }
@@ -1006,10 +921,8 @@ p {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.5rem 2rem;
-
   margin-top: 2rem;
   padding: 1rem;
-
   border-left: 4px solid var(--cyan);
 }
 
@@ -1025,9 +938,7 @@ p {
 
 .music-note p {
   grid-column: 2;
-
   margin: 0;
-
   color: var(--dirty);
   font-size: 0.8rem;
 }
@@ -1042,12 +953,9 @@ p {
   justify-content: space-between;
   align-items: end;
   gap: 3rem;
-
   width: min(1400px, calc(100% - 2rem));
-
   margin: auto;
   padding: 7rem 0;
-
   border-top: 1px solid var(--line);
 }
 
@@ -1065,22 +973,19 @@ p {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-
   min-width: 250px;
 }
 
 .exit-links a {
   padding: 0.7rem;
-
   border: 1px solid var(--line);
-
   color: var(--dirty);
-
   font: 0.6rem var(--mono);
   text-decoration: none;
 }
 
-.exit-links a:hover {
+.exit-links a:hover,
+.exit-links a:focus {
   color: var(--black);
   background: var(--cyan);
   border-color: var(--cyan);
@@ -1096,13 +1001,9 @@ p {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-
   padding: 3rem clamp(1rem, 4vw, 4rem);
-
   border-top: 1px solid var(--line);
-
   background: var(--black-2);
-
   color: var(--dirty);
   font: 0.58rem var(--mono);
 }
@@ -1115,12 +1016,11 @@ p {
 
 
 /* =========================================================
-   MISSING IMAGE HANDLING
+   BROKEN IMAGE
 ========================================================= */
 
 img.image-missing {
   min-height: 220px;
-
   background:
     repeating-linear-gradient(
       -45deg,
@@ -1129,7 +1029,6 @@ img.image-missing {
       #0d0a0d 12px,
       #0d0a0d 24px
     );
-
   object-fit: contain;
 }
 
