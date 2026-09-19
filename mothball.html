@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MOTHBALL — Saint Jude's Landing</title>
+
+  <title>Mothball — Saint Jude's Landing</title>
+
   <link rel="stylesheet" href="mothball.css">
 </head>
 
 <body>
 
-  <div class="grain"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <header class="moth-header">
     <a href="velvet.html" class="back-link">← VELVET</a>
 
     <div class="header-stamp">
-      <span>ENCLAVE RECORD</span>
-      <span>WITHIN VELVET</span>
+      <span>MOTHBALL</span>
+      <span>INSIDE VELVET</span>
       <span id="clock">00:00:00</span>
     </div>
   </header>
@@ -29,7 +31,10 @@
     <section class="hero">
 
       <div class="hero-photo">
-        <img src="hero-mothball.PNG" alt="Dense commercial street inside Mothball">
+        <img
+          src="hero-mothball.PNG"
+          alt="Dense commercial street in Mothball"
+        >
       </div>
 
       <div class="hero-copy">
@@ -44,12 +49,11 @@
           A cramped commercial enclave built into the old bones of Velvet.
           Shops, apartments, storage rooms, repair businesses, collectors,
           salvage dealers, secondhand stores and enough accumulated shit to
-          make throwing anything away basically impossible.
+          make throwing anything away feel personally irresponsible.
         </p>
 
         <p class="rule">
-          MOTHBALL IS NOT A DISTRICT.
-          <br>
+          MOTHBALL IS NOT A DISTRICT.<br>
           IT IS INSIDE VELVET.
         </p>
 
@@ -58,9 +62,9 @@
     </section>
 
 
-    <!-- NAV -->
+    <!-- LOCAL NAV -->
 
-    <nav class="local-nav">
+    <nav class="local-nav" aria-label="Mothball sections">
       <a href="#what">WHAT IS THIS</a>
       <a href="#street">STREET</a>
       <a href="#shops">SHOPS</a>
@@ -68,43 +72,39 @@
       <a href="#stuff">THE STUFF</a>
       <a href="#doll">DOLL</a>
       <a href="#below">BELOW</a>
-      <a href="#archive">ARCHIVE</a>
+      <a href="#archive">OLD SHIT</a>
     </nav>
 
 
-    <!-- WHAT IS MOTHBALL -->
+    <!-- WHAT -->
 
     <section class="what" id="what">
 
       <div class="section-number">01</div>
 
       <div class="what-title">
-        <p class="eyebrow">LOCATION / VELVET</p>
         <h2>THE CITY<br>KEPT ADDING<br>ROOMS.</h2>
       </div>
 
       <div class="what-copy">
 
         <p>
-          Mothball grew inside Velvet rather than beside it.
-        </p>
-
-        <p>
+          Mothball grew inside Velvet instead of beside it.
           Storefronts occupied old ground floors. Apartments got divided.
           Basements became storage. Storage became shops. Shops expanded
-          into hallways. Somebody put a staircase somewhere and twenty years
-          later nobody remembered what used to be there.
+          into hallways. Somebody added a staircase. Somebody else forgot
+          why it was there.
         </p>
 
         <p>
-          The enclave became known for secondhand commerce, salvage, repair,
-          curios, collectors and the general movement of objects from one
-          person's hands into another person's hands.
+          Eventually the whole thing became a dense little ecosystem of
+          secondhand commerce, salvage, repair, curios, collectors and
+          objects changing hands so frequently that nobody remembers where
+          half of them came from.
         </p>
 
         <p class="big-note">
-          IF SOMEBODY DOESN'T WANT IT,
-          <br>
+          IF SOMEBODY DOESN'T WANT IT,<br>
           SOMEBODY IN MOTHBALL PROBABLY DOES.
         </p>
 
@@ -118,7 +118,10 @@
     <section class="street" id="street">
 
       <div class="street-image">
-        <img src="mothball-main-street.PNG" alt="Busy Mothball commercial street">
+        <img
+          src="mothball-main-street.PNG"
+          alt="Mothball main commercial street"
+        >
       </div>
 
       <div class="street-label">
@@ -135,33 +138,31 @@
 
       <div class="alley-copy">
 
-        <p class="eyebrow">OFF THE MAIN STREET</p>
+        <p class="eyebrow">THE BACK WAY</p>
 
         <h2>THERE'S<br>ALWAYS<br>ANOTHER<br>ALLEY.</h2>
 
         <p>
-          The main streets are crowded enough.
+          Side streets, delivery entrances, fire escapes, back doors,
+          overflow inventory, garbage, laundry and furniture shoved through
+          spaces that were never designed for furniture.
         </p>
 
         <p>
-          The side streets get worse.
-        </p>
-
-        <p>
-          Delivery entrances. Fire escapes. Back doors. Overflow inventory.
-          Garbage. Laundry. People carrying furniture through spaces that
-          clearly were not designed for furniture.
-        </p>
-
-        <p>
-          Businesses often have entrances that don't face the street at all.
+          Some businesses have entrances that don't face the street at all.
+          Some are upstairs. Some are downstairs. Some apparently occupy
+          whatever space happened to be available when somebody needed a
+          shop.
         </p>
 
       </div>
 
-      <div class="alley-image">
-        <img src="mothball-alley.PNG" alt="Narrow Mothball alley between crowded old buildings">
-      </div>
+      <figure class="alley-image">
+        <img
+          src="mothball-alley.PNG"
+          alt="Narrow Mothball alley"
+        >
+      </figure>
 
     </section>
 
@@ -173,80 +174,88 @@
       <div class="shops-header">
 
         <div>
-          <p class="eyebrow">MOTHBALL / COMMERCE</p>
-          <h2>SECONDHAND<br>MEANS<br>EVERYTHING.</h2>
+          <p class="eyebrow">SECONDHAND / SALVAGE / REPAIR</p>
+          <h2>YOU'LL FIND<br>WHATEVER.</h2>
         </div>
 
         <p>
-          This is not a curated vintage district.
-          <br><br>
-          People are selling shit.
+          There is no meaningful boundary between antique dealer,
+          thrift store, salvage yard and junk shop here.
         </p>
 
       </div>
 
 
-      <div class="shop-feature">
+      <article class="shop-feature">
 
         <div class="shop-image">
-          <img src="mothball-interior.PNG" alt="Extremely crowded secondhand shop interior">
+          <img
+            src="mothball-interior.PNG"
+            alt="Crowded Mothball secondhand shop"
+          >
         </div>
 
         <div class="shop-copy">
 
           <span class="shop-index">SHOP / 001</span>
 
-          <h3>YOU'LL FIND<br>WHATEVER.</h3>
+          <h3>KEEP<br>LOOKING.</h3>
 
           <p>
-            Furniture. Clothing. Jewelry. Books. Tools. Appliances.
-            Machinery. Religious objects. Family heirlooms. Industrial
-            components. Stolen goods. Broken things. Fixed things.
-            Things somebody's grandmother owned.
-          </p>
-
-          <p>
-            There is no meaningful boundary between antique dealer,
-            thrift store, salvage yard and junk shop here.
+            Furniture, clothing, jewelry, books, tools, appliances,
+            machinery, religious objects, family heirlooms, industrial
+            components, stolen goods, broken things, fixed things and
+            things that somebody's grandmother definitely owned.
           </p>
 
           <p class="price-note">
-            PRICE TAGS ARE NEGOTIABLE.
-            <br>
+            PRICE TAGS ARE NEGOTIABLE.<br>
             SO ARE SOME OF THE OBJECTS.
           </p>
 
         </div>
 
-      </div>
+      </article>
 
 
       <div class="shop-pair">
 
         <article>
-          <img src="mothball-repair-shop.PNG" alt="Crowded Mothball repair shop">
+
+          <img
+            src="mothball-repair-shop.PNG"
+            alt="Mothball repair shop"
+          >
+
           <div class="shop-text">
             <span>SHOP / 002</span>
             <h3>FIX IT.</h3>
             <p>
-              Broken electronics, old appliances, machinery and household
-              objects pass through repair shops every day. If it can be
-              repaired, somebody will probably try.
+              Electronics, appliances, machinery, household objects,
+              old tools and things that absolutely should have been
+              replaced years ago.
             </p>
           </div>
+
         </article>
 
+
         <article>
-          <img src="mothball-curio-shop.PNG" alt="Crowded Mothball curio shop">
+
+          <img
+            src="mothball-curio-shop.PNG"
+            alt="Mothball curiosity shop"
+          >
+
           <div class="shop-text">
             <span>SHOP / 003</span>
             <h3>KEEP IT.</h3>
             <p>
-              Collectors maintain rooms full of objects nobody else thought
-              were worth keeping. Some collections are beautiful. Some are
-              disturbing. Most are both.
+              Collectors, beautiful objects, disturbing objects and
+              objects that are somehow both. Mostly both.
             </p>
           </div>
+
         </article>
 
       </div>
@@ -254,38 +263,31 @@
     </section>
 
 
-    <!-- MARKET TABLE -->
+    <!-- MARKET -->
 
     <section class="market">
 
       <div class="market-image">
-        <img src="mothball-market-table.PNG" alt="Chaotic Mothball market table covered in small objects">
+        <img
+          src="mothball-market-table.PNG"
+          alt="Mothball market table"
+        >
       </div>
 
       <div class="market-copy">
 
-        <p class="eyebrow">MARKET TABLE / UNCATALOGUED</p>
+        <p class="eyebrow">FOUND SOMETHING</p>
 
         <h2>THREE<br>DOLLARS.</h2>
 
         <p>
-          You don't know what it is.
-        </p>
-
-        <p>
+          Nobody knows what it is.
           The seller doesn't know what it is.
-        </p>
-
-        <p>
-          The person who owned it before them definitely didn't know what it
-          was.
-        </p>
-
-        <p>
-          Three dollars.
+          The previous owner definitely didn't know what it was.
         </p>
 
         <p class="gold-note">
+          THREE DOLLARS.<br>
           SOLD.
         </p>
 
@@ -294,38 +296,34 @@
     </section>
 
 
-    <!-- UPPER FLOORS -->
+    <!-- HOMES -->
 
     <section class="homes" id="homes">
 
       <div class="homes-image">
-        <img src="mothball-upper-floor.PNG" alt="Cramped residential upper floor above Mothball storefronts">
+        <img
+          src="mothball-upper-floor.PNG"
+          alt="Residential upper floor above Mothball shops"
+        >
       </div>
 
       <div class="homes-copy">
 
-        <p class="eyebrow">ABOVE THE SHOPS</p>
+        <p class="eyebrow">ABOVE THE STORES</p>
 
         <h2>PEOPLE<br>LIVE HERE.</h2>
 
         <p>
-          The buildings aren't just businesses.
+          Families live upstairs. Renters live above storefronts.
+          Kids grow up hearing shop doors slam below them.
+          Laundry hangs over alleys. TVs bleed through walls.
+          Inventory gets shoved into hallways because there isn't
+          anywhere else to put it.
         </p>
 
         <p>
-          Families live upstairs. People rent rooms. Kids grow up above
-          storefronts. Laundry hangs over alleys. Somebody's television is
-          always audible through a wall.
-        </p>
-
-        <p>
-          Inventory gets stored in hallways because there isn't anywhere
-          else to put it.
-        </p>
-
-        <p>
-          The boundary between someone's home and someone's workplace can
-          get extremely fucking theoretical.
+          In Mothball, the boundary between home and workplace is
+          fucking theoretical.
         </p>
 
       </div>
@@ -333,44 +331,35 @@
     </section>
 
 
-    <!-- OBJECT PILE -->
+    <!-- OBJECTS -->
 
     <section class="object-section" id="stuff">
 
       <div class="object-copy">
 
-        <p class="eyebrow">THE CENTRAL PRINCIPLE</p>
+        <p class="eyebrow">SOMEONE WILL USE IT</p>
 
         <h2>DON'T<br>THROW<br>IT OUT.</h2>
 
         <p>
-          Mothball runs on the assumption that almost everything has another
-          use.
+          Almost everything has another use, another owner or another
+          story. Sometimes it's valuable. Sometimes it's useful.
+          Sometimes it's ugly as sin.
         </p>
 
         <p>
-          Or another owner.
-        </p>
-
-        <p>
-          Or another story.
-        </p>
-
-        <p>
-          Sometimes the object is valuable.
-          Sometimes it is useful.
-          Sometimes it is ugly as sin and somebody wants it anyway.
-        </p>
-
-        <p>
-          Sometimes nobody knows where it came from.
+          Sometimes nobody knows where it came from anymore.
+          That does not necessarily mean it belongs in the garbage.
         </p>
 
       </div>
 
-      <div class="object-image">
-        <img src="mothball-object-pile.PNG" alt="Pile of unidentified secondhand objects">
-      </div>
+      <figure class="object-image">
+        <img
+          src="mothball-object-pile.PNG"
+          alt="Pile of strange secondhand objects"
+        >
+      </figure>
 
     </section>
 
@@ -380,32 +369,27 @@
     <section class="material-section">
 
       <div class="material-image">
-        <img src="mothball-behemoth-material.PNG" alt="Behemoth-derived material being sold as ordinary merchandise">
+        <img
+          src="mothball-behemoth-material.PNG"
+          alt="Secondhand object made from Behemoth material"
+        >
       </div>
 
       <div class="material-copy">
 
-        <p class="eyebrow">SPECIALTY GOODS</p>
+        <p class="eyebrow">YES, THAT'S BEHEMOTH.</p>
 
-        <h2>YES,<br>THAT'S<br>BEHEMOTH.</h2>
+        <h2>SOMEBODY<br>PUT A PRICE<br>ON IT.</h2>
 
         <p>
-          Behemoth-derived materials move through Mothball like everything
-          else.
+          Bone. Teeth. Hide. Blood-derived products. Components.
+          Objects made from things that used to be alive in ways that
+          still don't make much fucking sense.
         </p>
 
         <p>
-          Bone. Teeth. Hide. Blood-derived products. Components. Objects
-          made from things that used to be alive in ways nobody can properly
-          explain.
-        </p>
-
-        <p>
-          In Nine, the material is industrial.
-        </p>
-
-        <p>
-          Here, somebody put a price tag on it.
+          Nine processes the stuff industrially.
+          Mothball sells whatever survived long enough to get a price tag.
         </p>
 
       </div>
@@ -418,22 +402,26 @@
     <section class="sign-section">
 
       <div class="sign-image">
-        <img src="mothball-signs.PNG" alt="Layered handwritten and painted Mothball shop signs">
+        <img
+          src="mothball-signs.PNG"
+          alt="Handwritten signs directing people through Mothball"
+        >
       </div>
 
       <div class="sign-copy">
 
-        <p class="eyebrow">DIRECTIONS</p>
+        <p class="eyebrow">LOCAL NAVIGATION</p>
 
         <h2>UPSTAIRS.<br>DOWNSTAIRS.<br>THROUGH THERE.</h2>
 
         <p>
-          Mothball's signage is often more useful than the city's maps.
+          The signs are often more useful than maps.
         </p>
 
         <p>
-          Arrows point toward businesses above, below, behind and occasionally
-          somewhere that seems physically impossible.
+          Arrows point above, below, behind, around corners and occasionally
+          toward somewhere that should not physically fit inside the
+          building.
         </p>
 
         <p class="warning">
@@ -451,42 +439,37 @@
 
       <div class="doll-copy">
 
-        <p class="eyebrow">OUTLIER / MOTHBALL</p>
+        <p class="eyebrow">MOTHBALL NATIVE</p>
 
         <h2>DOLL<br>KNOWS<br>THE PLACE.</h2>
 
         <p>
-          Doll is from Mothball.
+          Doll is from Mothball. She knows the shops, the shortcuts,
+          the owners, the weird storage rooms and which doors are
+          actually allowed to be touched.
         </p>
 
         <p>
-          She knows the shops, the shortcuts, the owners, the weird storage
-          rooms, the places where you're allowed to touch things and the
-          places where you absolutely fucking aren't.
+          Her battered embroidered handbag has a tendency to contain
+          useful objects.
         </p>
 
         <p>
-          Her battered embroidered handbag is as much a part of the enclave
-          as anything else.
-        </p>
-
-        <p>
-          It contains useful objects.
-        </p>
-
-        <p>
-          Some of them are dynamite.
+          Some of those objects are dynamite.
         </p>
 
         <a href="doll.html" class="record-link">
-          OPEN DOLL'S RECORD →
+          OPEN DOLL →
         </a>
 
       </div>
 
-      <div class="doll-image">
-        <img src="mothball-doll.PNG" alt="Doll, mouse demi-human, in Mothball">
-      </div>
+      <figure class="doll-image">
+        <img
+          src="mothball-doll.PNG"
+          alt="Doll in Mothball"
+        >
+      </figure>
 
     </section>
 
@@ -496,7 +479,10 @@
     <section class="night-section">
 
       <div class="night-image">
-        <img src="mothball-night.PNG" alt="Mothball at night">
+        <img
+          src="mothball-night.PNG"
+          alt="Mothball at night"
+        >
       </div>
 
       <div class="night-copy">
@@ -510,17 +496,14 @@
         </p>
 
         <p>
-          Mothball stays active late because the people who live here still
-          need to live here.
+          People still live here. Somebody is always running a late-night
+          shop. Somebody is dragging furniture through an alley at midnight.
+          Somebody upstairs has left the lights on.
         </p>
 
         <p>
-          Somebody gets home from work. Somebody opens a late-night shop.
-          Somebody drags a piece of furniture through an alley at midnight.
-        </p>
-
-        <p>
-          The old buildings glow from the inside.
+          Old buildings glow through dirty windows and Mothball keeps
+          doing what it does.
         </p>
 
       </div>
@@ -534,34 +517,32 @@
 
       <div class="below-copy">
 
-        <p class="eyebrow">MOTHBALL / BELOW STREET LEVEL</p>
+        <p class="eyebrow">UNDER THE STORES</p>
 
         <h2>THE BASEMENT<br>IS ALWAYS<br>BIGGER.</h2>
 
         <p>
-          Storage spaces become basements.
+          Storage becomes basement.
+          Basement becomes older basement.
+          Older basement becomes foundation.
         </p>
 
         <p>
-          Basements become older basements.
+          Some foundations predate the building currently sitting on top
+          of them. Some spaces are too large to make sense.
         </p>
 
         <p>
-          Some connect to foundations that predate the current building.
-        </p>
-
-        <p>
-          Some are simply too large.
-        </p>
-
-        <p>
-          Nobody in Mothball finds this particularly surprising.
+          Nobody in Mothball is particularly surprised anymore.
         </p>
 
       </div>
 
       <div class="below-image">
-        <img src="mothball-basement.PNG" alt="Deep storage basement beneath Mothball">
+        <img
+          src="mothball-basement.PNG"
+          alt="Large Mothball basement"
+        >
       </div>
 
     </section>
@@ -571,13 +552,16 @@
 
     <section class="door-section">
 
-      <div class="door-image">
-        <img src="mothball-hidden-door.PNG" alt="Hidden door beneath or behind Mothball merchandise">
-      </div>
+      <figure class="door-image">
+        <img
+          src="mothball-hidden-door.PNG"
+          alt="Hidden door behind Mothball storage"
+        >
+      </figure>
 
       <div class="door-copy">
 
-        <p class="eyebrow">RECORD / UNRESOLVED</p>
+        <p class="eyebrow">MAYBE THIS WAS ALWAYS HERE</p>
 
         <h2>THAT DOOR<br>WASN'T THERE<br>YESTERDAY.</h2>
 
@@ -586,14 +570,19 @@
         </p>
 
         <p>
-          The problem with Mothball is that so much of it is already hidden
-          behind merchandise, renovations, storage, additions and old
-          architecture that nobody can reliably remember what a building
-          looked like before somebody changed it.
+          Mothball is difficult to remember accurately. Merchandise moves.
+          Businesses renovate. Storage gets rearranged. Buildings are
+          divided and subdivided. Old architecture gets covered up and
+          uncovered again.
+        </p>
+
+        <p>
+          A door appearing where nobody remembers a door being is not
+          necessarily enough to stop business.
         </p>
 
         <p class="red-note">
-          RECORD STATUS: PENDING
+          IF IT OPENS, SOMEBODY PROBABLY SELLS SOMETHING BEHIND IT.
         </p>
 
       </div>
@@ -601,39 +590,41 @@
     </section>
 
 
-    <!-- THRESHOLD -->
+    <!-- VELVET TRANSITION -->
 
     <section class="threshold">
 
       <div class="threshold-image">
-        <img src="mothball-velvet-transition.PNG" alt="Transition between Mothball and Velvet">
+        <img
+          src="mothball-velvet-transition.PNG"
+          alt="Transition between Velvet and Mothball"
+        >
       </div>
 
       <div class="threshold-copy">
 
-        <p class="eyebrow">BOUNDARY / VELVET</p>
+        <p class="eyebrow">VELVET → MOTHBALL → VELVET</p>
 
         <h2>THERE IS<br>NO WALL.</h2>
 
         <p>
-          You don't cross a gate into Mothball.
+          There is no gate into Mothball.
         </p>
 
         <p>
           The architecture just gets tighter.
+          Storefronts get closer together.
+          Signs multiply.
+          Upper floors become visible.
+          Merchandise starts appearing outside.
         </p>
 
         <p>
-          The storefronts get closer together. The signs multiply.
-          Upper floors become visible. Merchandise starts appearing outside.
-          The expensive old architecture gets swallowed by commerce.
+          Expensive old Velvet architecture gets swallowed by commerce,
+          then eventually gives way to the wider district again.
         </p>
 
-        <p>
-          Then you're back in Velvet.
-        </p>
-
-        <p class="big-note">
+        <p class="red-note">
           MOTHBALL IS INSIDE THE DISTRICT.
         </p>
 
@@ -646,48 +637,58 @@
     </section>
 
 
-    <!-- ARCHIVE -->
+    <!-- OLD STUFF -->
 
     <section class="archive" id="archive">
 
       <div class="archive-heading">
-
-        <span>MOTHBALL / ARCHIVE</span>
-        <span>OBJECTS WITHOUT OWNERS</span>
-
+        <span>OLD SHIT / FOUND THINGS / SOMEBODY KEPT IT</span>
+        <span>NO PARTICULAR ORDER</span>
       </div>
 
       <div class="archive-grid">
 
         <figure>
-          <img src="world-archive-evidence.PNG" alt="Saint Jude's Landing archive evidence">
+          <img
+            src="world-archive-evidence.PNG"
+            alt="Old objects and evidence-like materials"
+          >
           <figcaption>
-            <strong>RECORD / PARTIAL</strong>
-            <span>Ownership unclear.</span>
+            <strong>STILL AROUND</strong>
+            <span>Somebody decided this was worth keeping.</span>
           </figcaption>
         </figure>
 
         <figure>
-          <img src="texture-newspaper.PNG" alt="Old newspaper archive">
+          <img
+            src="texture-newspaper.PNG"
+            alt="Old newspaper texture"
+          >
           <figcaption>
-            <strong>PRESS / HISTORICAL</strong>
-            <span>Somebody wrote it down.</span>
+            <strong>OLD PAPER</strong>
+            <span>Probably important once. Maybe still important.</span>
           </figcaption>
         </figure>
 
         <figure>
-          <img src="texture-abandoned-phone.PNG" alt="Abandoned phone">
+          <img
+            src="texture-abandoned-phone.PNG"
+            alt="Abandoned phone"
+          >
           <figcaption>
-            <strong>OBJECT / FOUND</strong>
-            <span>No owner located.</span>
+            <strong>WORKS FINE</strong>
+            <span>Probably. Don't ask how anybody knows.</span>
           </figcaption>
         </figure>
 
         <figure>
-          <img src="world-corroded-staircase.PNG" alt="Corroded staircase in Saint Jude's Landing">
+          <img
+            src="world-corroded-staircase.PNG"
+            alt="Corroded old staircase"
+          >
           <figcaption>
-            <strong>ARCHITECTURE / UNKNOWN</strong>
-            <span>Still in use.</span>
+            <strong>UP</strong>
+            <span>Or down. Depends where the staircase starts.</span>
           </figcaption>
         </figure>
 
@@ -704,28 +705,25 @@
 
         <p class="eyebrow">MOTHBALL</p>
 
-        <h2>IF IT'S<br>STILL HERE,<br>IT'S FOR SALE.</h2>
+        <h2>IF IT'S STILL<br>HERE, IT'S<br>FOR SALE.</h2>
 
         <p>
           Maybe not today.
-        </p>
-
-        <p>
-          Maybe not to you.
-        </p>
-
-        <p>
+          Maybe not to the person looking for it.
           But somebody kept it.
         </p>
 
         <p>
-          That's basically how Mothball happened.
+          That's how Mothball happened.
         </p>
 
       </div>
 
       <div class="final-photo">
-        <img src="district-mothball.PNG" alt="Mothball district enclave">
+        <img
+          src="district-mothball.PNG"
+          alt="Mothball exterior"
+        >
       </div>
 
     </section>
@@ -734,10 +732,11 @@
 
 
   <footer class="moth-footer">
-    <a href="velvet.html">← VELVET</a>
-    <span>MOTHBALL / INTERNAL ENCLAVE</span>
+    <a href="velvet.html">VELVET</a>
+    <span>MOTHBALL / INSIDE VELVET</span>
     <a href="index.html">SAINT JUDE'S LANDING</a>
   </footer>
+
 
   <script src="mothball.js"></script>
 
