@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /*
-   * AMMONIA — SJL CHARACTER RECORD
+   * AMMONIA — SJL CHARACTER PAGE
    * Local page behavior only.
    * No external dependencies.
    */
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const clock = document.getElementById("local-clock");
 
   function updateClock() {
+
     if (!clock) return;
 
     const now = new Date();
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       second: "2-digit",
       hour12: false
     });
+
   }
 
   updateClock();
@@ -34,11 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
      MISSING IMAGE HANDLING
   ========================= */
 
-  const images = document.querySelectorAll("img");
-
-  images.forEach((img) => {
+  document.querySelectorAll("img").forEach((img) => {
 
     img.addEventListener("error", () => {
+
       img.classList.add("image-missing");
 
       const originalAlt = img.getAttribute("alt");
@@ -49,13 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
           `${originalAlt} — image currently unavailable`
         );
       }
+
     });
 
   });
 
 
   /* =========================
-     SMOOTH RECORD NAVIGATION
+     SMOOTH PAGE NAVIGATION
   ========================= */
 
   const navLinks = document.querySelectorAll(".record-nav a");
@@ -157,8 +159,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const scrollY = window.scrollY;
-
     parallaxImages.forEach((image) => {
 
       const rect = image.getBoundingClientRect();
@@ -171,15 +171,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const offset =
-        (window.innerHeight / 2 - (rect.top + rect.height / 2)) *
-        0.035;
+        (
+          window.innerHeight / 2 -
+          (rect.top + rect.height / 2)
+        ) * 0.035;
 
       image.style.transform =
         `translate3d(0, ${offset}px, 0)`;
+
     });
 
     ticking = false;
   }
+
 
   window.addEventListener("scroll", () => {
 
@@ -188,13 +192,16 @@ document.addEventListener("DOMContentLoaded", () => {
       ticking = true;
     }
 
+  }, {
+    passive: true
   });
+
 
   updateParallax();
 
 
   /* =========================
-     TINY RECORD GLITCH
+     TINY AMMONIA GLITCH
   ========================= */
 
   const heroTitle = document.querySelector(".hero h1");
@@ -206,7 +213,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Math.random() > 0.84) {
 
         heroTitle.style.transform =
-          `translate(${Math.random() * 3 - 1.5}px, ${Math.random() * 2 - 1}px)`;
+          `translate(
+            ${Math.random() * 3 - 1.5}px,
+            ${Math.random() * 2 - 1}px
+          )`;
 
         heroTitle.style.textShadow =
           `${Math.random() * 7 - 3}px 0 rgba(255,43,166,.65),
@@ -227,37 +237,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     ARCHIVE CONSOLE EASTER EGG
-  ========================= */
-
-  console.log(
-    "%cSJL MUNICIPAL ARCHIVE",
-    "color:#ff2ba6;font-weight:bold;font-size:16px;"
-  );
-
-  console.log(
-    "%cAMMONIA / OUTLIER RECORD",
-    "color:#1de7ff;font-weight:bold;"
-  );
-
-  console.log(
-    "%cACCESS: UNAUTHORIZED",
-    "color:#b8ff35;"
-  );
-
-  console.log(
-    "%cIf you found this, you were probably not supposed to.",
-    "color:#8f8790;"
-  );
-
-
-  /* =========================
-     RANDOM MICRO-GLITCH ON
-     ARCHIVE LABELS
+     SMALL LABEL GLITCH
   ========================= */
 
   const labels = document.querySelectorAll(
-    ".section-kicker, .section-number, .classified-bar"
+    ".section-kicker, .section-number"
   );
 
   labels.forEach((label) => {
@@ -284,20 +268,46 @@ document.addEventListener("DOMContentLoaded", () => {
      SUBJECT IMAGE HOVER
   ========================= */
 
-  const subjectPhoto = document.querySelector(".subject-photo img");
+  const subjectPhoto = document.querySelector(
+    ".subject-photo img"
+  );
 
   if (subjectPhoto) {
 
     subjectPhoto.addEventListener("mouseenter", () => {
+
       subjectPhoto.style.filter =
         "saturate(1.3) contrast(1.08)";
+
     });
 
     subjectPhoto.addEventListener("mouseleave", () => {
+
       subjectPhoto.style.filter = "";
+
     });
 
   }
+
+
+  /* =========================
+     SMALL CONSOLE EASTER EGG
+  ========================= */
+
+  console.log(
+    "%cAMMONIA",
+    "color:#ff2ba6;font-weight:bold;font-size:16px;"
+  );
+
+  console.log(
+    "%cDO NOT TOUCH HER PAINT.",
+    "color:#1de7ff;font-weight:bold;"
+  );
+
+  console.log(
+    "%cProbably on a roof.",
+    "color:#b8ff35;"
+  );
 
 
 });
