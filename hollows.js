@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /*
+        THE HOLLOWS
+
+        This page is supposed to feel like a place somebody actually
+        fucked around with, not a government website.
+
+        The fog is doing most of the work.
+    */
+
+
     /* LOCAL CLOCK */
 
     const clock = document.getElementById("local-clock");
@@ -12,30 +22,30 @@ document.addEventListener("DOMContentLoaded", () => {
         clock.textContent = now.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
-            second: "2-digit",
-            hour12: false
+            hour12: true
         });
     }
 
     updateClock();
-    setInterval(updateClock, 1000);
+    setInterval(updateClock, 30000);
 
 
-    /* IMAGE RECORD HANDLING */
+    /* MISSING IMAGE HANDLING */
 
-    const images = document.querySelectorAll("img");
-
-    images.forEach((image) => {
+    document.querySelectorAll("img").forEach((image) => {
 
         image.addEventListener("error", () => {
+
             image.classList.add("image-missing");
 
-            const caption = image.closest("figure")?.querySelector("figcaption");
+            const figure = image.closest("figure");
+            const caption = figure?.querySelector("figcaption");
 
             if (caption && !caption.dataset.originalText) {
                 caption.dataset.originalText = caption.textContent;
-                caption.textContent = "IMAGE RECORD PENDING";
+                caption.textContent = "gimme a sec. image isn't here yet.";
             }
+
         });
 
     });
@@ -62,53 +72,77 @@ document.addEventListener("DOMContentLoaded", () => {
                 block: "start"
             });
 
+            history.replaceState(null, "", targetID);
+
         });
 
     });
 
 
-    /* SUBTLE IMAGE MOVEMENT */
+    /* SOFT PARALLAX */
 
     const parallaxImages = document.querySelectorAll(
-        ".hero-image img, .fog-road img, .night-image img"
+        ".hero-image img, .fog-road img, .night-image img, .closing-image img"
     );
 
     function updateParallax() {
 
-        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
 
         parallaxImages.forEach((image) => {
 
             const rect = image.getBoundingClientRect();
 
-            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+            if (
+                rect.bottom < -100 ||
+                rect.top > viewportHeight + 100
+            ) {
+                return;
+            }
 
-            const offset = (window.innerHeight / 2 - rect.top) * 0.015;
+            const distance =
+                viewportHeight / 2 -
+                (rect.top + rect.height / 2);
 
-            image.style.transform = `translate3d(0, ${offset}px, 0) scale(1.025)`;
+            const offset = distance * 0.018;
+
+            image.style.transform =
+                `translate3d(0, ${offset}px, 0) scale(1.025)`;
 
         });
 
     }
 
-    window.addEventListener("scroll", updateParallax, {
-        passive: true
-    });
-
-
-    /* RECORD APPEARANCE */
-
-    const records = document.querySelectorAll(
-        ".record-text, .inside-note, .below-warning, .records-bottom div, .do-not"
+    window.addEventListener(
+        "scroll",
+        updateParallax,
+        { passive: true }
     );
 
-    records.forEach((record) => {
-        record.style.transition = "opacity 1.2s ease, transform 1.2s ease";
-        record.style.opacity = "0";
-        record.style.transform = "translateY(18px)";
+    updateParallax();
+
+
+    /* LITTLE APPEARANCES */
+
+    const revealTargets = document.querySelectorAll(
+        ".field-note, " +
+        ".inside-note, " +
+        ".below-note, " +
+        ".records-bottom div, " +
+        ".watching-note, " +
+        ".hero-note"
+    );
+
+    revealTargets.forEach((element) => {
+
+        element.style.opacity = "0";
+        element.style.transform = "translateY(14px)";
+        element.style.transition =
+            "opacity 1s ease, transform 1s ease";
+
     });
 
-    const recordObserver = new IntersectionObserver(
+    const revealObserver = new IntersectionObserver(
         (entries, observer) => {
 
             entries.forEach((entry) => {
@@ -124,106 +158,136 @@ document.addEventListener("DOMContentLoaded", () => {
 
         },
         {
-            threshold: 0.18
+            threshold: 0.15
         }
     );
 
-    records.forEach((record) => {
-        recordObserver.observe(record);
+    revealTargets.forEach((element) => {
+        revealObserver.observe(element);
     });
 
 
-    /* WATCHING SECTION */
+    /* THE WATCHING THING */
 
-    const watchingSection = document.querySelector(".watching");
+    const watchingSection =
+        document.querySelector(".watching");
 
     if (watchingSection) {
 
         let hasEntered = false;
 
-        const watchingObserver = new IntersectionObserver(
-            (entries) => {
+        const watchingObserver =
+            new IntersectionObserver(
+                (entries) => {
 
-                entries.forEach((entry) => {
+                    entries.forEach((entry) => {
 
-                    if (!entry.isIntersecting || hasEntered) return;
+                        if (
+                            !entry.isIntersecting ||
+                            hasEntered
+                        ) {
+                            return;
+                        }
 
-                    hasEntered = true;
+                        hasEntered = true;
 
-                    document.body.classList.add("someone-is-watching");
+                        document.body.classList.add(
+                            "someone-is-watching"
+                        );
 
-                    setTimeout(() => {
-                        document.body.classList.remove("someone-is-watching");
-                    }, 1800);
+                        setTimeout(() => {
 
-                });
+                            document.body.classList.remove(
+                                "someone-is-watching"
+                            );
 
-            },
-            {
-                threshold: 0.3
-            }
-        );
+                        }, 1600);
+
+                    });
+
+                },
+                {
+                    threshold: 0.3
+                }
+            );
 
         watchingObserver.observe(watchingSection);
+
     }
 
 
-    /* DON'T MAKE THE FOG TOO OBVIOUS */
+    /* FOG DOESN'T NEED TO ANNOUNCE ITSELF */
 
-    const fogSection = document.querySelector(".fog-section");
+    const fogSection =
+        document.querySelector(".fog-section");
 
     if (fogSection) {
 
-        fogSection.addEventListener("mouseenter", () => {
-            document.body.style.setProperty("--fog-intensity", "0.18");
-        });
-
-        fogSection.addEventListener("mouseleave", () => {
-            document.body.style.setProperty("--fog-intensity", "0.11");
-        });
-
-    }
-
-
-    /* NIGHT SECTION: NO JUMPSCARE.
-       Just a tiny delay before the image settles. */
-
-    const night = document.querySelector(".night");
-
-    if (night) {
-
-        const nightImage = night.querySelector(".night-image img");
-
-        const nightObserver = new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach((entry) => {
-
-                    if (!entry.isIntersecting) return;
-
-                    if (nightImage) {
-                        nightImage.style.transition =
-                            "filter 3s ease, opacity 3s ease";
-
-                        nightImage.style.filter =
-                            "saturate(0.25) brightness(0.43)";
-                    }
-
-                    observer.unobserve(entry.target);
-
-                });
-
-            },
-            {
-                threshold: 0.35
+        fogSection.addEventListener(
+            "mouseenter",
+            () => {
+                document.documentElement.style
+                    .setProperty("--fog-intensity", "0.17");
             }
         );
 
-        nightObserver.observe(night);
+        fogSection.addEventListener(
+            "mouseleave",
+            () => {
+                document.documentElement.style
+                    .setProperty("--fog-intensity", "0.12");
+            }
+        );
+
     }
 
 
-    /* TINY ARCHIVE EASTER EGG */
+    /* NIGHT IMAGE */
+
+    const night =
+        document.querySelector(".night");
+
+    if (night) {
+
+        const nightImage =
+            night.querySelector(".night-image img");
+
+        const nightObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
+
+                    entries.forEach((entry) => {
+
+                        if (!entry.isIntersecting) return;
+
+                        if (nightImage) {
+
+                            nightImage.style.filter =
+                                "saturate(0.23) brightness(0.42)";
+
+                        }
+
+                        observer.unobserve(entry.target);
+
+                    });
+
+                },
+                {
+                    threshold: 0.35
+                }
+            );
+
+        nightObserver.observe(night);
+
+    }
+
+
+    /*
+        CONSOLE
+
+        Not an archive message.
+        Just somebody leaving shit in the console.
+    */
 
     console.log(
         "%cTHE HOLLOWS",
@@ -231,12 +295,12 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     console.log(
-        "%cYou are not required to explain what you saw.",
-        "font-family: monospace; color: #687167;"
+        "%cold houses. fog. somebody's dog barking.",
+        "font-family: monospace; color: #697268;"
     );
 
     console.log(
-        "%cNOT EVERYTHING IS EXPLAINED.",
+        "%cnot everything is explained.",
         "font-family: monospace; color: #4f574e;"
     );
 
