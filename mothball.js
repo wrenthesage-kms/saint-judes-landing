@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       replacement.setAttribute(
         "aria-label",
-        `Image record pending: ${img.getAttribute("src") || "unknown file"}`
+        "Image not here yet"
       );
 
       img.replaceWith(replacement);
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
-  /* ARCHIVE RECORDS */
+  /* OLD STUFF COMES INTO VIEW */
 
   const records = document.querySelectorAll(".archive-grid figure");
 
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   records.forEach((record) => observer.observe(record));
 
 
-  /* TINY SIGN GLITCH */
+  /* TINY STICKER MOVEMENT */
 
   const sticker = document.querySelector(".sticker");
 
