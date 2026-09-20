@@ -1,53 +1,114 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /*
-   * AMMONIA — SJL CHARACTER PAGE
-   * Local page behavior only.
-   * No external dependencies.
-   */
+  const navButtons = document.querySelectorAll(".nav-button");
+  const sections = document.querySelectorAll(".page-section");
 
 
-  /* =========================
-     LOCAL CLOCK
-  ========================= */
+  function showSection(sectionId) {
 
-  const clock = document.getElementById("local-clock");
+    sections.forEach((section) => {
+      section.classList.remove("active");
+    });
 
-  function updateClock() {
 
-    if (!clock) return;
+    navButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
 
-    const now = new Date();
 
-    clock.textContent = now.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false
+    const targetSection = document.getElementById(sectionId);
+    const targetButton = document.querySelector(
+      `.nav-button[data-section="${sectionId}"]`
+    );
+
+
+    if (targetSection) {
+      targetSection.classList.add("active");
+    }
+
+
+    if (targetButton) {
+      targetButton.classList.add("active");
+    }
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
 
   }
 
-  updateClock();
-  setInterval(updateClock, 1000);
+
+  navButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const sectionId = button.dataset.section;
+
+      if (!sectionId) {
+        return;
+      }
+
+      showSection(sectionId);
+
+    });
+
+  });
 
 
-  /* =========================
-     MISSING IMAGE HANDLING
-  ========================= */
+  /*
+   * Allow direct navigation with:
+   *
+   * ammonia.html#about
+   * ammonia.html#personal
+   * ammonia.html#social
+   * ammonia.html#romance
+   * ammonia.html#nsfw
+   * ammonia.html#creator
+   * ammonia.html#gallery
+   * ammonia.html#interview
+   */
 
-  document.querySelectorAll("img").forEach((img) => {
+  function loadHashSection() {
 
-    img.addEventListener("error", () => {
+    const hash = window.location.hash.replace("#", "");
 
-      img.classList.add("image-missing");
+    if (!hash) {
+      showSection("about");
+      return;
+    }
 
-      const originalAlt = img.getAttribute("alt");
 
-      if (originalAlt) {
-        img.setAttribute(
-          "alt",
-          `${originalAlt} — image currently unavailable`
+    const sectionExists = document.getElementById(hash);
+
+    if (sectionExists && sectionExists.classList.contains("page-section")) {
+      showSection(hash);
+    } else {
+      showSection("about");
+    }
+
+  }
+
+
+  window.addEventListener("hashchange", loadHashSection);
+
+
+  /*
+   * Keep the URL synchronized with the selected section.
+   */
+
+  navButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const sectionId = button.dataset.section;
+
+      if (sectionId) {
+        history.replaceState(
+          null,
+          "",
+          `#${sectionId}`
         );
       }
 
@@ -56,258 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* =========================
-     SMOOTH PAGE NAVIGATION
-  ========================= */
-
-  const navLinks = document.querySelectorAll(".record-nav a");
-
-  navLinks.forEach((link) => {
-
-    link.addEventListener("click", (event) => {
-
-      const targetId = link.getAttribute("href");
-
-      if (!targetId || !targetId.startsWith("#")) {
-        return;
-      }
-
-      const target = document.querySelector(targetId);
-
-      if (!target) {
-        return;
-      }
-
-      event.preventDefault();
-
-      const headerOffset = 125;
-
-      const targetPosition =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        headerOffset;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth"
-      });
-
-    });
-
-  });
-
-
-  /* =========================
-     ACTIVE NAV ITEM
-  ========================= */
-
-  const sections = document.querySelectorAll(
-    ".record-section[id]"
-  );
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-
-      entries.forEach((entry) => {
-
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const id = entry.target.getAttribute("id");
-
-        navLinks.forEach((link) => {
-
-          const href = link.getAttribute("href");
-
-          if (href === `#${id}`) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-
-        });
-
-      });
-
-    },
-    {
-      rootMargin: "-20% 0px -65% 0px",
-      threshold: 0
-    }
-  );
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-
-
-  /* =========================
-     IMAGE PARALLAX
-  ========================= */
-
-  const parallaxImages = document.querySelectorAll(
-    ".hero-image, .art-hero img, .final-image img"
-  );
-
-  let ticking = false;
-
-  function updateParallax() {
-
-    if (window.innerWidth <= 700) {
-      ticking = false;
-      return;
-    }
-
-    parallaxImages.forEach((image) => {
-
-      const rect = image.getBoundingClientRect();
-
-      if (
-        rect.bottom < 0 ||
-        rect.top > window.innerHeight
-      ) {
-        return;
-      }
-
-      const offset =
-        (
-          window.innerHeight / 2 -
-          (rect.top + rect.height / 2)
-        ) * 0.035;
-
-      image.style.transform =
-        `translate3d(0, ${offset}px, 0)`;
-
-    });
-
-    ticking = false;
-  }
-
-
-  window.addEventListener("scroll", () => {
-
-    if (!ticking) {
-      window.requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-
-  }, {
-    passive: true
-  });
-
-
-  updateParallax();
-
-
-  /* =========================
-     TINY AMMONIA GLITCH
-  ========================= */
-
-  const heroTitle = document.querySelector(".hero h1");
-
-  if (heroTitle) {
-
-    setInterval(() => {
-
-      if (Math.random() > 0.84) {
-
-        heroTitle.style.transform =
-          `translate(
-            ${Math.random() * 3 - 1.5}px,
-            ${Math.random() * 2 - 1}px
-          )`;
-
-        heroTitle.style.textShadow =
-          `${Math.random() * 7 - 3}px 0 rgba(255,43,166,.65),
-           ${Math.random() * -7 + 3}px 0 rgba(29,231,255,.55)`;
-
-        setTimeout(() => {
-
-          heroTitle.style.transform = "";
-          heroTitle.style.textShadow = "";
-
-        }, 90);
-
-      }
-
-    }, 2800);
-
-  }
-
-
-  /* =========================
-     SMALL LABEL GLITCH
-  ========================= */
-
-  const labels = document.querySelectorAll(
-    ".section-kicker, .section-number"
-  );
-
-  labels.forEach((label) => {
-
-    label.addEventListener("mouseenter", () => {
-
-      if (Math.random() > 0.45) {
-
-        label.style.transform =
-          `translateX(${Math.random() * 3 - 1.5}px)`;
-
-        setTimeout(() => {
-          label.style.transform = "";
-        }, 100);
-
-      }
-
-    });
-
-  });
-
-
-  /* =========================
-     SUBJECT IMAGE HOVER
-  ========================= */
-
-  const subjectPhoto = document.querySelector(
-    ".subject-photo img"
-  );
-
-  if (subjectPhoto) {
-
-    subjectPhoto.addEventListener("mouseenter", () => {
-
-      subjectPhoto.style.filter =
-        "saturate(1.3) contrast(1.08)";
-
-    });
-
-    subjectPhoto.addEventListener("mouseleave", () => {
-
-      subjectPhoto.style.filter = "";
-
-    });
-
-  }
-
-
-  /* =========================
-     SMALL CONSOLE EASTER EGG
-  ========================= */
-
-  console.log(
-    "%cAMMONIA",
-    "color:#ff2ba6;font-weight:bold;font-size:16px;"
-  );
-
-  console.log(
-    "%cDO NOT TOUCH HER PAINT.",
-    "color:#1de7ff;font-weight:bold;"
-  );
-
-  console.log(
-    "%cProbably on a roof.",
-    "color:#b8ff35;"
-  );
-
+  loadHashSection();
 
 });
