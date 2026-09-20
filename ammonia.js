@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const targetSection = document.getElementById(sectionId);
+
     const targetButton = document.querySelector(
       `.nav-button[data-section="${sectionId}"]`
     );
@@ -50,25 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+
       showSection(sectionId);
+
+
+      history.replaceState(
+        null,
+        "",
+        `#${sectionId}`
+      );
 
     });
 
   });
 
-
-  /*
-   * Allow direct navigation with:
-   *
-   * ammonia.html#about
-   * ammonia.html#personal
-   * ammonia.html#social
-   * ammonia.html#romance
-   * ammonia.html#nsfw
-   * ammonia.html#creator
-   * ammonia.html#gallery
-   * ammonia.html#interview
-   */
 
   function loadHashSection() {
 
@@ -82,7 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sectionExists = document.getElementById(hash);
 
-    if (sectionExists && sectionExists.classList.contains("page-section")) {
+    if (
+      sectionExists &&
+      sectionExists.classList.contains("page-section")
+    ) {
       showSection(hash);
     } else {
       showSection("about");
@@ -91,30 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  window.addEventListener("hashchange", loadHashSection);
-
-
-  /*
-   * Keep the URL synchronized with the selected section.
-   */
-
-  navButtons.forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-      const sectionId = button.dataset.section;
-
-      if (sectionId) {
-        history.replaceState(
-          null,
-          "",
-          `#${sectionId}`
-        );
-      }
-
-    });
-
-  });
+  window.addEventListener(
+    "hashchange",
+    loadHashSection
+  );
 
 
   loadHashSection();
