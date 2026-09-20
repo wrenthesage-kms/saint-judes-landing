@@ -1,16 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   /* =========================================================
      LOCAL CLOCK
   ========================================================== */
-
   const clock = document.getElementById("local-clock");
-
   function updateClock() {
     if (!clock) return;
-
     const now = new Date();
-
     clock.textContent = now.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -18,286 +13,231 @@ document.addEventListener("DOMContentLoaded", () => {
       hour12: false
     });
   }
-
   updateClock();
   setInterval(updateClock, 1000);
-
-
+  /* =========================================================
+     BACK TO SAINT JUDE'S LANDING
+  ========================================================== */
+  const existingBackLink = document.querySelector(
+    'a[data-back-to-sjl], .back-to-sjl'
+  );
+  if (!existingBackLink) {
+    const backNav = document.createElement("a");
+    backNav.href = "index.html";
+    backNav.className = "back-to-sjl";
+    backNav.setAttribute("data-back-to-sjl", "true");
+    backNav.textContent = "← BACK TO SAINT JUDE'S LANDING";
+    const header = document.querySelector(".site-header");
+    if (header) {
+      header.prepend(backNav);
+    } else {
+      document.body.prepend(backNav);
+    }
+  }
   /* =========================================================
      MISSING IMAGE HANDLING
   ========================================================== */
-
   document.querySelectorAll("img").forEach((image) => {
-
     image.addEventListener("error", () => {
-
       image.classList.add("image-missing");
-
       const wrapper = image.parentElement;
-
       if (
         wrapper &&
         !wrapper.querySelector(".missing-image")
       ) {
-
         const notice = document.createElement("div");
-
         notice.className = "missing-image";
         notice.textContent =
           "GIMME A SEC. THIS IMAGE ISN'T HERE YET.";
-
         wrapper.appendChild(notice);
       }
-
     });
-
   });
-
-
   /* =========================================================
      SMOOTH INTERNAL NAVIGATION
   ========================================================== */
-
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
-
     link.addEventListener("click", (event) => {
-
       const targetId = link.getAttribute("href");
-
       if (!targetId || targetId === "#") {
         return;
       }
-
       const target = document.querySelector(targetId);
-
       if (!target) {
         return;
       }
-
       event.preventDefault();
-
       target.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
-
     });
-
   });
-
-
   /* =========================================================
-     ACTIVE LOCAL NAV
+     ACTIVE LOCAL NAVIGATION
   ========================================================== */
-
-  const navLinks = document.querySelectorAll(".record-nav a");
-  const sections = document.querySelectorAll(".page-section[id]");
-
+  const navLinks = document.querySelectorAll(
+    ".character-nav a, .record-nav a, .nav-button"
+  );
+  const sections = document.querySelectorAll(
+    ".page-section[id]"
+  );
   const sectionObserver = new IntersectionObserver(
     (entries) => {
-
       entries.forEach((entry) => {
-
         if (!entry.isIntersecting) {
           return;
         }
-
         const id = entry.target.getAttribute("id");
-
         navLinks.forEach((link) => {
-
           const href = link.getAttribute("href");
-
           if (href === `#${id}`) {
             link.classList.add("active");
           } else {
             link.classList.remove("active");
           }
-
         });
-
       });
-
     },
     {
       rootMargin: "-20% 0px -65% 0px",
       threshold: 0
     }
   );
-
   sections.forEach((section) => {
     sectionObserver.observe(section);
   });
-
-
   /* =========================================================
      IMAGE MOVEMENT
+     BENOIT'S VERSION:
+     SLOW, HEAVY, ALMOST IMPERCEPTIBLE.
   ========================================================== */
-
   const movingImages = document.querySelectorAll(
     ".hero-image img, .large-image img, .personal-objects img, .objects-layout img, .nine-images img"
   );
-
   let ticking = false;
-
   function updateImageMovement() {
-
     if (window.innerWidth <= 700) {
       ticking = false;
       return;
     }
-
     const viewportHeight = window.innerHeight;
-
     movingImages.forEach((image) => {
-
       const rect = image.getBoundingClientRect();
-
       if (
         rect.bottom < 0 ||
         rect.top > viewportHeight
       ) {
         return;
       }
-
       const progress =
         (viewportHeight - rect.top) /
         (viewportHeight + rect.height);
-
-      const movement = (progress - 0.5) * 10;
-
+      const movement = (progress - 0.5) * 5;
       image.style.transform =
         `translate3d(0, ${movement}px, 0)`;
-
     });
-
     ticking = false;
   }
-
-  window.addEventListener("scroll", () => {
-
-    if (!ticking) {
-      window.requestAnimationFrame(updateImageMovement);
-      ticking = true;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateImageMovement);
+        ticking = true;
+      }
+    },
+    {
+      passive: true
     }
-
-  }, {
-    passive: true
-  });
-
+  );
   updateImageMovement();
-
-
   /* =========================================================
      SECTION REVEAL
   ========================================================== */
-
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
-
       entries.forEach((entry) => {
-
         if (!entry.isIntersecting) {
           return;
         }
-
         entry.target.classList.add("record-visible");
         observer.unobserve(entry.target);
-
       });
-
     },
     {
       threshold: 0.08
     }
   );
-
   sections.forEach((section) => {
     revealObserver.observe(section);
   });
-
-
   /* =========================================================
-     TINY BENOIT GLITCH
+     BENOIT TITLE DISTORTION
+     SUBTLE. HEAVY. NOT A NEON GLITCH.
   ========================================================== */
-
-  const heroTitle = document.querySelector(".hero h1");
-
+  const heroTitle = document.querySelector(
+    ".hero h1, .hero-copy h2, .site-header h1"
+  );
   if (heroTitle) {
-
     setInterval(() => {
-
-      if (Math.random() > 0.86) {
-
+      if (Math.random() > 0.92) {
         heroTitle.style.transform =
-          `translate(${Math.random() * 3 - 1.5}px, ${Math.random() * 2 - 1}px)`;
-
+          `translateX(${Math.random() * 2 - 1}px)`;
         heroTitle.style.textShadow =
-          `${Math.random() * 5 - 2.5}px 0 rgba(196,167,91,.45),
-           ${Math.random() * -5 + 2.5}px 0 rgba(135,60,39,.4)`;
-
+          "3px 2px 0 rgba(89,100,71,.55), -2px 0 0 rgba(135,60,39,.35)";
         setTimeout(() => {
-
           heroTitle.style.transform = "";
           heroTitle.style.textShadow = "";
-
-        }, 100);
-
+        }, 140);
       }
-
-    }, 3000);
-
+    }, 4200);
   }
-
-
   /* =========================================================
-     SMALL IMAGE HOVER
+     EYE DETAIL
   ========================================================== */
-
   const eyeImage = document.querySelector(
-    '.personal-objects img[src="detail-benoit-eye.PNG"]'
+    'img[src="detail-benoit-eye.PNG"]'
   );
-
   if (eyeImage) {
-
     eyeImage.addEventListener("mouseenter", () => {
-
       eyeImage.style.filter =
-        "saturate(1.25) contrast(1.08)";
-
+        "saturate(1.15) contrast(1.05)";
     });
-
     eyeImage.addEventListener("mouseleave", () => {
-
       eyeImage.style.filter = "";
-
     });
-
   }
-
-
+  /* =========================================================
+     GALLERY IMAGE FOCUS
+  ========================================================== */
+  document.querySelectorAll(
+    ".gallery-card img"
+  ).forEach((image) => {
+    image.addEventListener("mouseenter", () => {
+      image.style.transform = "scale(1.015)";
+    });
+    image.addEventListener("mouseleave", () => {
+      image.style.transform = "";
+    });
+  });
   /* =========================================================
      CONSOLE EASTER EGG
   ========================================================== */
-
   console.log(
     "%cBENOIT",
     "font-weight:bold;font-size:18px;color:#c4a75b;"
   );
-
   console.log(
-    "%cNine-born. Outlier. The Anchor.",
+    "%cNINE-BORN // OUTLIER",
     "color:#596447;"
   );
-
   console.log(
-    "%cIf the crew is piled on him again, leave him alone.",
-    "color:#873c27;"
+    "%ccher.",
+    "color:#873c27;font-weight:bold;"
   );
-
   console.log(
-    "%cHe is probably watching the door.",
+    "%cleave the gator alone.",
     "color:#a9a18b;"
   );
-
 });
