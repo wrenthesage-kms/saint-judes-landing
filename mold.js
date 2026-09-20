@@ -1,186 +1,69 @@
-(() => {
-  "use strict";
+"use strict";
 
-  const clock = document.getElementById("clock");
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.getElementById("section-nav");
+  const buttons = nav ? nav.querySelectorAll("button[data-section]") : [];
+  const sections = document.querySelectorAll(".character-section");
 
-  function updateClock() {
-    if (!clock) return;
-
-    const now = new Date();
-
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-    const seconds = String(now.getSeconds()).padStart(2, "0");
-
-    clock.textContent = `${hours}:${minutes}:${seconds}`;
+  function activateSection(id) {
+    buttons.forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.section === id
+      );
+    });
   }
 
-  updateClock();
-  setInterval(updateClock, 1000);
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
 
+    if (!section) return;
 
-  /*
-    MISSING IMAGE HANDLING
-
-    Future Mold images can stay missing without leaving
-    broken browser-image behavior all over the page.
-  */
-
-  document
-    .querySelectorAll('img[data-fallback="image"]')
-    .forEach((image) => {
-
-      image.addEventListener("error", () => {
-
-        image.classList.add("image-error");
-
-        image.alt = "GIMME A SEC. THIS IMAGE ISN'T HERE YET.";
-
-      });
-
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
 
+    history.replaceState(null, "", `#${id}`);
+    activateSection(id);
+  }
 
-  /*
-    LOCAL NAVIGATION
-  */
-
-  document
-    .querySelectorAll('.main-nav a[href^="#"]')
-    .forEach((link) => {
-
-      link.addEventListener("click", (event) => {
-
-        const targetId = link.getAttribute("href");
-        const target = document.querySelector(targetId);
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      });
-
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      scrollToSection(button.dataset.section);
     });
-
-
-  /*
-    SMALL REVEAL EFFECT
-
-    Enough movement to keep the page alive without
-    making every section feel like a presentation.
-  */
-
-  const revealItems = document.querySelectorAll(
-    ".answer-card, .personality-card, .fact, .social-placeholder div, .history-note, .pending-wall"
-  );
+  });
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    entries => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-      entries.forEach((entry) => {
-
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("seen");
-
-        observer.unobserve(entry.target);
-
-      });
-
+      if (visible.length) {
+        activateSection(visible[0].target.id);
+      }
     },
     {
-      threshold: 0.08
+      rootMargin: "-25% 0px -60% 0px",
+      threshold: [0, 0.1, 0.25, 0.5, 0.75]
     }
   );
 
-  revealItems.forEach((item) => {
+  sections.forEach(section => observer.observe(section));
 
-    item.style.transition =
-      "opacity 0.5s ease, transform 0.5s ease";
+  const initialHash = window.location.hash.replace("#", "");
 
-    item.style.opacity = "0";
+  if (initialHash && document.getElementById(initialHash)) {
+    setTimeout(() => {
+      document.getElementById(initialHash).scrollIntoView({
+        behavior: "instant",
+        block: "start"
+      });
 
-    item.style.transform += " translateY(12px)";
-
-    observer.observe(item);
-
-  });
-
-
-  /*
-    LITTLE IMAGE MOVEMENT
-
-    Mold is not standing still for the fucking website.
-  */
-
-  document.querySelectorAll("img").forEach((image) => {
-
-    image.addEventListener("mousemove", (event) => {
-
-      const rect = image.getBoundingClientRect();
-
-      const x =
-        (event.clientX - rect.left) / rect.width - 0.5;
-
-      const y =
-        (event.clientY - rect.top) / rect.height - 0.5;
-
-      image.style.transform =
-        `scale(1.025) translate(${x * 5}px, ${y * 5}px)`;
-
-    });
-
-    image.addEventListener("mouseleave", () => {
-      image.style.transform = "";
-    });
-
-  });
-
-
-  /*
-    TINY MOLD GLITCH
-  */
-
-  const title = document.querySelector(".hero-heading h1");
-
-  if (title) {
-
-    const originalTitle = title.textContent;
-
-    setInterval(() => {
-
-      if (Math.random() > 0.88) {
-
-        title.textContent = "M0LD";
-
-        setTimeout(() => {
-          title.textContent = originalTitle;
-        }, 90);
-
-      }
-
-    }, 1800);
-
+      activateSection(initialHash);
+    }, 50);
+  } else if (buttons.length) {
+    activateSection(buttons[0].dataset.section);
   }
-
-
-  /*
-    CONSOLE EASTER EGG
-  */
-
-  console.log(
-    "%cSAINT JUDE'S LANDING // MOLD",
-    "color:#ff3cab;font-weight:bold;font-size:16px;"
-  );
-
-  console.log(
-    "%cIf you found this, somebody fucked up.",
-    "color:#50f5e8;"
-  );
-
-})();
+});
