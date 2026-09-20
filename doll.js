@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const clock = document.getElementById("local-clock");
 
   function updateClock() {
+
     if (!clock) return;
 
     const now = new Date();
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       second: "2-digit"
     });
 
-    clock.textContent = `LOCAL RECORD TIME / ${time}`;
+    clock.textContent = `LOCAL TIME / ${time}`;
   }
 
   updateClock();
@@ -21,21 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-    BROKEN IMAGE HANDLER
-    If a future Doll image has not been generated yet,
-    the page keeps its structure instead of exploding.
+    MISSING IMAGE HANDLER
+
+    Future Doll images can stay missing without throwing
+    ugly broken-image icons across the page.
   */
 
   document.querySelectorAll("img").forEach((img) => {
 
     img.addEventListener("error", () => {
 
+      if (img.dataset.failed === "true") return;
+
+      img.dataset.failed = "true";
+
       const placeholder = document.createElement("div");
 
       placeholder.className = "missing-image";
 
       placeholder.innerHTML = `
-        <strong>IMAGE RECORD PENDING</strong>
+        <strong>GIMME A SEC. THIS IMAGE ISN'T HERE YET.</strong>
         <span>${img.getAttribute("src") || "UNKNOWN FILE"}</span>
       `;
 
@@ -54,7 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     link.addEventListener("click", (event) => {
 
-      const target = document.querySelector(link.getAttribute("href"));
+      const targetID = link.getAttribute("href");
+
+      if (!targetID || targetID === "#") return;
+
+      const target = document.querySelector(targetID);
 
       if (!target) return;
 
@@ -71,19 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-    ARCHIVE REVEAL
+    SECTION REVEAL
   */
 
   const sections = document.querySelectorAll(".record-section");
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, observerInstance) => {
 
       entries.forEach((entry) => {
 
-        if (entry.isIntersecting) {
-          entry.target.classList.add("record-visible");
-        }
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("record-visible");
+        observerInstance.unobserve(entry.target);
 
       });
 
@@ -93,12 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
 
 
   /*
-    SLIGHT IMAGE MOVEMENT
-    Keeps the page from feeling like a stack of dead cards.
+    TINY IMAGE MOVEMENT
+
+    Just enough movement to keep the page from feeling
+    like a dead stack of cards.
   */
 
   document.querySelectorAll("figure img").forEach((image) => {
@@ -107,10 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const rect = image.getBoundingClientRect();
 
-      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 3;
-      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 3;
+      if (!rect.width || !rect.height) return;
 
-      image.style.transform = `translate(${x}px, ${y}px) scale(1.015)`;
+      const x =
+        ((event.clientX - rect.left) / rect.width - 0.5) * 3;
+
+      const y =
+        ((event.clientY - rect.top) / rect.height - 0.5) * 3;
+
+      image.style.transform =
+        `translate(${x}px, ${y}px) scale(1.015)`;
 
     });
 
@@ -122,27 +143,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-    DOLL DOES NOT LIKE THE ARCHIVE.
+    DOLL DOES NOT LIKE BEING TREATED LIKE A SPECIMEN.
   */
 
   const warning = document.querySelector(".header-warning");
 
   if (warning) {
 
-    setInterval(() => {
+    const messages = [
+      "DO NOT TOUCH HER SHIT.",
+      "SOMEONE FUCKED UP.",
+      "PUT IT BACK.",
+      "THAT IS NOT YOURS.",
+      "SHE KNOWS YOU'RE IN HERE."
+    ];
 
-      const messages = [
-        "THIS RECORD WAS NOT INTENDED FOR PUBLIC ACCESS.",
-        "DO NOT TOUCH HER SHIT.",
-        "ACCESS WAS NOT AUTHORIZED.",
-        "SOMEONE FUCKED UP.",
-        "THIS FILE HAS BEEN OPENED TOO MANY TIMES."
-      ];
+    setInterval(() => {
 
       if (Math.random() > 0.72) {
 
         warning.textContent =
           messages[Math.floor(Math.random() * messages.length)];
+
+        warning.style.transform =
+          `rotate(${Math.random() * 2 - 1}deg)`;
 
       }
 
@@ -156,18 +180,18 @@ document.addEventListener("DOMContentLoaded", () => {
   */
 
   console.log(
-    "%cSJL / DOLL",
-    "font-size:22px;font-weight:bold;"
+    "%c DOLL / MOTHBALL ",
+    "background:#b87883;color:#171313;font-weight:900;padding:5px 9px;"
   );
 
   console.log(
-    "%cIf you found this record, put the handbag back where you found it.",
-    "font-size:12px;"
+    "%cPut the handbag back where you found it.",
+    "color:#c9949b;font-family:monospace;"
   );
 
   console.log(
     "%cSeriously.",
-    "font-size:18px;font-weight:bold;"
+    "color:#a64b35;font-weight:bold;font-size:16px;"
   );
 
 });
