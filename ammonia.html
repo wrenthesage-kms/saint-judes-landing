@@ -4,1044 +4,1329 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ammonia — Saint Jude's Landing</title>
+  <title>AMMONIA — Saint Jude's Landing</title>
 
-  <style>
-    :root {
-      --black: #090909;
-      --deep: #111014;
-      --purple: #a600ff;
-      --hot-pink: #ff2fa4;
-      --cyan: #00e5ff;
-      --acid: #c8ff00;
-      --cream: #f1e8d5;
-      --muted: #aaa2b0;
-      --line: rgba(255,255,255,.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(166,0,255,.16), transparent 30%),
-        radial-gradient(circle at 85% 30%, rgba(0,229,255,.08), transparent 28%),
-        var(--black);
-      color: var(--cream);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      padding: 14px 0;
-      background: rgba(9,9,9,.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav .page {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .nav-home {
-      color: var(--acid);
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 14px;
-      color: var(--muted);
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .hero {
-      min-height: 92vh;
-      display: grid;
-      align-items: end;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(.9) contrast(1.08);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(
-          to top,
-          rgba(9,9,9,1) 0%,
-          rgba(9,9,9,.78) 22%,
-          rgba(9,9,9,.18) 62%,
-          rgba(9,9,9,.35) 100%
-        );
-    }
-
-    .hero-copy {
-      padding: 80px 0 58px;
-      max-width: 850px;
-    }
-
-    .eyebrow {
-      color: var(--cyan);
-      font-size: .76rem;
-      font-weight: 900;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(4rem, 13vw, 10rem);
-      line-height: .78;
-      letter-spacing: -.075em;
-      text-transform: uppercase;
-    }
-
-    .hero-sub {
-      margin: 28px 0 0;
-      max-width: 640px;
-      font-size: clamp(1rem, 2vw, 1.35rem);
-      color: #ddd4e1;
-    }
-
-    .hero-sub strong {
-      color: white;
-    }
-
-    section {
-      padding: 90px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-
-    .section-number {
-      color: var(--hot-pink);
-      font-size: .8rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 4.5rem);
-      line-height: .95;
-      letter-spacing: -.05em;
-      text-transform: uppercase;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-
-    p {
-      max-width: 720px;
-      margin: 0 0 18px;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 42px;
-    }
-
-    .fact-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px;
-    }
-
-    .fact {
-      padding: 15px;
-      background: rgba(255,255,255,.045);
-      border: 1px solid var(--line);
-    }
-
-    .fact small {
-      display: block;
-      color: var(--muted);
-      font-size: .68rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .fact strong {
-      display: block;
-      margin-top: 3px;
-      color: white;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
-      gap: 50px;
-      align-items: start;
-    }
-
-    .image-card {
-      margin: 0;
-      background: #0e0e0e;
-      border: 1px solid var(--line);
-    }
-
-    .image-card img {
-      aspect-ratio: auto;
-      object-fit: cover;
-    }
-
-    figcaption {
-      padding: 13px 15px 16px;
-      color: var(--muted);
-      font-size: .78rem;
-    }
-
-    figcaption strong {
-      display: block;
-      color: white;
-      margin-bottom: 3px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-
-    .big-image {
-      margin: 35px 0;
-    }
-
-    .big-image img {
-      max-height: 760px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .likes-dislikes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .list-box {
-      padding: 24px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-    }
-
-    .list-box h3 {
-      color: var(--acid);
-    }
-
-    .list-box.bad h3 {
-      color: var(--hot-pink);
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    li {
-      margin: 5px 0;
-    }
-
-    .quote {
-      margin: 35px 0;
-      padding: 28px 30px;
-      border-left: 5px solid var(--purple);
-      background: rgba(166,0,255,.07);
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-      font-weight: 700;
-      max-width: 900px;
-    }
-
-    .quote small {
-      display: block;
-      margin-top: 15px;
-      color: var(--muted);
-      font-size: .72rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .relationship-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .relationship {
-      min-height: 130px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-    }
-
-    .relationship strong {
-      display: block;
-      color: var(--cyan);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-    }
-
-    .gallery figure {
-      margin: 0;
-      grid-column: span 4;
-    }
-
-    .gallery figure.wide {
-      grid-column: span 8;
-    }
-
-    .gallery figure.tall {
-      grid-column: span 4;
-    }
-
-    .gallery img {
-      height: 100%;
-      object-fit: cover;
-      min-height: 260px;
-    }
-
-    .pending {
-      padding: 30px;
-      border: 1px dashed rgba(255,255,255,.22);
-      color: var(--muted);
-      background: rgba(255,255,255,.025);
-    }
-
-    .creator {
-      font-size: .95rem;
-    }
-
-    .creator p {
-      margin-bottom: 0;
-    }
-
-    footer {
-      padding: 55px 0 80px;
-      color: var(--muted);
-    }
-
-    footer strong {
-      color: white;
-    }
-
-    @media (max-width: 800px) {
-      .intro-grid,
-      .two-column,
-      .likes-dislikes {
-        grid-template-columns: 1fr;
-      }
-
-      .relationship-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery figure,
-      .gallery figure.wide,
-      .gallery figure.tall {
-        grid-column: span 6;
-      }
-
-      h1 {
-        font-size: clamp(4rem, 22vw, 7rem);
-      }
-    }
-
-    @media (max-width: 520px) {
-      .page {
-        width: min(100% - 22px, 1180px);
-      }
-
-      nav .page {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      .fact-list,
-      .relationship-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .gallery {
-        display: block;
-      }
-
-      .gallery figure {
-        margin-bottom: 14px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="ammonia.css">
 </head>
 
 <body>
 
-  <nav>
-    <div class="page">
-      <a class="nav-home" href="index.html">Saint Jude's Landing</a>
+  <div class="site-shell">
 
-      <div class="nav-links">
-        <a href="history.html">History</a>
-        <a href="layers.html">Layers</a>
-        <a href="behemoths.html">Behemoths</a>
-        <a href="field-notes.html">Field Notes</a>
-        <a href="neon-gut.html">Neon Gut</a>
-        <a href="hollows.html">Hollows</a>
-        <a href="nine.html">Nine</a>
-        <a href="velvet.html">Velvet</a>
-        <a href="mothball.html">Mothball</a>
-      </div>
-    </div>
-  </nav>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-  <main>
+    <header class="site-header">
 
-    <!-- HERO -->
+      <div class="header-noise"></div>
 
-    <header class="hero">
-      <div class="hero-image">
-        <img src="ammonia-hero.PNG" alt="Ammonia lying across a Neon Gut rooftop">
-      </div>
+      <div class="header-content">
 
-      <div class="page">
-        <div class="hero-copy">
-          <div class="eyebrow">Neon Gut · Outlier · Bat Demi-Human</div>
-
-          <h1>Ammonia</h1>
-
-          <p class="hero-sub">
-            She paints things, climbs things, sleeps in places that should probably
-            not qualify as beds, and has apparently decided that <strong>rooftops are furniture.</strong>
-          </p>
+        <div class="site-kicker">
+          SAINT JUDE'S LANDING // OUTLIERS DATABASE
         </div>
+
+        <h1>AMMONIA</h1>
+
+        <div class="header-subtitle">
+          THE GUT'S GRAFFITI LEGEND
+        </div>
+
+        <div class="header-tag">
+          CHARACTER FILE // AMMONIA
+        </div>
+
       </div>
+
     </header>
 
 
-    <!-- QUICK FACTS -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-    <section>
-      <div class="page">
+    <nav class="character-nav" id="character-nav">
 
-        <div class="section-heading">
-          <span class="section-number">01</span>
-          <h2>Things you find out immediately</h2>
-        </div>
+      <button class="nav-button active" data-section="about">
+        ABOUT
+      </button>
 
-        <div class="intro-grid">
+      <button class="nav-button" data-section="personal">
+        PERSONAL
+      </button>
 
-          <div>
-            <p>
-              Ammonia is a bat demi-human from Neon Gut and one of the Outliers.
-              She is a graffiti artist, a scavenger, a climber, and a person who
-              seems substantially more comfortable three stories above everybody
-              else than she does standing in the middle of a room.
-            </p>
+      <button class="nav-button" data-section="social">
+        SOCIAL
+      </button>
 
-            <p>
-              She is quiet without being timid, detached without being uncaring,
-              and extremely observant. If she seems like she isn't paying attention,
-              there is a decent chance she has noticed something nobody else has.
-            </p>
+      <button class="nav-button romance-nav" data-section="romance">
+        💗 ROMANCE
+      </button>
+
+      <button class="nav-button nsfw-nav" data-section="nsfw">
+        🔞 NSFW
+      </button>
+
+      <button class="nav-button" data-section="creator">
+        🎨 CREATOR
+      </button>
+
+      <button class="nav-button" data-section="gallery">
+        📸 GALLERY
+      </button>
+
+      <button class="nav-button" data-section="interview">
+        🗣️ ASK AMMONIA
+      </button>
+
+    </nav>
+
+
+    <main>
+
+
+      <!-- =========================
+           ABOUT
+      ========================== -->
+
+      <section class="page-section active" id="about">
+
+        <div class="hero">
+
+          <div class="hero-image">
+            <img
+              src="images/character-ammonia.PNG"
+              alt="Ammonia"
+            >
           </div>
 
-          <div class="fact-list">
+          <div class="hero-copy">
 
-            <div class="fact">
-              <small>Name</small>
-              <strong>Ammonia</strong>
+            <div class="section-label">
+              CHARACTER FILE
             </div>
 
-            <div class="fact">
-              <small>Pronouns</small>
-              <strong>she / her</strong>
+            <h2>AMMONIA</h2>
+
+            <p class="hero-description">
+              A bat demi-human from the Neon Gut.
+            </p>
+
+            <div class="hero-fact">
+              <span>ROLE</span>
+              <strong>Unofficial leader</strong>
             </div>
 
-            <div class="fact">
-              <small>Species</small>
-              <strong>Bat demi-human</strong>
-            </div>
-
-            <div class="fact">
-              <small>Origin</small>
+            <div class="hero-fact">
+              <span>ORIGIN</span>
               <strong>Neon Gut</strong>
             </div>
 
-            <div class="fact">
-              <small>Role</small>
-              <strong>Outlier</strong>
+            <div class="hero-fact">
+              <span>KNOWN FOR</span>
+              <strong>Graffiti</strong>
             </div>
 
-            <div class="fact">
-              <small>Height</small>
-              <strong>152 cm / 5'0"</strong>
-            </div>
-
-            <div class="fact">
-              <small>Occupation</small>
-              <strong>Graffiti artist</strong>
-            </div>
-
-            <div class="fact">
-              <small>Body temperature</small>
-              <strong>Low</strong>
+            <div class="hero-fact">
+              <span>STATUS</span>
+              <strong>OUTLIER</strong>
             </div>
 
           </div>
 
         </div>
 
-      </div>
-    </section>
+
+        <div class="content-grid">
+
+          <article class="info-card">
+
+            <div class="card-label">SPECIES</div>
+
+            <h3>Bat Demi-Human</h3>
+
+            <p>
+              Ammonia is a bat demi-human.
+            </p>
+
+          </article>
 
 
-    <!-- PERSONALITY -->
+          <article class="info-card">
 
-    <section>
-      <div class="page">
+            <div class="card-label">ORIGIN</div>
 
-        <div class="section-heading">
-          <span class="section-number">02</span>
-          <h2>She really is like this</h2>
+            <h3>Neon Gut</h3>
+
+            <p>
+              Ammonia originates from the Neon Gut.
+            </p>
+
+          </article>
+
+
+          <article class="info-card">
+
+            <div class="card-label">ROLE</div>
+
+            <h3>Unofficial Leader</h3>
+
+            <p>
+              Ammonia is the unofficial leader of the Outliers.
+            </p>
+
+          </article>
+
+
+          <article class="info-card">
+
+            <div class="card-label">REPUTATION</div>
+
+            <h3>Graffiti Legend</h3>
+
+            <p>
+              Ammonia is a legendary graffiti artist whose work traverses Saint Jude's Landing.
+            </p>
+
+          </article>
+
         </div>
 
-        <div class="two-column">
 
-          <div>
-            <p>
-              Ammonia does not waste much energy pretending to feel something she
-              doesn't feel. She is simple about people. She likes you, she doesn't
-              like you, she wants you nearby, she wants you gone, she is tired,
-              she is hungry, she is interested. There usually isn't a second
-              performance happening underneath it.
-            </p>
+        <div class="details-panel">
 
-            <p>
-              She has poor patience for social rules that exist mostly because
-              everybody agreed to pretend they were necessary. She can be blunt
-              without intending cruelty and affectionate without making a big
-              announcement about it.
-            </p>
-
-            <p>
-              Her version of caring is usually practical. She watches. She notices.
-              She remembers. She stays close enough to know where everybody is.
-              If somebody she considers hers is in trouble, the detached act tends
-              to disappear very quickly.
-            </p>
+          <div class="details-heading">
+            APPEARANCE
           </div>
 
-          <figure class="image-card">
-            <img src="ammonia-eyes.PNG" alt="Close-up of Ammonia's eyes and face">
-            <figcaption>
-              <strong>She is always looking at something.</strong>
-              You just might not know what until she tells you.
-            </figcaption>
-          </figure>
+          <div class="detail-row">
+            <span>Skin</span>
+            <strong>Slate / matte black nonhuman skin</strong>
+          </div>
 
-        </div>
+          <div class="detail-row">
+            <span>Ears</span>
+            <strong>Huge angular cone-shaped bat ears</strong>
+          </div>
 
-      </div>
-    </section>
+          <div class="detail-row">
+            <span>Eyes</span>
+            <strong>COMING</strong>
+          </div>
 
+          <div class="detail-row">
+            <span>Hair</span>
+            <strong>COMING</strong>
+          </div>
 
-    <!-- BAT -->
+          <div class="detail-row">
+            <span>Physique</span>
+            <strong>COMING</strong>
+          </div>
 
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">03</span>
-          <h2>The bat stuff</h2>
-        </div>
-
-        <div class="two-column">
-
-          <figure class="image-card">
-            <img src="detail-ammonia-ears.PNG" alt="Close-up detail of Ammonia's bat ears">
-            <figcaption>
-              <strong>Those ears are not decorative.</strong>
-              They articulate independently and do a frankly unreasonable amount of the acting.
-            </figcaption>
-          </figure>
-
-          <div>
-            <p>
-              Her huge bat ears are highly mobile and extremely sensitive.
-              They react to sounds and movement before the rest of her body
-              necessarily catches up.
-            </p>
-
-            <p>
-              Ammonia has echolocation and excellent low-light vision. She is
-              built for the sort of environment where the lights are bad, the
-              hallways are complicated, and something unpleasant may be hiding
-              around the next corner.
-            </p>
-
-            <p>
-              She has no wings and does not fly. She climbs instead.
-            </p>
-
-            <p>
-              She also has a low body temperature, which makes the fact that
-              she will happily curl herself up somewhere warm and stay there
-              for an embarrassing amount of time considerably less surprising.
-            </p>
+          <div class="detail-row">
+            <span>Clothing</span>
+            <strong>COMING</strong>
           </div>
 
         </div>
 
-      </div>
-    </section>
 
+        <div class="details-panel">
 
-    <!-- HANDS / ART -->
-
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">04</span>
-          <h2>Her hands are fucked</h2>
-        </div>
-
-        <div class="two-column">
-
-          <div>
-            <p>
-              Ammonia's hands are rarely clean.
-            </p>
-
-            <p>
-              Paint gets under her claws, across her knuckles, into the little
-              places where it becomes impossible to remove completely. She tapes
-              things when they hurt and keeps working.
-            </p>
-
-            <p>
-              Her hands are part of the job. They look like it.
-            </p>
-
-            <div class="quote">
-              “Don't touch my paint.”
-              <small>Ammonia, apparently not joking</small>
-            </div>
+          <div class="details-heading">
+            PERSONALITY
           </div>
 
-          <figure class="image-card">
-            <img src="ammonia-paint-hands.PNG" alt="Ammonia's paint-covered hands">
-            <figcaption>
-              <strong>Paint-covered hands.</strong>
-              Cyan, purple, pink, black, tape, claws, and absolutely no clean surfaces.
-            </figcaption>
-          </figure>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- LIKES -->
-
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">05</span>
-          <h2>Things she actually likes</h2>
-        </div>
-
-        <p>
-          She is not difficult to understand if you stop trying to make her more
-          complicated than she is.
-        </p>
-
-        <div class="likes-dislikes">
-
-          <div class="list-box">
-            <h3>Good</h3>
-            <ul>
-              <li>Rain on concrete</li>
-              <li>Fresh spray paint</li>
-              <li>Cold air</li>
-              <li>Rooftops</li>
-              <li>Insects</li>
-              <li>Quiet</li>
-              <li>Interesting colors</li>
-              <li>Things that smell strongly enough to linger</li>
-              <li>Found objects</li>
-              <li>Having her people nearby</li>
-            </ul>
+          <div class="detail-row">
+            <span>Core personality</span>
+            <strong>COMING</strong>
           </div>
 
-          <div class="list-box bad">
-            <h3>Bad</h3>
-            <ul>
-              <li>Too many questions</li>
-              <li>Loud unnecessary noise</li>
-              <li>People touching her things</li>
-              <li>Being crowded</li>
-              <li>Fake concern</li>
-              <li>Being physically cornered</li>
-              <li>People touching her paint</li>
-              <li>Social rules that make no fucking sense</li>
-            </ul>
+          <div class="detail-row">
+            <span>Speech / dialect</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Habits</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Fears</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Weaknesses</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Strengths</span>
+            <strong>NOT KNOWN YET</strong>
           </div>
 
         </div>
 
-      </div>
-    </section>
 
+        <div class="details-panel">
 
-    <!-- SOCIAL -->
-
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">06</span>
-          <h2>She is actually very social</h2>
-        </div>
-
-        <p>
-          Don't tell her I said that.
-        </p>
-
-        <p>
-          Ammonia is not especially interested in conventional socializing.
-          She is, however, deeply attached to having certain people around her.
-          There is a difference.
-        </p>
-
-        <p>
-          She does not need constant conversation. Somebody can sit nearby,
-          do their own thing, and exist in the same space for hours without
-          either of them saying much.
-        </p>
-
-        <p>
-          She notices when her people leave. She notices when they come back.
-          She remembers where everybody is supposed to be.
-        </p>
-
-        <p>
-          She would probably deny that this counts as caring.
-        </p>
-
-        <div class="relationship-grid">
-
-          <div class="relationship">
-            <strong>The pack</strong>
-            The Outliers are her people. She does not need a prettier word for it.
+          <div class="details-heading">
+            ANIMAL SHIT
           </div>
 
-          <div class="relationship">
-            <strong>Benoit</strong>
-            Warmth, stability, and somebody large enough to lean against.
+          <div class="detail-row">
+            <span>Diet</span>
+            <strong>Bugs / garbage</strong>
           </div>
 
-          <div class="relationship">
-            <strong>Everybody else</strong>
-            Annoying. Familiar. Hers.
+          <div class="detail-row">
+            <span>Bat traits</span>
+            <strong>COMING</strong>
           </div>
 
-          <div class="relationship">
-            <strong>Strangers</strong>
-            Depends how they smell.
+          <div class="detail-row">
+            <span>Favorite bug</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Other weird animal behavior</span>
+            <strong>:3</strong>
           </div>
 
         </div>
 
-      </div>
-    </section>
 
+        <div class="details-panel">
 
-    <!-- QUOTE -->
-
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">07</span>
-          <h2>Things Ammonia has said</h2>
-        </div>
-
-        <div class="quote">
-          “Too many questions. Loud. Brain hurts. I'm Ammonia. Don't touch my paint.
-          Don't touch me at all. Just... stay where I can see you. The air here smells
-          like you. Salt and panic. Makes my nose itch.”
-        </div>
-
-        <p>
-          Her speech is usually short, direct, and literal. She does not dress
-          things up because she does not particularly see the point.
-        </p>
-
-      </div>
-    </section>
-
-
-    <!-- ROMANCE -->
-
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">08</span>
-          <h2>Romance</h2>
-        </div>
-
-        <div class="two-column">
-
-          <div>
-            <p>
-              Ammonia is not interested in conventional courtship rituals.
-            </p>
-
-            <p>
-              Attachment would build through familiarity, safety, proximity,
-              and repetition. Somebody being there matters more than somebody
-              performing romance correctly.
-            </p>
-
-            <p>
-              Her affection is quiet. She lets people into spaces she normally
-              keeps for herself. She remembers their presence. She stays close.
-              She makes room.
-            </p>
-
-            <p>
-              She is not going to suddenly become a different person because
-              she likes somebody.
-            </p>
+          <div class="details-heading">
+            SCENT
           </div>
 
-          <figure class="image-card">
-            <img src="ammonia-hero.PNG" alt="Ammonia lounging on a rooftop">
-            <figcaption>
-              <strong>Her version of hanging out.</strong>
-              You are allowed to be here. Congratulations.
-            </figcaption>
-          </figure>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- NSFW -->
-
-    <section>
-      <div class="page">
-
-        <div class="section-heading">
-          <span class="section-number">09</span>
-          <h2>NSFW</h2>
-        </div>
-
-        <div class="pending">
-          <p>
-            Ammonia has very little shame about her body and does not automatically
-            interpret nudity as sexual.
+          <p class="big-fact">
+            Cold concrete + rainwater + old spray paint + dead bugs.
           </p>
 
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           PERSONAL
+      ========================== -->
+
+      <section class="page-section" id="personal">
+
+        <div class="section-intro">
+          <div class="section-label">PERSONAL</div>
+          <h2>UNNECESSARY INFORMATION</h2>
           <p>
-            The rest of this section is not fucking decided yet.
+            The information nobody technically needed but now absolutely needs.
           </p>
         </div>
 
-      </div>
-    </section>
 
+        <div class="fact-table">
 
-    <!-- ART -->
+          <div class="fact-row">
+            <span>Birthday</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
 
-    <section>
-      <div class="page">
+          <div class="fact-row">
+            <span>Birth Chart</span>
+            <strong>COMING</strong>
+          </div>
 
-        <div class="section-heading">
-          <span class="section-number">10</span>
-          <h2>The art</h2>
+          <div class="fact-row">
+            <span>MBTI</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Enneagram</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Blood Type</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Color</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Food</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Comfort Food</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Drink</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Song</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Artist</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Movie</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Book</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Game</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Animal</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Smell</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Weather</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Season</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Morning / Night Person</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Sleep Schedule</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Messy / Clean</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Phone Wallpaper</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Lock Screen</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Most Used Emoji</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Most Used Word</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Current Hyperfixation</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Current Problem</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Current Obsession</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Guilty Pleasure</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Pet Peeve</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Weird Habit</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Worst Habit</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Best Habit</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Sentimental Object</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She'd Grab During a Fire</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She'd Spend $500 On</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She'd Do With a Day Off</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She Does When Alone</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
         </div>
 
-        <figure class="image-card big-image">
-          <img src="ammonia-tag.PNG" alt="Ammonia's graffiti tag across a layered wall">
-          <figcaption>
-            <strong>She made this.</strong>
-            Her graffiti is one of the ways she leaves herself all over Neon Gut without
-            having to stand around explaining herself.
-          </figcaption>
-        </figure>
+      </section>
 
-        <div class="gallery">
 
-          <figure>
-            <img src="character-ammonia.PNG" alt="Ammonia sitting among spray cans">
+      <!-- =========================
+           SOCIAL
+      ========================== -->
+
+      <section class="page-section" id="social">
+
+        <div class="section-intro">
+          <div class="section-label">SOCIAL</div>
+          <h2>THE OUTLIER FILE</h2>
+        </div>
+
+
+        <div class="social-grid">
+
+          <article class="info-card">
+            <div class="card-label">GROUP</div>
+            <h3>Outliers</h3>
+            <p>
+              Ammonia is one of the Outliers.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="card-label">ROLE</div>
+            <h3>Unofficial Leader</h3>
+            <p>
+              She holds the unofficial leader role within the group.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="card-label">REPUTATION</div>
+            <h3>Graffiti Artist</h3>
+            <p>
+              Her graffiti is known throughout Saint Jude's Landing.
+            </p>
+          </article>
+
+        </div>
+
+
+        <div class="fact-table">
+
+          <div class="fact-row">
+            <span>Friends</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Enemies</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Closest Outlier</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Who She Trusts</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Who Trusts Her</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Reputation in the Gut</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Reputation Elsewhere</span>
+            <strong>COMING</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ROMANCE
+      ========================== -->
+
+      <section class="page-section" id="romance">
+
+        <div class="section-intro romance-intro">
+          <div class="section-label">💗 ROMANCE</div>
+          <h2>ASK AMMONIA ABOUT HER LOVE LIFE</h2>
+          <p>
+            Nothing here is filled in unless it has actually been established.
+          </p>
+        </div>
+
+
+        <div class="fact-table romance-table">
+
+          <div class="fact-row">
+            <span>Relationship Status</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Crush Type</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She Notices First</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Attracts Her</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Makes Her Flustered</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Flirting Style</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>How She Flirts</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>How She Likes Being Flirted With</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>First Move</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Would She Make the First Move?</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Ideal Date</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Favorite Date Activity</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>PDA</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Physical Affection</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Verbal Affection</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Jealousy</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Possessiveness</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Makes Her Feel Wanted</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Makes Her Feel Safe</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Biggest Green Flag</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Biggest Red Flag</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Dealbreakers</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Makes Her Lose Interest</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Secretly Romantic?</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>How She Handles a Crush</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>How She Acts When She Actually Likes Someone</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>How She Acts When Trying Not to Like Someone</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Love Language</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Dating Her Is Like…</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Her Partner Has to Put Up With</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What Her Partner Gets</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She Needs From a Partner</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>What She Gives a Partner</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Marriage?</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Kids?</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Domestic Life</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Exes</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Heartbreak</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Would She Take Someone Back?</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Celebrity Crush</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Fictional Crush</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Would She Date a Fan?</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           NSFW
+      ========================== -->
+
+      <section class="page-section" id="nsfw">
+
+        <div class="section-intro nsfw-intro">
+
+          <div class="section-label">🔞 NSFW</div>
+
+          <h2>THIS SHIT IS BEHIND THE DOOR.</h2>
+
+          <p>
+            Adult character information and the NSFW gallery live here.
+          </p>
+
+        </div>
+
+
+        <div class="nsfw-warning">
+          <span>🔞</span>
+          <div>
+            <strong>ADULT CONTENT</strong>
+            <small>AMMONIA // NSFW ALBUM</small>
+          </div>
+        </div>
+
+
+        <div class="fact-table">
+
+          <div class="fact-row">
+            <span>Sexuality</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Orientation</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Preferences</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Turn-Ons</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Turn-Offs</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Boundaries</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Hard No's</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Experience</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Sex Drive</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Aftercare</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Privacy</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Bedroom Personality</span>
+            <strong>COMING</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           CREATOR
+      ========================== -->
+
+      <section class="page-section" id="creator">
+
+        <div class="section-intro">
+
+          <div class="section-label">🎨 CREATOR</div>
+
+          <h2>BEHIND AMMONIA</h2>
+
+        </div>
+
+
+        <div class="fact-table">
+
+          <div class="fact-row">
+            <span>Creator</span>
+            <strong>Wren</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Inspirations</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Design Notes</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Original Concept</span>
+            <strong>COMING</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>First Appearance</span>
+            <strong>NOT KNOWN YET</strong>
+          </div>
+
+          <div class="fact-row">
+            <span>Creator Interview</span>
+            <strong>COMING</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           GALLERY
+      ========================== -->
+
+      <section class="page-section" id="gallery">
+
+        <div class="section-intro">
+
+          <div class="section-label">📸 GALLERY</div>
+
+          <h2>AMMONIA IN PICTURES</h2>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+          <figure class="gallery-card">
+
+            <img
+              src="images/character-ammonia.PNG"
+              alt="Ammonia character reference"
+            >
+
             <figcaption>
-              <strong>Work environment.</strong>
-              Spray cans, concrete, graffiti, giant ears.
+              <strong>CHARACTER</strong>
+              <span>character-ammonia.PNG</span>
             </figcaption>
+
           </figure>
 
-          <figure class="wide">
-            <img src="ammonia-hero.PNG" alt="Ammonia lounging across a rooftop">
+
+          <figure class="gallery-card">
+
+            <img
+              src="images/detail-ammonia-ears.PNG"
+              alt="Ammonia ear detail"
+            >
+
             <figcaption>
-              <strong>She spends a lot of time up here.</strong>
-              Nobody said rooftops had to be uncomfortable.
+              <strong>EAR DETAIL</strong>
+              <span>detail-ammonia-ears.PNG</span>
             </figcaption>
+
           </figure>
 
-          <figure>
-            <img src="ammonia-paint-hands.PNG" alt="Ammonia's paint-covered hands">
+
+          <figure class="gallery-card">
+
+            <img
+              src="images/ammonia-eyes.PNG"
+              alt="Ammonia eyes detail"
+            >
+
             <figcaption>
-              <strong>The evidence.</strong>
-              Her hands are basically a color palette now.
+              <strong>EYES</strong>
+              <span>ammonia-eyes.PNG</span>
             </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card gallery-hero">
+
+            <img
+              src="images/ammonia-hero.PNG"
+              alt="Ammonia hero image"
+            >
+
+            <figcaption>
+              <strong>HERO</strong>
+              <span>ammonia-hero.PNG</span>
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card">
+
+            <img
+              src="images/ammonia-paint-hands.PNG"
+              alt="Ammonia painting hands"
+            >
+
+            <figcaption>
+              <strong>PAINT HANDS</strong>
+              <span>ammonia-paint-hands.PNG</span>
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card">
+
+            <img
+              src="images/ammonia-sleep.PNG"
+              alt="Ammonia sleeping"
+            >
+
+            <figcaption>
+              <strong>SLEEP</strong>
+              <span>ammonia-sleep.PNG</span>
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card">
+
+            <img
+              src="images/ammonia-tag.PNG"
+              alt="Ammonia tag"
+            >
+
+            <figcaption>
+              <strong>TAG</strong>
+              <span>ammonia-tag.PNG</span>
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card nsfw-card">
+
+            <img
+              src="images/ammonia-landscape-nude.PNG"
+              alt="Ammonia NSFW hero"
+            >
+
+            <figcaption>
+              <strong>NSFW HERO</strong>
+              <span>ammonia-landscape-nude.PNG</span>
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card nsfw-card">
+
+            <img
+              src="images/ammonia-nude-nine.PNG"
+              alt="Ammonia NSFW image"
+            >
+
+            <figcaption>
+              <strong>NSFW // NINE</strong>
+              <span>ammonia-nude-nine.PNG</span>
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="gallery-card nsfw-card">
+
+            <img
+              src="images/ammonia-portrait-size-nude.PNG"
+              alt="Ammonia NSFW portrait"
+            >
+
+            <figcaption>
+              <strong>NSFW // PORTRAIT</strong>
+              <span>ammonia-portrait-size-nude.PNG</span>
+            </figcaption>
+
           </figure>
 
         </div>
 
-      </div>
-    </section>
+      </section>
 
 
-    <!-- SLEEP -->
+      <!-- =========================
+           INTERVIEW
+      ========================== -->
 
-    <section>
-      <div class="page">
+      <section class="page-section" id="interview">
 
-        <div class="section-heading">
-          <span class="section-number">11</span>
-          <h2>And then she goes to sleep</h2>
+        <div class="section-intro interview-intro">
+
+          <div class="section-label">🗣️ ASKED & ANSWERED</div>
+
+          <h2>ASK AMMONIA</h2>
+
+          <p>
+            Actual questions. Actual answers. Eventually.
+          </p>
+
         </div>
 
-        <figure class="image-card big-image">
-          <img src="ammonia-sleep.PNG" alt="Ammonia asleep on industrial rooftop infrastructure">
-          <figcaption>
-            <strong>Goodnight, apparently.</strong>
-            This is apparently a perfectly acceptable place to sleep.
-          </figcaption>
-        </figure>
 
-        <p>
-          She sleeps wherever she has decided is high enough, dark enough, warm enough,
-          or sufficiently out of everybody else's way.
-        </p>
-
-        <p>
-          Nobody has successfully convinced her that this is weird.
-        </p>
-
-      </div>
-    </section>
+        <div class="interview-list">
 
 
-    <!-- WREN -->
+          <article class="interview-question">
 
-    <section>
-      <div class="page">
+            <div class="question">
+              Q: What's your relationship status?
+            </div>
 
-        <div class="section-heading">
-          <span class="section-number">12</span>
-          <h2>Wren</h2>
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>NOT KNOWN YET</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: What's your favorite thing to eat?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>Bugs.</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: What do you do?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>COMING</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: What's your favorite place in Saint Jude's Landing?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>NOT KNOWN YET</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: What's your biggest pet peeve?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>NOT KNOWN YET</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: What are you like when nobody's around?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>COMING</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: What's your type?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>NOT KNOWN YET</span>
+            </div>
+
+          </article>
+
+
+          <article class="interview-question">
+
+            <div class="question">
+              Q: Anything else?
+            </div>
+
+            <div class="answer">
+              <span class="answer-name">AMMONIA:</span>
+              <span>:3</span>
+            </div>
+
+          </article>
+
+
         </div>
 
-        <div class="creator">
-          <p>coming</p>
-        </div>
+      </section>
 
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+      <div>
+        SAINT JUDE'S LANDING
       </div>
-    </section>
 
-  </main>
+      <div>
+        AMMONIA // OUTLIER FILE
+      </div>
+
+      <div>
+        RECORD STATUS: ACTIVE
+      </div>
+
+    </footer>
+
+  </div>
 
 
-  <footer>
-    <div class="page">
-      <strong>Saint Jude's Landing</strong><br>
-      Ancient. Crowded. Industrial. Still accumulating shit.
-    </div>
-  </footer>
+  <script src="ammonia.js"></script>
 
 </body>
 </html>
