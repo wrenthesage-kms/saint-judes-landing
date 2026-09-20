@@ -1,243 +1,435 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   /* =========================================================
      LOCAL CLOCK
   ========================================================== */
+
   const clock = document.getElementById("local-clock");
+
   function updateClock() {
-    if (!clock) return;
+
+    if (!clock) {
+      return;
+    }
+
     const now = new Date();
+
     clock.textContent = now.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
       hour12: false
     });
+
   }
+
   updateClock();
+
   setInterval(updateClock, 1000);
+
+
   /* =========================================================
-     BACK TO SAINT JUDE'S LANDING
+     CHARACTER NAVIGATION
   ========================================================== */
-  const existingBackLink = document.querySelector(
-    'a[data-back-to-sjl], .back-to-sjl'
+
+  const navButtons = document.querySelectorAll(
+    ".nav-button"
   );
-  if (!existingBackLink) {
-    const backNav = document.createElement("a");
-    backNav.href = "index.html";
-    backNav.className = "back-to-sjl";
-    backNav.setAttribute("data-back-to-sjl", "true");
-    backNav.textContent = "← BACK TO SAINT JUDE'S LANDING";
-    const header = document.querySelector(".site-header");
-    if (header) {
-      header.prepend(backNav);
-    } else {
-      document.body.prepend(backNav);
+
+  const sections = document.querySelectorAll(
+    ".page-section[id]"
+  );
+
+
+  navButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const targetId =
+        button.getAttribute("data-section");
+
+      if (!targetId) {
+        return;
+      }
+
+
+      sections.forEach((section) => {
+
+        section.classList.toggle(
+          "active",
+          section.id === targetId
+        );
+
+      });
+
+
+      navButtons.forEach((navButton) => {
+
+        navButton.classList.toggle(
+          "active",
+          navButton === button
+        );
+
+      });
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  });
+
+
+  /* =========================================================
+     BROWSER HASH SUPPORT
+  ========================================================== */
+
+  function openHashSection() {
+
+    const hash =
+      window.location.hash.replace("#", "");
+
+    if (!hash) {
+      return;
     }
+
+    const targetButton =
+      document.querySelector(
+        `.nav-button[data-section="${hash}"]`
+      );
+
+    const targetSection =
+      document.getElementById(hash);
+
+    if (!targetButton || !targetSection) {
+      return;
+    }
+
+    sections.forEach((section) => {
+
+      section.classList.toggle(
+        "active",
+        section === targetSection
+      );
+
+    });
+
+    navButtons.forEach((button) => {
+
+      button.classList.toggle(
+        "active",
+        button === targetButton
+      );
+
+    });
+
   }
+
+  openHashSection();
+
+
+  window.addEventListener(
+    "hashchange",
+    openHashSection
+  );
+
+
   /* =========================================================
      MISSING IMAGE HANDLING
   ========================================================== */
+
   document.querySelectorAll("img").forEach((image) => {
+
     image.addEventListener("error", () => {
+
       image.classList.add("image-missing");
-      const wrapper = image.parentElement;
+
+      const wrapper =
+        image.parentElement;
+
       if (
         wrapper &&
         !wrapper.querySelector(".missing-image")
       ) {
-        const notice = document.createElement("div");
-        notice.className = "missing-image";
+
+        const notice =
+          document.createElement("div");
+
+        notice.className =
+          "missing-image";
+
         notice.textContent =
           "GIMME A SEC. THIS IMAGE ISN'T HERE YET.";
+
         wrapper.appendChild(notice);
+
       }
+
     });
+
   });
+
+
   /* =========================================================
-     SMOOTH INTERNAL NAVIGATION
+     HEAVY IMAGE MOVEMENT
+     BENOIT DOES NOT FLOAT.
   ========================================================== */
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") {
-        return;
-      }
-      const target = document.querySelector(targetId);
-      if (!target) {
-        return;
-      }
-      event.preventDefault();
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
-  });
-  /* =========================================================
-     ACTIVE LOCAL NAVIGATION
-  ========================================================== */
-  const navLinks = document.querySelectorAll(
-    ".character-nav a, .record-nav a, .nav-button"
-  );
-  const sections = document.querySelectorAll(
-    ".page-section[id]"
-  );
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        const id = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-          if (href === `#${id}`) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-        });
-      });
-    },
-    {
-      rootMargin: "-20% 0px -65% 0px",
-      threshold: 0
-    }
-  );
-  sections.forEach((section) => {
-    sectionObserver.observe(section);
-  });
-  /* =========================================================
-     IMAGE MOVEMENT
-     BENOIT'S VERSION:
-     SLOW, HEAVY, ALMOST IMPERCEPTIBLE.
-  ========================================================== */
-  const movingImages = document.querySelectorAll(
-    ".hero-image img, .large-image img, .personal-objects img, .objects-layout img, .nine-images img"
-  );
+
+  const movingImages =
+    document.querySelectorAll(
+      ".hero-image img, .gallery-card img"
+    );
+
   let ticking = false;
+
+
   function updateImageMovement() {
+
     if (window.innerWidth <= 700) {
+
       ticking = false;
+
       return;
+
     }
-    const viewportHeight = window.innerHeight;
+
+
+    const viewportHeight =
+      window.innerHeight;
+
+
     movingImages.forEach((image) => {
-      const rect = image.getBoundingClientRect();
+
+      if (image.classList.contains("image-missing")) {
+        return;
+      }
+
+
+      const rect =
+        image.getBoundingClientRect();
+
+
       if (
         rect.bottom < 0 ||
         rect.top > viewportHeight
       ) {
+
         return;
+
       }
+
+
       const progress =
-        (viewportHeight - rect.top) /
-        (viewportHeight + rect.height);
-      const movement = (progress - 0.5) * 5;
+        (
+          viewportHeight - rect.top
+        ) /
+        (
+          viewportHeight + rect.height
+        );
+
+
+      const movement =
+        (progress - 0.5) * 4;
+
+
       image.style.transform =
         `translate3d(0, ${movement}px, 0)`;
+
     });
+
+
     ticking = false;
+
   }
+
+
   window.addEventListener(
     "scroll",
     () => {
+
       if (!ticking) {
-        window.requestAnimationFrame(updateImageMovement);
+
+        window.requestAnimationFrame(
+          updateImageMovement
+        );
+
         ticking = true;
+
       }
+
     },
     {
       passive: true
     }
   );
+
+
   updateImageMovement();
+
+
   /* =========================================================
      SECTION REVEAL
   ========================================================== */
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        entry.target.classList.add("record-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.08
-    }
-  );
-  sections.forEach((section) => {
-    revealObserver.observe(section);
-  });
-  /* =========================================================
-     BENOIT TITLE DISTORTION
-     SUBTLE. HEAVY. NOT A NEON GLITCH.
-  ========================================================== */
-  const heroTitle = document.querySelector(
-    ".hero h1, .hero-copy h2, .site-header h1"
-  );
-  if (heroTitle) {
-    setInterval(() => {
-      if (Math.random() > 0.92) {
-        heroTitle.style.transform =
-          `translateX(${Math.random() * 2 - 1}px)`;
-        heroTitle.style.textShadow =
-          "3px 2px 0 rgba(89,100,71,.55), -2px 0 0 rgba(135,60,39,.35)";
-        setTimeout(() => {
-          heroTitle.style.transform = "";
-          heroTitle.style.textShadow = "";
-        }, 140);
+
+  const revealObserver =
+    new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add(
+            "record-visible"
+          );
+
+          observer.unobserve(
+            entry.target
+          );
+
+        });
+
+      },
+      {
+        threshold: 0.08
       }
-    }, 4200);
-  }
-  /* =========================================================
-     EYE DETAIL
-  ========================================================== */
-  const eyeImage = document.querySelector(
-    'img[src="detail-benoit-eye.PNG"]'
-  );
-  if (eyeImage) {
-    eyeImage.addEventListener("mouseenter", () => {
-      eyeImage.style.filter =
-        "saturate(1.15) contrast(1.05)";
-    });
-    eyeImage.addEventListener("mouseleave", () => {
-      eyeImage.style.filter = "";
-    });
-  }
-  /* =========================================================
-     GALLERY IMAGE FOCUS
-  ========================================================== */
-  document.querySelectorAll(
-    ".gallery-card img"
-  ).forEach((image) => {
-    image.addEventListener("mouseenter", () => {
-      image.style.transform = "scale(1.015)";
-    });
-    image.addEventListener("mouseleave", () => {
-      image.style.transform = "";
-    });
+    );
+
+
+  sections.forEach((section) => {
+
+    revealObserver.observe(section);
+
   });
+
+
   /* =========================================================
-     CONSOLE EASTER EGG
+     THERMAL EYE DETAIL
   ========================================================== */
+
+  const eyeImage =
+    document.querySelector(
+      'img[src="images/detail-benoit-eye.PNG"]'
+    );
+
+
+  if (eyeImage) {
+
+    eyeImage.addEventListener(
+      "mouseenter",
+      () => {
+
+        eyeImage.style.filter =
+          "saturate(1.2) contrast(1.08)";
+
+      }
+    );
+
+
+    eyeImage.addEventListener(
+      "mouseleave",
+      () => {
+
+        eyeImage.style.filter = "";
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     GALLERY FOCUS
+  ========================================================== */
+
+  document.querySelectorAll(
+    ".gallery-card"
+  ).forEach((card) => {
+
+    const image =
+      card.querySelector("img");
+
+    if (!image) {
+      return;
+    }
+
+
+    card.addEventListener(
+      "mouseenter",
+      () => {
+
+        image.style.transform =
+          "scale(1.025)";
+
+      }
+    );
+
+
+    card.addEventListener(
+      "mouseleave",
+      () => {
+
+        image.style.transform = "";
+
+      }
+    );
+
+  });
+
+
+  /* =========================================================
+     NINE MACHINE MARK
+     SMALL, OCCASIONAL MOTION.
+  ========================================================== */
+
+  const machineBars =
+    document.querySelectorAll(
+      ".header-machine-mark span"
+    );
+
+
+  if (machineBars.length) {
+
+    setInterval(() => {
+
+      machineBars.forEach((bar) => {
+
+        const height =
+          15 +
+          Math.random() * 45;
+
+        bar.style.height =
+          `${height}px`;
+
+      });
+
+    }, 2400);
+
+  }
+
+
+  /* =========================================================
+     CONSOLE RECORD
+  ========================================================== */
+
   console.log(
     "%cBENOIT",
     "font-weight:bold;font-size:18px;color:#c4a75b;"
   );
+
   console.log(
-    "%cNINE-BORN // OUTLIER",
+    "%cNINE / OUTLIER / ACTIVE RECORD",
     "color:#596447;"
   );
+
   console.log(
     "%ccher.",
     "color:#873c27;font-weight:bold;"
   );
-  console.log(
-    "%cleave the gator alone.",
-    "color:#a9a18b;"
-  );
+
 });
