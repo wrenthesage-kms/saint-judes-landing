@@ -1,0 +1,559 @@
+/* =========================================================
+   SAINT JUDE'S LANDING — MONSTERS
+   ========================================================= */
+
+.monsters-page {
+    --monster-black: #090909;
+    --monster-white: #eee9df;
+    --monster-muted: #a49e94;
+    --monster-pink: #ff1493;
+    --monster-acid: #b7ff00;
+    --monster-blue: #4f7cff;
+    --monster-red: #f00000;
+    --monster-yellow: #f2b634;
+
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255, 20, 147, .08), transparent 28rem),
+        radial-gradient(circle at 80% 40%, rgba(183, 255, 0, .05), transparent 30rem),
+        var(--monster-black);
+
+    color: var(--monster-white);
+}
+
+
+/* ---------- HEADER ---------- */
+
+.monsters-page .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(238, 233, 223, .18);
+    background: rgba(9, 9, 9, .94);
+    backdrop-filter: blur(12px);
+}
+
+.monsters-page .site-logo {
+    color: var(--monster-white);
+    font-weight: 900;
+    letter-spacing: -.04em;
+    text-decoration: none;
+}
+
+.monsters-page .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: .75rem 1.2rem;
+}
+
+.monsters-page .site-nav a {
+    color: var(--monster-muted);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.monsters-page .site-nav a:hover,
+.monsters-page .site-nav a.active {
+    color: var(--monster-pink);
+}
+
+
+/* ---------- GENERAL ---------- */
+
+.monsters-page main {
+    overflow: hidden;
+}
+
+.monsters-page section {
+    width: min(1200px, calc(100% - 3rem));
+    margin: 0 auto;
+}
+
+.monsters-page p {
+    max-width: 70ch;
+    color: #c4beb4;
+    line-height: 1.75;
+}
+
+.section-label {
+    margin-bottom: 1rem;
+    color: var(--monster-pink);
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.monsters-page h1,
+.monsters-page h2,
+.monsters-page h3 {
+    margin: 0;
+    line-height: .92;
+    text-transform: uppercase;
+}
+
+.monsters-page h2 {
+    max-width: 900px;
+    font-size: clamp(2.5rem, 7vw, 6.5rem);
+    letter-spacing: -.07em;
+}
+
+.monsters-page h3 {
+    font-size: clamp(1.4rem, 3vw, 2.5rem);
+    letter-spacing: -.04em;
+}
+
+
+/* ---------- HERO ---------- */
+
+.monster-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.hero-glitch {
+    width: fit-content;
+    margin-bottom: 1.25rem;
+    padding: .35rem .6rem;
+    background: var(--monster-acid);
+    color: var(--monster-black);
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .14em;
+    transform: rotate(-2deg);
+}
+
+.monster-hero h1 {
+    max-width: 1100px;
+    font-size: clamp(5rem, 18vw, 15rem);
+    letter-spacing: -.09em;
+    color: var(--monster-white);
+}
+
+.hero-text {
+    max-width: 650px;
+    margin-top: 2rem;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--monster-white) !important;
+}
+
+.hero-warning {
+    width: min(430px, 100%);
+    margin-top: 4rem;
+    margin-left: auto;
+    padding: 1.5rem;
+    border: 1px solid var(--monster-red);
+    transform: rotate(1deg);
+}
+
+.hero-warning span {
+    color: var(--monster-red);
+    font-size: .65rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+}
+
+.hero-warning p {
+    margin-bottom: 0;
+    color: var(--monster-white);
+}
+
+
+/* ---------- INTRO ---------- */
+
+.monster-intro {
+    padding-top: 8rem;
+    padding-bottom: 9rem;
+    border-top: 1px solid rgba(238, 233, 223, .16);
+}
+
+.monster-intro p {
+    font-size: 1.1rem;
+}
+
+.monster-intro p:first-of-type {
+    margin-top: 3rem;
+}
+
+
+/* ---------- DISTINCTIONS ---------- */
+
+.monster-distinction {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-bottom: 10rem;
+}
+
+.distinction-card {
+    min-height: 500px;
+    padding: 2rem;
+    border: 1px solid rgba(238, 233, 223, .2);
+    display: flex;
+    flex-direction: column;
+}
+
+.distinction-card:nth-child(1) {
+    transform: rotate(-1deg);
+}
+
+.distinction-card:nth-child(2) {
+    transform: rotate(.7deg);
+}
+
+.distinction-card:nth-child(3) {
+    transform: rotate(-.4deg);
+}
+
+.distinction-card .card-label {
+    margin-bottom: 5rem;
+    font-size: .65rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+}
+
+.distinction-card h3 {
+    margin-bottom: 1.5rem;
+}
+
+.distinction-card p {
+    margin-top: 0;
+}
+
+.distinction-card a {
+    margin-top: auto;
+    color: inherit;
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-decoration: none;
+}
+
+.behemoth-card {
+    border-color: var(--monster-yellow);
+}
+
+.behemoth-card .card-label,
+.behemoth-card a {
+    color: var(--monster-yellow);
+}
+
+.monster-card {
+    border-color: var(--monster-pink);
+}
+
+.monster-card .card-label {
+    color: var(--monster-pink);
+}
+
+.demihuman-card {
+    border-color: var(--monster-acid);
+}
+
+.demihuman-card .card-label {
+    color: var(--monster-acid);
+}
+
+
+/* ---------- ECOLOGY ---------- */
+
+.monster-ecology {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+}
+
+.section-lead {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    font-size: 1.15rem;
+}
+
+.ecology {
+    position: relative;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 2rem;
+    padding: 4rem 0;
+    border-top: 1px solid rgba(238, 233, 223, .18);
+}
+
+.ecology:last-child {
+    border-bottom: 1px solid rgba(238, 233, 223, .18);
+}
+
+.ecology-number {
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+}
+
+.place-name {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: .3rem .55rem;
+    background: var(--monster-white);
+    color: var(--monster-black);
+    font-size: .65rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+}
+
+.ecology-content h3 {
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+.ecology-content p {
+    max-width: 720px;
+}
+
+.creature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    margin-top: 2rem;
+}
+
+.creature-list span {
+    padding: .45rem .65rem;
+    border: 1px solid rgba(238, 233, 223, .25);
+    color: #d4cec4;
+    font-size: .72rem;
+    line-height: 1;
+}
+
+
+/* ---------- PLACE ACCENTS ---------- */
+
+.neon-gut .ecology-number,
+.neon-gut .place-name {
+    color: var(--monster-pink);
+}
+
+.neon-gut .place-name {
+    background: var(--monster-pink);
+    color: var(--monster-black);
+}
+
+.hollows .ecology-number {
+    color: #bfc5c7;
+}
+
+.nine .ecology-number,
+.nine .place-name {
+    color: var(--monster-yellow);
+}
+
+.nine .place-name {
+    background: var(--monster-yellow);
+    color: var(--monster-black);
+}
+
+.velvet .ecology-number {
+    color: #b99cff;
+}
+
+.mothball .ecology-number {
+    color: #d6b66d;
+}
+
+.pugad .ecology-number,
+.pugad .place-name {
+    color: var(--monster-acid);
+}
+
+.pugad .place-name {
+    background: var(--monster-acid);
+    color: var(--monster-black);
+}
+
+
+/* ---------- RULES ---------- */
+
+.monster-rules {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    border-top: 1px solid rgba(238, 233, 223, .16);
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(238, 233, 223, .18);
+}
+
+.rule {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(238, 233, 223, .18);
+}
+
+.rule:nth-child(odd) {
+    padding-right: 2rem;
+    border-right: 1px solid rgba(238, 233, 223, .18);
+}
+
+.rule:nth-child(even) {
+    padding-left: 2rem;
+}
+
+.rule span {
+    color: var(--monster-pink);
+    font-size: .7rem;
+    font-weight: 900;
+}
+
+.rule p {
+    margin: 0;
+    color: var(--monster-white);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.monster-footer {
+    padding-top: 8rem;
+    padding-bottom: 12rem;
+    border-top: 1px solid rgba(238, 233, 223, .16);
+}
+
+.monster-footer p {
+    font-size: 1.15rem;
+}
+
+.monster-footer p:first-of-type {
+    margin-top: 3rem;
+}
+
+.footer-note {
+    margin-top: 3rem;
+    color: var(--monster-pink) !important;
+    font-weight: 900;
+}
+
+
+/* ---------- SITE FOOTER ---------- */
+
+.monsters-page .site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(238, 233, 223, .18);
+    color: var(--monster-muted);
+    font-size: .65rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+}
+
+
+/* ---------- NOISE ---------- */
+
+.monsters-page .noise {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    opacity: .035;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+
+/* ---------- MOBILE ---------- */
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 850px) {
+
+    .monsters-page .site-header {
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--monster-white);
+    }
+
+    .monsters-page .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        background: rgba(9, 9, 9, .98);
+        border-bottom: 1px solid rgba(238, 233, 223, .18);
+    }
+
+    .monsters-page .site-nav.open {
+        display: flex;
+    }
+
+    .monster-hero {
+        min-height: 75vh;
+        padding-top: 5rem;
+    }
+
+    .monster-distinction {
+        grid-template-columns: 1fr;
+    }
+
+    .distinction-card {
+        min-height: 380px;
+    }
+
+    .ecology {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rule:nth-child(odd) {
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .rule:nth-child(even) {
+        padding-left: 0;
+    }
+
+    .monsters-page .site-footer {
+        flex-direction: column;
+    }
+}
