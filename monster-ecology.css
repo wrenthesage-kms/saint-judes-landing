@@ -1,0 +1,379 @@
+:root {
+    --black: #080808;
+    --offwhite: #eee9df;
+    --gray: #aaa49b;
+    --acid: #b6ff00;
+    --pink: #ff2da6;
+    --blue: #35bfff;
+    --yellow: #f4c542;
+    --red: #ff3b30;
+    --purple: #a45cff;
+    --green: #54d66a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+        var(--black);
+    background-size: 32px 32px;
+    color: var(--offwhite);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,.015) 4px
+        );
+    z-index: 20;
+}
+
+main {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.ecology-header {
+    position: relative;
+    min-height: 90vh;
+    padding: 8rem 8vw 6rem;
+    overflow: hidden;
+    border-bottom: 5px solid var(--acid);
+    background:
+        radial-gradient(circle at 20% 40%, rgba(255,45,166,.22), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(53,191,255,.18), transparent 30%),
+        #080808;
+}
+
+.header-noise {
+    position: absolute;
+    inset: 0;
+    opacity: .15;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 9px,
+            rgba(255,255,255,.15) 10px
+        );
+}
+
+.eyebrow,
+.section-marker,
+.district-label {
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    color: var(--acid);
+    font-size: .8rem;
+}
+
+.ecology-header h1 {
+    position: relative;
+    margin: 2rem 0;
+    max-width: 900px;
+    font-size: clamp(4rem, 14vw, 10rem);
+    line-height: .78;
+    letter-spacing: -.08em;
+    text-transform: uppercase;
+    color: var(--pink);
+    text-shadow:
+        5px 5px 0 var(--blue),
+        -3px -2px 0 var(--acid);
+}
+
+.header-text {
+    position: relative;
+    max-width: 700px;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.intro-block,
+.closing-block {
+    padding: 7rem 4vw;
+}
+
+.section-marker {
+    margin-bottom: 1.5rem;
+    color: var(--yellow);
+    font-size: .8rem;
+}
+
+.intro-block h2,
+.closing-block h2 {
+    max-width: 900px;
+    margin: 0 0 2rem;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+.intro-block p,
+.closing-block p {
+    max-width: 780px;
+    font-size: 1.15rem;
+}
+
+.district {
+    position: relative;
+    margin: 5rem 0;
+    padding: 3rem;
+    border: 2px solid var(--offwhite);
+    overflow: hidden;
+}
+
+.district::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -150px;
+    top: -150px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .08;
+}
+
+.district-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.district-number {
+    font-family: "Courier New", monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.district h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: .85;
+    letter-spacing: -.06em;
+    text-transform: uppercase;
+}
+
+.district-hook {
+    max-width: 700px;
+    margin: 2rem 0 3rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.monster-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    margin: 2rem 0 3rem;
+}
+
+.monster-list span {
+    display: inline-block;
+    padding: .45rem .7rem;
+    border: 1px solid currentColor;
+    font-family: "Courier New", monospace;
+    font-size: .78rem;
+    text-transform: uppercase;
+}
+
+.ecology-copy {
+    max-width: 760px;
+}
+
+.ecology-copy p {
+    font-size: 1.05rem;
+}
+
+.monster-sex {
+    max-width: 800px;
+    margin-top: 3rem;
+    padding: 1.25rem;
+    border-left: 6px solid currentColor;
+    background: rgba(255,255,255,.045);
+}
+
+.monster-sex strong {
+    display: block;
+    margin-bottom: .35rem;
+    font-family: "Courier New", monospace;
+}
+
+.territory {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .45rem .7rem;
+    background: var(--offwhite);
+    color: var(--black);
+    font-family: "Courier New", monospace;
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+.neon-gut {
+    color: var(--acid);
+    border-color: var(--pink);
+    background: linear-gradient(135deg, rgba(182,255,0,.06), rgba(255,45,166,.08));
+}
+
+.neon-gut h2 {
+    color: var(--pink);
+}
+
+.hollows {
+    color: #b8c6cf;
+    border-color: #b8c6cf;
+    background:
+        linear-gradient(rgba(20,25,28,.85), rgba(20,25,28,.95)),
+        repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255,255,255,.025) 21px);
+}
+
+.hollows h2 {
+    color: #dce8e8;
+}
+
+.nine {
+    color: #d68c54;
+    border-color: #d68c54;
+    background:
+        linear-gradient(135deg, rgba(100,55,30,.25), rgba(10,10,10,.95));
+}
+
+.nine h2 {
+    color: #d68c54;
+}
+
+.velvet {
+    color: #c49bd9;
+    border-color: #765080;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(120,50,150,.18), transparent 30%),
+        #100b12;
+}
+
+.velvet h2 {
+    color: #d8b2ea;
+}
+
+.mothball {
+    color: #d3b28b;
+    border-color: #d3b28b;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,.025) 0,
+            rgba(255,255,255,.025) 5px,
+            transparent 5px,
+            transparent 12px
+        ),
+        #17130f;
+}
+
+.mothball h2 {
+    color: #e4c39a;
+}
+
+.pugad {
+    color: var(--green);
+    border-color: var(--green);
+    background:
+        radial-gradient(circle at 20% 80%, rgba(84,214,106,.12), transparent 30%),
+        #09100b;
+}
+
+.pugad h2 {
+    color: #80ef91;
+}
+
+.closing-block {
+    border-top: 3px solid var(--pink);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 4vw;
+    border-top: 1px solid #333;
+    color: #777;
+    font-family: "Courier New", monospace;
+    font-size: .7rem;
+    letter-spacing: .08em;
+}
+
+@media (max-width: 700px) {
+
+    .ecology-header {
+        min-height: auto;
+        padding: 5rem 1.5rem 4rem;
+    }
+
+    .ecology-header h1 {
+        font-size: 19vw;
+    }
+
+    main {
+        width: min(100% - 18px, 1100px);
+    }
+
+    .intro-block,
+    .closing-block {
+        padding: 4rem 1rem;
+    }
+
+    .district {
+        margin: 3rem 0;
+        padding: 1.5rem;
+    }
+
+    .district-number {
+        font-size: 2.5rem;
+    }
+
+    .district-label {
+        font-size: .65rem;
+        text-align: right;
+    }
+
+    .district h2 {
+        font-size: 3rem;
+    }
+
+    .district-hook {
+        font-size: 1.15rem;
+    }
+
+    .monster-list span {
+        font-size: .68rem;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
